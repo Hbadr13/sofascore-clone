@@ -1,7 +1,7 @@
 <template>
     <header class="w-full  z-10 fixed">
         <div class="capitalize max-w-full flex flex-col items-center ">
-            <div class="w-full bg-[#374df5]  tablet:h-[64px] h-[46px] flex justify-center items-center">
+            <div class="w-full bg-[#374df5]   tablet:h-[64px] h-[46px] flex justify-center items-center">
                 <div class=" w-full desktop:w-[1344px] tablet:w-[992px] tablet:max-h-[64px]min-h-[46px]  ">
                     <div class=" relative w-full  flex justify-center items-center tablet:h-[64px]">
                         <a href=" /" class="h-full w-1/2  flex items-center pl-2 font-bold text-3xl  text-white">
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                     </button>
-                </div> 
+                </div>
             </div>
         </div>
     </header>
