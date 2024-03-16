@@ -8,9 +8,12 @@
                             <img class="w-10 h-10" src='/src/assets/ball.svg'>
                             sofascore
                         </a>
-                        <input
-                            class=" outline-none relative  -left-10  desktop:left-0 hidden tablet:block py-2 px-20 rounded-xl"
-                            type="text">
+                        <div class=" relative">
+                            <input placeholder="Search"
+                                class=" outline-none relative text-xl text-gray-600  -left-10  desktop:left-0 hidden tablet:block py-2 px-20 rounded-xl"
+                                type="text">
+                            <img class=" absolute top-1.5 left-5 w-7 h-7" src='/src/assets/search.png'>
+                        </div>
                         <div
                             class="flex h-full w-1/2 uppercase  items-center justify-end p-2 space-x-3 tablet:space-x-10  text-white font-medium">
                             <div class="hidden tablet:flex items-center space-x-1 mx-2">

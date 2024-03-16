@@ -1,15 +1,17 @@
 <template>
-  <HeaderComp />
-  <main class=" w-full  flex flex-col items-center bg-[#edf1f6] b-black pt-[115px]">
+  <Navbar />
+  <main class=" w-full  flex flex-col items-center justify-start bg-[#edf1f6] b-black pt-[115px]">
     <div class="w-full desktop:w-[1344px] tablet:w-[992px] flex space-x-0 tablet:space-x-5 ">
       <p class=" font-bold text-sm opacity-40 my-2">
         Soccer live scores and today schedule
       </p>
     </div>
-    <div class="w-full desktop:w-[1344px] tablet:w-[992px] flex space-x-0 tablet:space-x-5 ">
-      <div class="MYDeg w-[25%] hidden tablet:block bg-[#ffffff] rounded-2xl ">1
+    <div class="w-full desktop:w-[1344px] tablet:w-[992px] flex items-start space-x-0 tablet:space-x-5 ">
+      <div class=" w-[25%] hidden tablet:block  rounded-2xl  space-y-5">
+        <TopLeagues />
+        <AllLeagues />
       </div>
-      <div class="MYDeg w-[100%] tablet:w-[42%]  bg-[#ffffff] p-2  rounded-2xl   ">
+      <div class="MYDeg w-[100%] tablet:w-[42%]   bg-[#ffffff] p-2  rounded-2xl   ">
         <div class="flex justify-between items-center">
           <div class="border-[2px] flex   rounded-2xl space-x-8 font-semibold text-lg bg-[#edf1f6]">
             <div class="text-green-500 border-[1px] border-green-500 rounded-3xl py-1 px-4 -m-[2px]">
@@ -37,7 +39,7 @@
             class="border-b-[1px] border-[#b8b9bda7] p-1 w-full space-y-2 text-[14px]">
             <div class="w-full flex space-x-3  font-bold">
               <div class="w-[20%] flex justify-center items-center ">
-                <img class="w-5 h-5" src='/src/assets/ball.svg'>
+                <img class="w-5 h-5" src='/src/assets/morocco.png'>
               </div>
               <div class="w-full border-r-[1px] border-[#b8b9bda7] pr-3">
                 <p class=" opacity-40"> {{ match.country }}</p>
@@ -56,13 +58,13 @@
               <div
                 class="w-full   flex flex-col  items-start border-r-[1px]  border-[#b8b9bda7] font-semibold text-[14px]">
                 <div class="flex space-x-1 items-center ">
-                  <img class="w-5 h-5" src='/src/assets/ball.svg'>
+                  <img class="w-5 h-5" src='/src/assets/club.png'>
                   <div class="opacity-70">
                     {{ match.club1 }}
                   </div>
                 </div>
                 <div class="flex space-x-1 items-center">
-                  <img class="w-5 h-5" src='/src/assets/ball.svg'>
+                  <img class="w-5 h-5" src='/src/assets/club2.png'>
                   <div class=" opacity-70">
                     {{ match.club2 }}
                   </div>
@@ -225,13 +227,21 @@
       </div>
     </div>
   </main>
+  <Footer></Footer>
+
 
 </template>
 <script>
-import HeaderComp from './components/HeaderComp.vue'
+import Navbar from './components/Navbar.vue'
+import TopLeagues from './components/Topleagues.vue'
+import AllLeagues from './components/AllLeagues.vue'
+import Footer from './components/Footer.vue'
 export default {
   components: {
-    HeaderComp
+    Navbar,
+    TopLeagues,
+    AllLeagues,
+    Footer
   },
   data() {
     return {
@@ -393,4 +403,4 @@ export default {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-</style>
+</style>./components/AllLeagues.vue
