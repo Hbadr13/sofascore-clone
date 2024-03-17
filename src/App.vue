@@ -1,4 +1,5 @@
 <template>
+
   <Navbar />
   <main class=" w-full  flex flex-col items-center justify-start bg-[#edf1f6] b-black pt-[115px]">
     <div class="w-full desktop:w-[1344px] tablet:w-[992px] flex space-x-0 tablet:space-x-5 ">
@@ -19,7 +20,7 @@
           </div>
           <div class="w-full h-[1px] bg-gray-200"></div>
           <div class=" p-6 flex">
-            <div class="bg-blue-600 rounded-[30px] px-2 py-0.5 text-white text-[12px]">Today</div>
+            <div class="bg-blue-600  rounded-[30px] px-2 py-0.5 text-white text-[12px]">Today</div>
           </div>
         </div>
 
@@ -50,7 +51,28 @@
           <div class="p-4 font-bold opacity-65">
             Pinned Leagues
           </div>
-          <div v-for="(match, index) in matches" :key="index"
+          <div v-if="!waitdata" v-for="(match, index) in [1, 2, 3, 4, 5, 6, 7, 8]" :key="index"
+            class=" border-b-[0.5px] p-4 ">
+            <div class="animate-pulse flex space-x-4">
+              <div class=" space-y-2">
+                <div class="rounded-full bg-slate-200 h-10 w-10"></div>
+                <div class="bg-slate-200 h-2 w-10"></div>
+                <div class="bg-slate-200 h-2 w-10"></div>
+              </div>
+              <div class="flex-1 space-y-6 py-">
+                <div class="h-2 w-1/3 bg-slate-200 rounded"></div>
+                <div class="h-2 w-2/5 bg-slate-200 rounded"></div>
+                <div class="space-y-3">
+                  <div class="grid grid-cols-5 gap-4">
+                    <div class="h-2 bg-slate-200 rounded col-start-1 col-end-3"></div>
+                    <div class="h-2 bg-slate-200 rounded col-start-1 col-end-4"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div v-if="waitdata" v-for="(match, index) in matches" :key="index"
             class="border-b-[1px] border-[#b8b9bda7] p-1 w-full space-y-2 text-[14px]">
             <div class="w-full flex space-x-3  ">
               <div class="w-[20%] flex justify-center items-center ">
@@ -261,6 +283,10 @@ export default {
     AllLeagues,
     Footer,
     Calendar
+  }, mounted() {
+    setTimeout(() => {
+      this.waitdata = true;
+    }, 1500); // 2000 milliseconds = 2 seconds
   },
   setup() { // Use setup() for composition API
     const attributes = ref([
@@ -283,7 +309,7 @@ export default {
   },
   data() {
     return {
-
+      waitdata: false,
       matches: [
         {
           club1: 'Real Madrid',
