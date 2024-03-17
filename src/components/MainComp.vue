@@ -23,7 +23,7 @@
             Pinned Leagues
         </div>
 
-        
+
         <!-- shimmer -->
         <div v-if="!waitdata" v-for="(match, index) in [1, 2, 3, 4, 5, 6, 7, 8]" :key="index"
             class=" border-b-[0.5px] p-4 ">
@@ -102,7 +102,7 @@ export default {
     mounted() {
         setTimeout(() => {
             this.waitdata = true;
-        }, 1500); 
+        }, 1400);
     },
     data() {
         return {

@@ -40,7 +40,7 @@ export default {
     mounted() {
         setTimeout(() => {
             this.waitdata = true;
-        }, 1500); // 2000 milliseconds = 2 seconds
+        }, 1700); // 2000 milliseconds = 2 seconds
     },
     data() {
         return {

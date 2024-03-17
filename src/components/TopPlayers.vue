@@ -86,7 +86,7 @@ export default {
     mounted() {
         setTimeout(() => {
             this.waitdata = true;
-        }, 1500);
+        }, 2000);
     },
     data() {
         return {
