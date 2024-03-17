@@ -1,9 +1,9 @@
 <template class="">
-    <div class="MYDeg  text-gray-700 space-y-2  rounded-2xl bg-white">
-        <div class=" font-semibold px-4 pt-4">All leagues</div>
+    <div class="MYDeg   space-y-2  rounded-2xl bg-white">
+        <div class=" font-medium text-black px-4 pt-4">All leagues</div>
         <div class=" relative  p-2">
             <input placeholder="Filter"
-                class=" font-normal border-2 outline-none relative text-xl text-gray-600 pl-10 py-1  w-full rounded-xl"
+                class=" border-2 outline-none relative font-thin text-gray-600 pl-10 py-1  w-full rounded-xl"
                 type="text">
             <img class=" absolute top-4 left-5 w-7 h-7" src='/src/assets/search.png'>
         </div>
@@ -15,7 +15,7 @@
                     {{ item.country }}
                 </div>
             </div>
-            <div class="flex space-x-4 text-sm">
+            <div class="flex space-x-4 text-[11px]">
                 <div v-if="item.count.split('/')[1] != undefined" class=" opacity-70">
                     <span class="text-red-800">{{ item.count.split('/')[0] }}</span> / <span>{{ item.count.split('/')[1]
                         }}</span>

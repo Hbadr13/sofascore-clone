@@ -37,13 +37,13 @@
           </div>
           <div v-for="(match, index) in matches" :key="index"
             class="border-b-[1px] border-[#b8b9bda7] p-1 w-full space-y-2 text-[14px]">
-            <div class="w-full flex space-x-3  font-bold">
+            <div class="w-full flex space-x-3  ">
               <div class="w-[20%] flex justify-center items-center ">
                 <img class="w-5 h-5" src='/src/assets/morocco.png'>
               </div>
               <div class="w-full border-r-[1px] border-[#b8b9bda7] pr-3">
                 <p class=" opacity-40"> {{ match.country }}</p>
-                <p class=" opacity-80"> {{ match.league }}</p>
+                <p class=" opacity-80 font-semibold"> {{ match.league }}</p>
               </div>
               <div class="w-[10%] flex  justify-center items-center   ">
                 <img class="w-5 h-5 mr-2" src='/src/assets/ball.svg'>
@@ -51,21 +51,20 @@
             </div>
             <button class=" w-full flex items-center space-x-3 hover:bg-slate-200">
               <div
-                class="w-[20%] flex flex-col justify-center items-center border-r-[1px] border-[#b8b9bda7] opacity-60 font-semibold">
+                class="w-[20%] text-[12px]  flex flex-col justify-center items-center border-r-[1px] border-[#b8b9bda7] opacity-50 ">
                 <p class=" whitespace-nowrap">{{ match.date }}</p>
                 <p>-</p>
               </div>
-              <div
-                class="w-full   flex flex-col  items-start border-r-[1px]  border-[#b8b9bda7] font-semibold text-[14px]">
+              <div class="w-full   flex flex-col  items-start border-r-[1px]  border-[#b8b9bda7]  text-[14px]">
                 <div class="flex space-x-1 items-center ">
                   <img class="w-5 h-5" src='/src/assets/club.png'>
-                  <div class="opacity-70">
+                  <div class="opacity-80">
                     {{ match.club1 }}
                   </div>
                 </div>
                 <div class="flex space-x-1 items-center">
                   <img class="w-5 h-5" src='/src/assets/club2.png'>
-                  <div class=" opacity-70">
+                  <div class=" opacity-80">
                     {{ match.club2 }}
                   </div>
                 </div>
@@ -99,15 +98,15 @@
               </div> -->
               <div class="w-[88px] h-[140px] relative">
                 <div
-                  class="absolute top-1 left-1 bg-blue-400 text-white font-bold py-[2px] px-2.5 text-[9px] rounded-xl">
+                  class="absolute top-1 left-1 bg-blue-400 text-white font-medium py-[2px] px-2.5 text-[9px] rounded-xl">
                   NEW
                 </div>
                 <img class=" object-cover   w-full h-full rounded-xl" src="/src/assets/messi-ronaldo.png">
                 <div
-                  class="absolute   z-0 -bottom-7 h-1/2 w-full left-1 text-sm text-white font-bold text-ellipsis overflow-hidden">
+                  class="absolute  Z2 -bottom-7 h-1/2 w-full left-1 text-sm text-white font text-ellipsis overflow-hidden">
                   {{ item.match }}
                 </div>
-                <div class="MFDeg w-full h-10 bottom-0 absolute -z-10 rotate-180 opacity-60  rounded-xl"></div>
+                <div class="MFDeg Z1 w-full h-10 bottom-0 absolute  rotate-180 opacity-60  rounded-xl"></div>
               </div>
             </div>
           </div>
@@ -162,13 +161,13 @@
 
         <div class="MYDeg w-full bg-[#ffffff] rounded-2xl  space-y-2 ">
           <div class=" text-slate-800 p-3 border-b-[1px] border-gray-300">
-            <p class=" text-xl">Top players</p>
-            <p class=" text-gray-900 opacity-35">Best rated players from recent matches</p>
+            <p class=" text-[20px]">Top players</p>
+            <p class=" text-gray-900 text-sm opacity-35">Best rated players from recent matches</p>
           </div>
           <div class="">
             <div v-for="(item, index) in topPlayers.slice(0, 1) "
-              class="flex space-x-2 items-center  font-medium px-2 ">
-              <div class="">{{ index + 1 }}</div>
+              class="flex space-x-2 items-center   px-2 text-gray-900 text-opacity-75">
+              <div class="text-[12px]">{{ index + 1 }}</div>
               <div class=" w-14  relative">
                 <img class=" object-contain rounded-full" src="/src/assets/messi.jpg" alt="">
                 <img class=" absolute  bottom-0 right-0 w-5" src="/src/assets/club.png" alt="">
@@ -184,8 +183,9 @@
             <div class="w-full p-2">
               <img class=" object-contain rounded-3xl" src="/src/assets/map-sofascore.jpeg" alt="">
             </div>
-            <div v-for="(item, index) in topPlayers.slice(1)" class="flex space-x-2 items-center  font-medium px-2 ">
-              <div class="">{{ index + 1 }}</div>
+            <div v-for="(item, index) in topPlayers.slice(1)"
+              class="flex space-x-2 items-center  px-2 text-gray-900 text-opacity-75">
+              <div class="text-[12px]">{{ index + 1 }}</div>
               <div class=" w-14  relative">
                 <img class=" object-contain rounded-full" src="/src/assets/messi.jpg" alt="">
                 <img class=" absolute  bottom-0 right-0 w-5" src="/src/assets/club.png" alt="">
@@ -228,7 +228,7 @@
     </div>
   </main>
   <Footer></Footer>
-  
+
 
 </template>
 <script>
@@ -396,6 +396,14 @@ export default {
 .MFDeg {
 
   box-shadow: 1px 25px 15px black inset;
+}
+
+.Z1 {
+  z-index: 1;
+}
+
+.Z2 {
+  z-index: 2;
 }
 
 .truncate {

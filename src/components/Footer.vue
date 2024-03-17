@@ -50,13 +50,68 @@
                 </div>
             </div>
         </div>
-        <div class=" w-full  flex  justify-center">
+        <div class="w-full tablet:hidden ">
+            <div class=" w-full flex-col justify-center  text-white">
+                <div class="flex flex-col w-full items-center p-6 space-y-4">
+                    <div class=" w-full  flex justify-center space-x-2">
+                        <img class=" w-8 h-8" src='/src/assets/club.png'>
+                        <div class=" text-2xl">sofascore</div>
+                    </div>
+                    <div class=" w-full flex  justify-center space-x-2">
+                        <img class=" w-6 h-6" src='/src/assets/club.png'>
+                        <div class="">
+                            When the fun stops, STOP
+                        </div>
+                    </div>
+                </div>
+                <button class="flex flex-col w-full bg-gray-900 bg-opacity-15  space-y-5 items-center p-10">
+                    <div class=" capitalize">download sofascore<br /> livescore app</div>
+                    <div class="flex flex-col space-y-3">
+                        <div class="w-36 h-10 bg-black rounded-sm flex justify-between items-center p-2">
+                            <img class=" w-7 h-7" src='/src/assets/club.png'>
+                            <div class=" text-start opacity-90">
+                                <div class="text-[10px]">GET IT ON</div>
+                                <div class="">Google Play</div>
+                            </div>
+                        </div>
+                        <div class="w-36 h-10 bg-black rounded-sm flex justify-between items-center p-2">
+                            <img class=" w-7 h-7" src='/src/assets/club.png'>
+                            <div class=" text-start opacity-90">
+                                <div class="text-[10px]">Download on the</div>
+                                <div class="">App Store</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </button>
+                <div class="flex flex-col w-full   space-y-5 items-center pt-10 ">
+                    <div class="">Visit us</div>
+                    <div class="flex space-x-10 ">
+                        <button>
+                            <img class=" w-8 h-8" src='/src/assets/club2.png'>
+                        </button>
+                        <button>
+                            <img class=" w-8 h-8" src='/src/assets/club2.png'>
+                        </button>
+                        <button>
+                            <img class=" w-8 h-8" src='/src/assets/club2.png'>
+                        </button>
+                        <button>
+                            <img class=" w-8 h-8" src='/src/assets/club2.png'>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class=" w-full  flex  justify-center ">
             <div
                 class=" w-full flex  items-center justify-between desktop:w-[1344px] tablet:w-[992px] text-white py-[3px] px-[0px] tablet:px-[8px]">
                 <div
-                    class="flex   
+                    class="flex    
                     flex-col-reverse tablet:flex-row space-y-10 tablet:space-y-0 space-x-0 tablet:space-x-5 items-center w-full justify-center   text-[15px]">
-                    <div class=" w-full text-center tablet:w-1/4 whitespace-nowrap mt-8 tablet:mt-0">© 2024 Sofascore –
+                    <div class=" w-full text-center tablet:w-1/4 whitespace-nowrap mt-8  tablet:mt-0">© 2024
+                        Sofascore –
                         All Rights
                         Reserved.
                     </div>
@@ -71,28 +126,7 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="bg-gray-900 bg-opacity-15 w-full tablet:hidden flex justify-center">
-            <div class=" w-full flex  items-center justify-between  text-white py-[32px] px-[8px]">
-                <div class="flex items-center space-x-1">
-                    <img class=" w-8 h-8" src='/src/assets/club2.png'>
-                    <div class=" text-3xl">sofascore</div>
-                </div>
-                <div class="w-1/2 flex space-x-2 items-center">
-                    <div class="">
-                        When the fun stops, STOP
-                    </div>
-                    <img class=" w-8 h-8" src='/src/assets/club2.png'>
-                </div>
-                <div class="flex space-x-5 items-center">
-                    <div class="">Visit us</div>
-                    <img class=" w-8 h-8" src='/src/assets/club2.png'>
-                    <img class=" w-8 h-8" src='/src/assets/club2.png'>
-                    <img class=" w-8 h-8" src='/src/assets/club2.png'>
-                    <img class=" w-8 h-8" src='/src/assets/club2.png'>
 
-                </div>
-            </div>
-        </div> -->
         <div class=" block tablet:hidden w-full h-36  border-t-[0.5px] border-blue-300  mt-8"></div>
     </div>
     <div

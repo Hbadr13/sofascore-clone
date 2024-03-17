@@ -1,21 +1,21 @@
 <template>
     <header class="w-full  z-10 fixed">
         <div class="capitalize max-w-full flex flex-col items-center ">
-            <div class="w-full bg-[#374df5]   tablet:h-[64px] h-[46px] flex justify-center items-center">
+            <div class="w-full bg-[#2c3ec4]   tablet:h-[64px] h-[46px] flex justify-center items-center">
                 <div class=" w-full desktop:w-[1344px] tablet:w-[992px] tablet:max-h-[64px]min-h-[46px]  ">
                     <div class=" relative w-full  flex justify-center items-center tablet:h-[64px]">
-                        <a href=" /" class="h-full w-1/2  flex items-center pl-2 font-bold text-3xl  text-white">
+                        <a href=" /" class="h-full w-1/2  flex items-center pl-2 font-medium text-3xl  text-white">
                             <img class="w-10 h-10" src='/src/assets/ball.svg'>
                             sofascore
                         </a>
                         <div class=" relative">
                             <input placeholder="Search"
-                                class=" outline-none relative text-xl text-gray-600  -left-10  desktop:left-0 hidden tablet:block py-2 px-20 rounded-xl"
+                                class=" outline-none relative text-md font-extralight text-gray-600  -left-10  desktop:left-0 hidden tablet:block py-2 px-20 rounded-xl"
                                 type="text">
                             <img class=" absolute top-1.5 left-5 w-7 h-7" src='/src/assets/search.png'>
                         </div>
                         <div
-                            class="flex h-full w-1/2 uppercase  items-center justify-end p-2 space-x-3 tablet:space-x-10  text-white font-medium">
+                            class="flex h-full w-1/2 uppercase  items-center justify-end p-2 space-x-3 tablet:space-x-5  text-white font-extralight">
                             <div class="hidden tablet:flex items-center space-x-1 mx-2">
                                 <div class="whitespace-nowrap">
                                     dropping odds
@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex  w-full bg-[#2c3ec4]  justify-center">
+            <div class="flex  w-full bg-[#2a3aac]  justify-center">
                 <div class=" w-full flex  items-center desktop:w-[1344px] tablet:w-[992px]  font-medium text-sm  ">
                     <button v-for="(sport, index) in filteredSports" :key="index"
                         :class="{ ' border-b-4   text-white': index === 0, 'text-slate-400': index != 0 }"
