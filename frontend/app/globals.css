@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Sofascore';
+  src: url('/fonts/SofascoreSans-Regular.woff2') format('woff2');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Sofascore';
+  src: url('/fonts/SofascoreSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Sofascore';
+  src: url('/fonts/SofascoreSans-Bold.woff2') format('woff2');
+  font-weight: bold;
+}
+
+* {
+  @apply font-sofascore;
+}
+
+
+
+.root {
+  --success-default: #15b168;
+}
+
+.hideScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.MYDeg {
+  box-shadow: 0 1px 4px rgba(34, 34, 38, 0.08);
+}
+
+.BoxSeasonBlur {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-position: center center;
+  filter: blur(45px);
+  overflow: hidden;
+  transform: scale(1.5);
+}
+
+
+.BoxSeasonBlur2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-position: center center;
+  filter: blur(30px);
+  overflow: hidden;
+  border-radius: 16px;
+  border-radius: 1rem;
+  transform: scale(3.5);
+}
+
+.SmallboxSeasonBlur {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background-image: url(https://api.sofascore.app/api/v1/unique-tournament/17/image); */
+  background-color: rgba(0, 0, 0, 0.25);
+  background-size: 100% 100%;
+  background-position: center center;
+  filter: blur(0px);
+  overflow: hidden;
+  border-radius: 16px;
+  border-radius: 1rem;
+  /* transform: scale(1.5); */
+  /* background: #000; */
+}
+
+.maximumNumberAnimation {
+  animation-name: example;
+  animation-duration: 6s;
+  bottom: -200px;
+}
+
+@keyframes example {
+  0% {
+    bottom: 40px;
+  }
+
+  10% {
+    bottom: 70px;
+  }
+
+  90% {
+    bottom: 70px;
+  }
+
+  100% {
+    bottom: -200px;
+  }
+}
+
+
+
+.RatingBigBoxAnimation {
+  transform: translate3d(0px, 0px, 0px);
+  animation: 660ms ease-in-out 0s 1 normal none running move-up;
+}
+
+@keyframes move-up {
+  0% {
+    clip-path: inset(0px 15px 0px 0px);
+    transform: matrix(1, 0, 0, 0.01, 0, 11.5);
+  }
+
+  50% {
+    clip-path: inset(0px 15px 0px 0px);
+    transform: matrix(1, 0, 0, 1, 0, 0);
+  }
+
+  100% {
+    clip-path: inset(0px);
+    transform: matrix(1, 0, 0, 1, 0, 0);
+  }
+}
+
+.RatingBoxAnimation {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  transform: translate3d(0px, 0px, 0px);
+  animation: 660ms ease-in-out 0s 1 normal none running kCNzYT;
+}
+
+.RatingBoxAnimation::before,
+.RatingBoxAnimation::after {
+  content: '';
+  position: absolute;
+  height: 50%;
+  border: 1px solid black;
+}
+
+.RatingBoxAnimation::before {
+  top: 0;
+  left: 0;
+  border-left: 1px solid black;
+}
+
+.RatingBoxAnimation::after {
+  bottom: 0;
+  right: 0;
+  border-right: 1px solid black;
+}
+
+@keyframes kCNzYT {
+  0% {
+    clip-path: inset(0px 15px 0px 0px);
+    transform: matrix(1, 0, 0, 0.01, 0, 11.5);
+  }
+
+  50% {
+    clip-path: inset(0px 15px 0px 0px);
+    transform: matrix(1, 0, 0, 1, 0, 0);
+  }
+
+  100% {
+    clip-path: inset(0px);
+    transform: matrix(1, 0, 0, 1, 0, 0);
+  }
+}
+
+
+
+@keyframes expand {
+  0% {
+    height: 0px;
+    width: 330px;
+  }
+
+  20% {
+    height: 200px;
+    width: 330px;
+  }
+
+  100% {
+    height: 600px;
+    width: 330px;
+  }
+}
+
+@keyframes displayFromHlaf {
+  0% {
+    height: 200px;
+    width: 330px;
+  }
+
+  100% {
+    height: 600px;
+    width: 330px;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    height: 600px;
+    width: 330px;
+  }
+
+  20% {
+    height: 500px;
+    width: 330px;
+  }
+
+  100% {
+    height: 0px;
+    width: 0px;
+    display: none;
+  }
+}
+
+@keyframes hideFromHlaf {
+  0% {
+    height: 200px;
+    width: 330px;
+  }
+
+  100% {
+    height: 0px;
+    width: 0px;
+    display: none;
+  }
+}
+
+@keyframes halfDisappear {
+  0% {
+    height: 600px;
+    width: 330px;
+  }
+
+  100% {
+    height: 200px;
+    width: 330px;
+  }
+}
+
+
+.expand {
+  animation: expand 0.3s ease-in-out forwards;
+}
+
+.disappear {
+  animation: disappear 0.2s ease-in-out forwards;
+}
+
+.halfDisappear {
+  animation: halfDisappear 0.2s ease-in-out forwards;
+}
+
+.hideFromHlaf {
+  animation: hideFromHlaf 0.1s ease-in-out forwards;
+}
+
+.displayFromHlaf {
+  animation: displayFromHlaf 0.1s ease-in-out forwards;
+}

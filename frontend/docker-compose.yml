@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  app:
+    image: sofascore-app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "3000:3000"
