@@ -5,6 +5,7 @@ import cors from 'cors'
 import cookieParser from "cookie-parser";
 import playerRouter from '@routes/player/player.router';
 dotenv.config()
+
 console.log(process.env.REACT_APP_CLOUD_NAME)
 console.log(process.env.REACT_APP_API_KEY)
 console.log(process.env.REACT_APP_API_SECRET)
