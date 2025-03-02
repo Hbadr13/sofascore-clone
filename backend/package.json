@@ -1,12 +1,13 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "api/index.ts",
   "scripts": {
-    "start": "node index.ts",
+    "build": "tsc",
+    "start": "node dist/index.ts",
     "server": "nodemon index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon -r tsconfig-paths/register index.ts"
+    "dev": "nodemon -r tsconfig-paths/register api/index.ts"
   },
   "keywords": [],
   "author": "",

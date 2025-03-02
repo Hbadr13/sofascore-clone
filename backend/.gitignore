@@ -36,18 +36,4 @@ yarn-error.log*
 next-env.d.ts
 
 
-# {
-#     "version": 2,
-#     "builds": [
-#         {
-#             "src": "./server.ts",
-#             "use": "@vercel/node"
-#         }
-#     ],
-#     "routes": [
-#         {
-#             "src": "/(.*)",
-#             "dest": "/"
-#         }
-#     ]
-# }
+]]

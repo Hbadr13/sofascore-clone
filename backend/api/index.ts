@@ -3,7 +3,8 @@ import { Express } from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import cookieParser from "cookie-parser";
-import playerRouter from '@routes/player/player.router';
+// import playerRouter from '@routes/player/player.router';
+
 dotenv.config()
 
 console.log(process.env.REACT_APP_CLOUD_NAME)
@@ -37,4 +38,4 @@ r.get('/', async (req: Request, res: Response) => {
     res.status(200).json({ message: 'Hello SofascoreCloning' })
 })
 app.use('/', r)
-app.use('/api/v1/player', playerRouter)
+// app.use('/api/v1/player', playerRouter)
