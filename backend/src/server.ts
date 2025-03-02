@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express'
+import express, { Request, Response, Router } from 'express'
 import { Express } from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
@@ -31,5 +31,9 @@ app.use(cors(
 ))
 app.use(cookieParser());
 app.use(express.json())
-
+const r = Router()
+r.get('/', async (req: Request, res: Response) => {
+    res.status(200).json({ message: 'Hello SofascoreCloning' })
+})
+app.use('/', r)
 app.use('/api/v1/player', playerRouter)
