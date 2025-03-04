@@ -30,7 +30,7 @@ const Page = () => {
     const getTheEvents = async () => {
       try {
         const eventId = window.location.hash.substring(4)
-        const response = await fetch(`https://sofascore.com/api/v1/event/${eventCustomId}/h2h/events`, {})
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${eventCustomId}/h2h/events`, {})
         if (response.ok) {
           const data = await response.json()
           const event_ = (data.events as EventAPIJson[]).find((it) => it.id == Number(eventId))

@@ -119,9 +119,9 @@ const Matches = ({ featuredEvent, seasonId, pageName }: StandingsProps) => {
                 setWaitdata(true)
                 let api = ''
                 if (groupingOption == 'BY ROUND')
-                    api = `https://sofascore.com/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/rounds`
+                    api = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/rounds`
                 else
-                    api = `https://www.sofascore.com/api/v1/unique-tournament/7/season/52162/groups`
+                    api = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/7/season/52162/groups`
                 const response = await fetch(api, {})
                 if (response.ok) {
                     const data = await response.json()
@@ -165,13 +165,13 @@ const Matches = ({ featuredEvent, seasonId, pageName }: StandingsProps) => {
                         const round = `${selectRound.round}` + `${selectRound.slug ? `/slug/${selectRound.slug}` : ''}` + `${selectRound.prefix ? `/prefix/${selectRound.prefix}` : ''}`
                         if (!round)
                             return
-                        api = `https://sofascore.com/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/events/round/${round}`
+                        api = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/events/round/${round}`
                     }
                     else if (groupingOption == 'BY GROUP') {
-                        api = `https://sofascore.com/api/v1/tournament/${selectGroup?.tournamentId}/season/${featuredEvent.season.id}/events`
+                        api = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/tournament/${selectGroup?.tournamentId}/season/${featuredEvent.season.id}/events`
                     }
                     else {
-                        api = `https://sofascore.com/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/events/last/${page}`
+                        api = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/events/last/${page}`
                     }
                     const response = await fetch(api, {})
                     if (response.ok) {

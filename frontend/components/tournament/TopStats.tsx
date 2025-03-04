@@ -28,7 +28,7 @@ const TopStats = ({ featuredEvent, seasonId, tournamentId }: TopStatsProps) => {
                 if (!featuredEvent)
                     return
                 let api = ''
-                api = `https://sofascore.com/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/top-players-per-game/all/overall`
+                api = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/top-players-per-game/all/overall`
                 const response = await fetch(api, {})
 
                 if (response.ok) {

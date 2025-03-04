@@ -31,10 +31,10 @@ const Seasons = ({ tournamentId, seasonId }: SeasonsProps) => {
 
                 let api = ''
                 if (tournamentId && seasonId) {
-                    api = `https://sofascore.com/api/v1/unique-tournament/${tournamentId}/seasons`
+                    api = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${tournamentId}/seasons`
                 }
                 else {
-                    api = `https://sofascore.com/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/seasons`
+                    api = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/seasons`
                 }
                 const response = await fetch(api, {})
                 if (response.ok) {

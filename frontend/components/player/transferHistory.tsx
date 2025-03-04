@@ -97,7 +97,7 @@ const TransferHistory = ({ player }: StandingsProps) => {
             try {
                 if (player == null)
                     return
-                const response = await fetch(`https://api.sofascore.com/api/v1/player/${player.id}/transfer-history`, {})
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/player/${player.id}/transfer-history`, {})
                 if (response.ok) {
                     const data = await response.json()
                     setWaitdata('done')

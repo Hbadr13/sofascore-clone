@@ -33,9 +33,9 @@ const LeagueInfo = ({ featuredEvent, tournamentId, seasonId }: LeagueInfoProps) 
                     setWaitdata(true)
                     let api = ''
                     if (tournamentId && seasonId)
-                        api = `https://sofascore.com/api/v1/unique-tournament/${tournamentId}/season/${seasonId}/info`
+                        api = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${tournamentId}/season/${seasonId}/info`
                     else
-                        api = `https://sofascore.com/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/info`
+                        api = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/info`
                     const response = await fetch(api, {})
                     if (response.ok) {
                         const data = await response.json()

@@ -131,7 +131,7 @@ const TeamOfTheWeek = ({ featuredEvent, tournamentId, seasonId }: TopTeamsProps)
           if (featuredEvent == null)
             return
           let api = ''
-          api = `https://sofascore.com/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/team-of-the-week/rounds`
+          api = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/team-of-the-week/rounds`
           // }
           const response = await fetch(api, {})
           if (response.ok) {

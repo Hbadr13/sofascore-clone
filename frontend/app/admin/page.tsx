@@ -83,7 +83,7 @@ const Page = () => {
     useEffect(() => {
         const getTheTransferHistory = async () => {
             try {
-                const response = await fetch(`https://api.sofascore.com/api/v1/player/814594/transfer-history`, {})
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/player/814594/transfer-history`, {})
                 if (response.ok) {
                     const data = await response.json()
                     setWaitdata('done')

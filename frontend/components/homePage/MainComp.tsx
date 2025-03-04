@@ -48,12 +48,7 @@ const MainComp = ({ matchesDate }: { matchesDate: Dayjs | null }) => {
                         <div>LIVE(62)</div>
                     </button>
                 </div>
-                <div className="flex items-center space-x-2 ">
-                    <div>
-                        Show adds
-                    </div>
-                    <Switch className='z-0' />
-                </div>
+
             </div>
             <div ref={elementRef}>
 

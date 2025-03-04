@@ -146,7 +146,7 @@ const Standings = ({ standings, setStandings, featuredEvent }: StandingsProps) =
         }
 
         try {
-          let api = `https://sofascore.com/api/v1/unique-tournament/${featuredEvent.tournament?.uniqueTournament.id}/season/${featuredEvent.season?.id}/standings/${filter}`
+          let api = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${featuredEvent.tournament?.uniqueTournament.id}/season/${featuredEvent.season?.id}/standings/${filter}`
           getLatestMatches(featuredEvent.tournament?.uniqueTournament.id, featuredEvent.season?.id, filter);
           const response = await fetch(api, {})
           if (response.ok) {

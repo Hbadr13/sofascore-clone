@@ -210,10 +210,10 @@ const PlayerStatistics = ({ standings, featuredEvent, tournamentId, seasonId }: 
             filters = '&filters=position.in.G'
 
           if (tournamentId && seasonId) {
-            api = `https://sofascore.com/api/v1/unique-tournament/${tournamentId}/season/${seasonId}/statistics?limit=20&order=${filter}&offset=${(currentPage - 1) * 20}${acumm_}${groupOrFields}${minAppsyes}${filters}`
+            api = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${tournamentId}/season/${seasonId}/statistics?limit=20&order=${filter}&offset=${(currentPage - 1) * 20}${acumm_}${groupOrFields}${minAppsyes}${filters}`
           }
           else {
-            api = `https://sofascore.com/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/statistics?limit=20&order=${filter}&offset=${(currentPage - 1) * 20}${acumm_}${groupOrFields}${minAppsyes}${filters}`
+            api = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/statistics?limit=20&order=${filter}&offset=${(currentPage - 1) * 20}${acumm_}${groupOrFields}${minAppsyes}${filters}`
           }
           const response = await fetch(api, {})
           if (response.ok) {
