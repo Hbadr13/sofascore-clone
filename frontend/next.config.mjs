@@ -2,7 +2,7 @@
 
 const nextConfig = {
     images: {
-        domains: ['widgets.sofascore.com', 'www.sofascore.app', 'sofascore.app', 'cdn.alkora.app', "api.alkora.app", "example.com", 'sofascore.com', 'www.sofascore.com', 'api.sofascore.app']
+        domains: ['widgets.sofascore.com', 'api.sofascore.com', 'www.sofascore.app', 'sofascore.app', 'cdn.alkora.app', "api.alkora.app", "example.com", 'sofascore.com', 'www.sofascore.com', 'api.sofascore.app']
     },
     async redirects() {
         return [

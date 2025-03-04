@@ -100,13 +100,13 @@ const AllMatch = ({ matchs, setMatchs, currentMatch, setCurrentMatch, matchesDat
                             <div className=" relative w-full   flex  justify-between  items-center border--[1px]  pr-[60px] border-[#b8b9bda7]  text-[14px]">
                                 <div className="">
                                     <div className="flex space-x-1 items-center ">
-                                        <DisplayImage onErrorImage='team' className='w-4 h-4' alt='' width={500} height={500} src={`https://sofascore.com/api/v1/team/${item.homeTeam.id}/image`} />
+                                        com <DisplayImage onErrorImage='team' className='w-4 h-4' alt='' width={500} height={500} src={`https://api.sofascore.com/api/v1/team/${item.homeTeam.id}/image`} />
                                         <div className={`${item.status.description == 'Ended' ? `${(item.homeScore.display > item.awayScore.display) ? 'opacity-85' : 'opacity-50'}` : ``}`}>
                                             {item.homeTeam.shortName}
                                         </div>
                                     </div>
                                     <div className="flex space-x-1 items-center">
-                                        <DisplayImage onErrorImage='team' className='w-4 h-4' alt='' width={500} height={500} src={`https://sofascore.com/api/v1/team/${item.awayTeam.id}/image`} />
+                                        app <DisplayImage onErrorImage='team' className='w-4 h-4' alt='' width={500} height={500} src={`https://api.sofascore.app/api/v1/team/${item.awayTeam.id}/image`} />
                                         <div className={`${item.status.description == 'Ended' ? `${(item.homeScore.display < item.awayScore.display) ? 'opacity-85' : 'opacity-50'}` : ``}`}>
                                             {item.awayTeam.shortName}
                                         </div>
