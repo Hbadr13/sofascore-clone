@@ -61,7 +61,7 @@ app.listen((port), () => {
 });
 app.use((0, cors_1.default)({
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
-    origin: ['http://localhost:3000', 'http://localhost:5173'],
+    origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:5173'],
     allowedHeaders: [
         "Content-Type",
         "Authorization",
@@ -75,7 +75,7 @@ app.use((0, cookie_parser_1.default)());
 app.use(express_1.default.json());
 const r = (0, express_1.Router)();
 r.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.status(200).json({ message: 'Hello SofascoreCloning22' });
+    res.status(200).json({ message: 'Hello, I am Hamza Badr 😊' });
 }));
 app.use('/', r);
 app.use('/api/v1/player', player_router_1.default);
