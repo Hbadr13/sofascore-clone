@@ -104,6 +104,13 @@ const Page = () => {
         return <div className="">Waiting ...</div>
     return (
         <div className="bg-[#ffffff] MYDeg rounded-2xl  flex flex-col p-3">
+            www.
+            <DisplayImage onErrorImage='team' className='w-10 h-10' src={'https://www.sofascore.app/api/v1/team/2697/image'} width={500} height={500} alt={'image:1'} />
+            walo.
+            <DisplayImage onErrorImage='team' className='w-10 h-10' src={'https://sofascore.app/api/v1/team/2697/image'} width={500} height={500} alt={'image:2'} />
+            api.
+            <DisplayImage onErrorImage='team' className='w-10 h-10' src={'https://api.sofascore.app/api/v1/team/2697/image'} width={500} height={500} alt={'image:3'} />
+
             <div className="w-full text-center text-lg font-semibold  pb-2">Transfer History</div>
             <div className="w-full flex flex-col tablet:flex-row space-x-4">
                 <div className="w-full tablet:w-1/2">
