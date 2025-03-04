@@ -20,7 +20,7 @@ app.listen((port), () => {
 app.use(cors(
     {
         methods: ['GET', 'POST', 'DELETE', 'PUT'],
-        origin: ['http://localhost:3000', 'http://localhost:5173'],
+        origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:5173'],
         allowedHeaders: [
             "Content-Type",
             "Authorization",
@@ -35,7 +35,7 @@ app.use(cookieParser());
 app.use(express.json())
 const r = Router()
 r.get('/', async (req: Request, res: Response) => {
-    res.status(200).json({ message: 'Hello SofascoreCloning22' })
+    res.status(200).json({ message: 'Hello, I am Hamza Badr 😊' })
 })
 app.use('/', r)
 app.use('/api/v1/player', playerRouter)
