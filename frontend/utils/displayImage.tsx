@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { Image } from '@nextui-org/react';
 import React, { useEffect, useRef, useState } from 'react';
 
 interface DisplayImageProps {
@@ -21,13 +21,13 @@ const DisplayImage = ({ className, src, width, height, alt, onErrorImage }: Disp
             src={imageSrc ? imageSrc : src}
             width={width}
             height={height}
-            alt={alt}
-            // onError={handleError}
-            onError={e => setImageSrc(onErrorImage === 'player' || onErrorImage === 'manager'
-                ? 'https://www.sofascore.com/static/images/placeholders/player.svg'
-                : onErrorImage === 'team' ? 'https://www.sofascore.com/static/images/placeholders/team.svg'
-                    : onErrorImage === 'tournament' ? 'https://www.sofascore.com/static/images/placeholders/tournament.svg'
-                        : 'https://www.sofascore.com/static/images/placeholders/team.svg')}
+            alt={alt ? alt : src}
+        // onError={handleError}
+        // onError={e => setImageSrc(onErrorImage === 'player' || onErrorImage === 'manager'
+        //     ? 'https://www.sofascore.com/static/images/placeholders/player.svg'
+        //     : onErrorImage === 'team' ? 'https://www.sofascore.com/static/images/placeholders/team.svg'
+        //         : onErrorImage === 'tournament' ? 'https://www.sofascore.com/static/images/placeholders/tournament.svg'
+        //             : 'https://www.sofascore.com/static/images/placeholders/team.svg')}
         />
     );
 };

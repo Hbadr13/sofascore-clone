@@ -72,7 +72,24 @@ const LineupPlayer = ({ incidents, lineups, index, isHome, confirmed, event }: I
 
   return <div className=' relative '>
     <Link onClick={(e) => handleDisplayPlayerStatis({ e: e, player: player.player })} href={`/ma/player/${player.player.slug}/${player.player.id}`} className="w-[60px] h-full   rounded-xl flex  flex-col items-center space-y-2">
-      <DisplayImage onErrorImage='player' width={400} height={400} className=" w-10 h-10 bg-gray-200 rounded-full" src={`https://api.sofascore.app/api/v1/player/${player.player.id}/image`} alt="" />
+      <DisplayImage
+        onErrorImage='player'
+        alt=""
+        width={400}
+        height={400}
+        className=" w-10 h-10 bg-gray-200 rounded-full"
+        src={`https://api.sofascore.app/api/v1/player/${player.player.id}/image`}
+      // https://api.sofascore.app/api/v1/player/${player?.id}/image
+      />
+      {<Image
+        className='rounded-xl opacity-40 w-full h-full'
+        alt={`player:${player.player.id}`}
+        style={{ borderRadius: 100 }}
+        width={1000}
+        height={1000}
+        src={`https://api.sofascore.app/api/v1/player/${player.player.id}/image`}
+      />
+      }
       <div className=" truncate text-[10px] font-medium">
         {player.player.shortName}
       </div>
