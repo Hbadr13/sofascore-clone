@@ -71,7 +71,11 @@ const ApexChart = ({ dataSet }: { dataSet: any }) => {
             </div>
         </div>
     );
-};
+
+
+}
+
+
 
 
 
