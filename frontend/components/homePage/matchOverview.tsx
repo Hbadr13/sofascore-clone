@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import { CustomScroll } from 'react-custom-scroll'
 import Link from 'next/link'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import MatchDetails from '../matchInfo/details'
 import MatchLineups from '../matchInfo/lineups'
 import Matches from '../matchInfo/matches'

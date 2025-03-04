@@ -3,7 +3,8 @@ import { StandingsAPIJson } from "@/interface/api/standings"
 import { Button, Checkbox, CheckboxGroup, Chip } from "@nextui-org/react"
 import { useEffect, useState } from "react"
 import { CheckboxCustom, DropdownCustom } from "./PlayerStatistics"
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { addSpaceBeforeUppercase, convertAfterSpaceToUpper } from "@/utils/function"
 import { CustomScroll } from "react-custom-scroll"
 import { performanceMetrics } from "@/interface/api/PerformanceMetricsCompProps"

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { Button } from '@nextui-org/react'
 import { MatchDetailsAPIJson } from '@/interface/api/matchs'
 import { EventAPIJson } from '@/interface/api/event'

@@ -1,7 +1,8 @@
 'use client'
 import { useParams, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import TeamCard from '@/components/team/teamCard'
 import TeamStatistics from '@/components/team/teamStatistics'
 import TeamInfo from '@/components/team/teamInfo'

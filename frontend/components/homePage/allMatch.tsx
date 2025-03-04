@@ -1,6 +1,5 @@
 import { Dayjs } from 'dayjs'
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
 import Shimmer1 from '../shimmer/shi1'
 import Link from 'next/link'
 import moment from 'moment'
@@ -80,7 +79,7 @@ const AllMatch = ({ matchs, setMatchs, currentMatch, setCurrentMatch, matchesDat
                                         <Link href={'/'} className=" text-gray-600  font-semibold hover:text-blue-600 text-[13px]"> {item.tournament.category.name}</Link>
                                     </div>
                                     <button className=" absolute w-[50px] right-0 top-0 pl-1 flex  justify-center items-center  h-full  border-l-[1px] border-[#b8b9bda7] ">
-                                        <Image alt='' width={500} height={500} className="p-0.5 hover:bg-blue-100 w-8 h-8  rounded-md" src='/image/push-pin2.png' />
+                                        <DisplayImage alt='' width={500} height={500} className="p-0.5 hover:bg-blue-100 w-8 h-8  rounded-md" src='/image/push-pin2.png' />
                                     </button>
                                 </div>
                             </div>
@@ -100,13 +99,13 @@ const AllMatch = ({ matchs, setMatchs, currentMatch, setCurrentMatch, matchesDat
                             <div className=" relative w-full   flex  justify-between  items-center border--[1px]  pr-[60px] border-[#b8b9bda7]  text-[14px]">
                                 <div className="">
                                     <div className="flex space-x-1 items-center ">
-                                        com <Image className='w-4 h-4' alt={`team:${item.homeTeam.id}`} width={500} height={500} src={`https://api.sofascore.com/api/v1/team/${item.homeTeam.id}/image`} />
+                                        com <DisplayImage className='w-4 h-4' alt={`team:${item.homeTeam.id}`} width={500} height={500} src={`https://api.sofascore.com/api/v1/team/${item.homeTeam.id}/image`} />
                                         <div className={`${item.status.description == 'Ended' ? `${(item.homeScore.display > item.awayScore.display) ? 'opacity-85' : 'opacity-50'}` : ``}`}>
                                             {item.homeTeam.shortName}
                                         </div>
                                     </div>
                                     <div className="flex space-x-1 items-center">
-                                        app <Image className='w-4 h-4' alt={`team:${item.awayTeam.id}`} width={500} height={500} src={`https://api.sofascore.app/api/v1/team/${item.awayTeam.id}/image`} />
+                                        app <DisplayImage className='w-4 h-4' alt={`team:${item.awayTeam.id}`} width={500} height={500} src={`https://api.sofascore.app/api/v1/team/${item.awayTeam.id}/image`} />
                                         <div className={`${item.status.description == 'Ended' ? `${(item.homeScore.display < item.awayScore.display) ? 'opacity-85' : 'opacity-50'}` : ``}`}>
                                             {item.awayTeam.shortName}
                                         </div>
@@ -125,7 +124,7 @@ const AllMatch = ({ matchs, setMatchs, currentMatch, setCurrentMatch, matchesDat
                                     </div>
                                 </div>
                                 <button className=" absolute w-[50px] right-0 top-0 pl-1 flex  justify-center items-center  h-full  border-l-[1px] border-[#b8b9bda7] ">
-                                    <Image alt='' width={30} height={30} className="p-0.5 hover:bg-blue-100  rounded-md" src='/image/notifications-none.svg' />
+                                    <DisplayImage alt='' width={30} height={30} className="p-0.5 hover:bg-blue-100  rounded-md" src='/image/notifications-none.svg' />
                                 </button>
                             </div>
                         </Link>
@@ -150,13 +149,13 @@ const AllMatch = ({ matchs, setMatchs, currentMatch, setCurrentMatch, matchesDat
                             <div className="">
                                 Show less Matches
                             </div>
-                            <Image className=' rotate-90' src={'/image/arraw-white.svg'} height={30} width={30} alt='/' />
+                            <DisplayImage className=' rotate-90' src={'/image/arraw-white.svg'} height={30} width={30} alt='/' />
                         </div> :
                             <div className="py-1 px-2 bg-blue-700 rounded-xl text-white font-semibold text-[14px] flex space-x-2 items-center">
                                 <div className="">
                                     Show All Matches
                                 </div>
-                                <Image className='-rotate-90' src={'/image/arraw-white.svg'} height={30} width={30} alt='/' />
+                                <DisplayImage className='-rotate-90' src={'/image/arraw-white.svg'} height={30} width={30} alt='/' />
                             </div>
                     }
                 </button>

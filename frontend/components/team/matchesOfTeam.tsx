@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { MatchDetailsAPIJson } from '@/interface/api/matchs'
 import Link from 'next/link'
 import MatchOverview from '../homePage/matchOverview'

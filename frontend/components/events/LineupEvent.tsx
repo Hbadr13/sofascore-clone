@@ -1,7 +1,8 @@
 import { IEventLineupAndStatisticsAPIJson, IPlayers, TeamLineupsInfo } from '@/interface/api/eventLineupAndStatistics'
 import React from 'react'
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { EventAPIJson } from '@/interface/api/event'
 import { teamOfTheWeekAPIJson } from '@/interface/api/teamOfTheWeek'
 import Shimmer_TeamOfTheWeek from '../shimmer/shimmer_TeamOfTheWeek'
@@ -79,17 +80,7 @@ const LineupPlayer = ({ incidents, lineups, index, isHome, confirmed, event }: I
         height={400}
         className=" w-10 h-10 bg-gray-200 rounded-full"
         src={`https://api.sofascore.app/api/v1/player/${player.player.id}/image`}
-      // https://api.sofascore.app/api/v1/player/${player?.id}/image
       />
-      {<Image
-        className='rounded-xl opacity-40 w-full h-full'
-        alt={`player:${player.player.id}`}
-        style={{ borderRadius: 100 }}
-        width={1000}
-        height={1000}
-        src={`https://api.sofascore.app/api/v1/player/${player.player.id}/image`}
-      />
-      }
       <div className=" truncate text-[10px] font-medium">
         {player.player.shortName}
       </div>

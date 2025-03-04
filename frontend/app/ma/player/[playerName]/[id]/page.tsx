@@ -1,9 +1,10 @@
 'use client'
+import { Image } from '@nextui-org/react';
+
 import { EventAPIJson } from '@/interface/api/event'
 import { StandingsAPIJson } from '@/interface/api/standings'
 import { useParams, useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
 import PlayerCard from '@/components/player/playerCard'
 import { PlayerAPIJson } from '@/interface/api/player'
 import PlayerInfo from '@/components/player/playerInfo'

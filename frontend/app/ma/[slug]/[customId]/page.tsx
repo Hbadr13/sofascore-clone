@@ -2,7 +2,8 @@
 import { EventAPIJson } from '@/interface/api/event'
 import { useParams, usePathname, useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import EventOverview from '@/components/events/eventOverview'
 import MatchStatistics from '@/components/events/matchStatistics'
 import Commentary from '@/components/events/commentary'

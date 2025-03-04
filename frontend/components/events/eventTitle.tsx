@@ -1,5 +1,6 @@
 import React from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { EventAPIJson } from '@/interface/api/event'
 const EventTitle = ({ event }: { event: EventAPIJson | null }) => {
     // if (!event)

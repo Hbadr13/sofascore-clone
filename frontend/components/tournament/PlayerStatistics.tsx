@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { Checkbox, CheckboxGroup, Chip, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Pagination } from '@nextui-org/react'
 import { EventAPIJson } from '@/interface/api/event'
 import { Button } from "@nextui-org/react";

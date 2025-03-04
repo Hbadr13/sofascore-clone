@@ -1,6 +1,7 @@
 import { IBestPlayersAPIJson } from '@/interface/api/bestPlayers'
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { EventAPIJson } from '@/interface/api/event'
 import { IIncidentsAPIJson } from '@/interface/api/incidents'
 import { MatchDetailsAPIJson } from '@/interface/api/matchs'

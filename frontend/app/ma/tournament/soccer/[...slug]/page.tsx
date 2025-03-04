@@ -19,7 +19,8 @@ import { isStringNumber } from '@mui/x-date-pickers/internals/hooks/useField/use
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
 import { redirect, useParams, useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 const Page = () => {
   const [standings, setStandings] = useState<StandingsAPIJson[] | null>(null)
   const pathname = useParams<{ slug: string[] }>()

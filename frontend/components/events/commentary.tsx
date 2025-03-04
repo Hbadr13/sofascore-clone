@@ -4,7 +4,8 @@ import { IMatchStatisticsAPIJson } from '@/interface/api/matchStatistics'
 import { Button, CircularProgress, Progress } from '@nextui-org/react'
 import React, { useEffect, useState } from 'react'
 
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { addSpaceBeforeUppercase } from '@/utils/function'
 import ShiComments from '../shimmer/shiComments'
 import DisplayImage from '@/utils/displayImage'

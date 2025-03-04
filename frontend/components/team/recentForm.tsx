@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import moment from 'moment'
 import { getRatingColor } from '@/utils/function'
 import { IRecentFormAPIJson } from '@/interface/api/recentForm'

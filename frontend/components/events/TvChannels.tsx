@@ -1,7 +1,8 @@
 import { CountryChannelsAPIJson, TvChannelApi } from "@/interface/api/countryChannels"
 import { MatchDetailsAPIJson } from "@/interface/api/matchs"
 import { useEffect, useState } from "react"
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { CustomScroll } from "react-custom-scroll"
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react"
 import { EventAPIJson } from "@/interface/api/event"

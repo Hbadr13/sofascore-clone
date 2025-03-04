@@ -1,7 +1,8 @@
 import { MatchDetailsAPIJson } from '@/interface/api/matchs'
 import { TeamStreaksApiJson } from '@/interface/api/teamStreaks'
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import Link from 'next/link'
 import { Checkbox } from '@nextui-org/react'
 import { EventAPIJson } from '@/interface/api/event'

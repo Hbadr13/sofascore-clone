@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import Link from 'next/link'
 import Shimmer_topPlayer from '../shimmer/shi2_topPlayer'
 import { CustomScroll } from 'react-custom-scroll'

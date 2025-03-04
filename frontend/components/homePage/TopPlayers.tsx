@@ -4,7 +4,8 @@ import Shimmer_topPlayer from '../shimmer/shi2_topPlayer'
 import { TopPlayersAPIJson } from '@/interface/api/topPlayers'
 import DisplayRating from '@/utils/displayRating'
 import DisplayImage from '@/utils/displayImage'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 
 const TopPlayers = () => {
 

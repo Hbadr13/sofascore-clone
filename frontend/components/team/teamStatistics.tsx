@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { Accordion, AccordionItem, Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react'
 import { ISeasons, ISeassonStatisticsAPIJson, IUniqueTournament } from '@/interface/api/seassonStatistics'
 import SvgIcons from '@/utils/svgIcons'

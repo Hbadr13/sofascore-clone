@@ -2,7 +2,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { CustomScroll } from 'react-custom-scroll'
 import Link from 'next/link'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { EventAPIJson } from '@/interface/api/event'
 import { IIncidentsAPIJson } from '@/interface/api/incidents'
 import { IBestPlayersAPIJson } from '@/interface/api/bestPlayers'

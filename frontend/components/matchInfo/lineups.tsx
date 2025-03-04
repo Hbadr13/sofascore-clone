@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { ManagerAPIJson } from '@/interface/api/managers'
 import { MatchDetailsAPIJson } from '@/interface/api/matchs'
 import { LineupsAPIJson, PlayerAPIJson } from '@/interface/api/lineups'

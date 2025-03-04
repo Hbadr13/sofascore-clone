@@ -1,6 +1,7 @@
 import { EventAPIJson } from '@/interface/api/event'
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import DisplayImage from '@/utils/displayImage'
 interface FeaturedMatchProps {
     setFeaturedEvent: (featuredEvent: EventAPIJson) => void

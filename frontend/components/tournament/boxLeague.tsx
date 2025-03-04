@@ -1,6 +1,7 @@
 import { StandingsAPIJson } from '@/interface/api/standings'
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react'
 import Shi_standings from '../shimmer/shi_standings'
 import { MatchDetailsAPIJson } from '@/interface/api/matchs'

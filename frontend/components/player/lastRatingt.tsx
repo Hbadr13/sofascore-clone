@@ -2,7 +2,8 @@ import { ILastRatingsAPIJson } from '@/interface/api/lastRatings'
 import { PlayerAPIJson } from '@/interface/api/player'
 import { ISeasons, IUniqueTournament } from '@/interface/api/seassonStatistics'
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import moment from 'moment'
 import { getRatingColor } from '@/utils/function'
 import DisplayRating from '@/utils/displayRating'

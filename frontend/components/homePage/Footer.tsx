@@ -1,6 +1,7 @@
 'use client'
 import { Button } from '@nextui-org/react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { usePathname, useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 export interface FooterbarDataProps {

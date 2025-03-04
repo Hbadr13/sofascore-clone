@@ -1,5 +1,6 @@
 import React, { ReactNode, useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { EventAPIJson } from '@/interface/api/event'
 import { LeagueInfoAPIJson } from '@/interface/api/LeagueInfo'
 import SvgIcons from '@/utils/svgIcons'

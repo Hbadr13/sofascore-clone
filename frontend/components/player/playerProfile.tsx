@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import Link from 'next/link'
 import { PlayerAPIJson } from '@/interface/api/player'
 import ShiPLayerSummarytsx from '../shimmer/shiPLayerSummary'
 import SvgIcons from '@/utils/svgIcons'
 import moment from 'moment'
- interface PlayerProfileProps {
+interface PlayerProfileProps {
     player: PlayerAPIJson | null
 }
 

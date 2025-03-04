@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react'
 import { EventAPIJson } from '@/interface/api/event'
 import { RoundsTeamOfWeekAPIJson } from '@/interface/api/TeamOfWeekRounds'

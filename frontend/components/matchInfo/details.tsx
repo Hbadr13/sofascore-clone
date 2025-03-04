@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { CustomScroll } from 'react-custom-scroll'
 import Link from 'next/link'
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import { MatchDetailsAPIJson } from '@/interface/api/matchs'
 import { PregameFormdProps, pregameFormAPIJson } from '@/interface/api/pregameForm'
 import { ManagerAPIJson } from '@/interface/api/managers'

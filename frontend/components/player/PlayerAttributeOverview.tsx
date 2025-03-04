@@ -11,7 +11,8 @@ import {
 } from 'chart.js';
 import { useEffect, useState } from 'react';
 import { Radar } from 'react-chartjs-2';
-import Image from 'next/image';
+import { Image } from '@nextui-org/react';
+;
 import moment from 'moment';
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend)
 type SliderStepMark = {

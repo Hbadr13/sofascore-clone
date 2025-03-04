@@ -1,4 +1,5 @@
-import Image from 'next/image'
+import { Image } from '@nextui-org/react';
+
 import React, { useEffect, useState } from 'react'
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import DisplayImage from '@/utils/displayImage';
