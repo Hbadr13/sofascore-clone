@@ -37,5 +37,7 @@ const r = Router()
 r.get('/', async (req: Request, res: Response) => {
     res.status(200).json({ message: 'Hello, I am Hamza Badr 😊' })
 })
+
+
 app.use('/', r)
 app.use('/api/v1/player', playerRouter)
