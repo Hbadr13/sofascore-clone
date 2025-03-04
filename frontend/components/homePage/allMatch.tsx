@@ -104,6 +104,12 @@ const AllMatch = ({ matchs, setMatchs, currentMatch, setCurrentMatch, matchesDat
                                             {item.homeTeam.shortName}
                                         </div>
                                     </div>
+                                    <div className="flex space-x-1 items-center">
+                                        <DisplayImage className='w-4 h-4' alt={`team:${item.awayTeam.id}`} width={500} height={500} src={`https://api.sofascore.app/api/v1/team/${item.awayTeam.id}/image`} />
+                                        <div className={`${item.status.description == 'Ended' ? `${(item.homeScore.display < item.awayScore.display) ? 'opacity-85' : 'opacity-50'}` : ``}`}>
+                                            {item.awayTeam.shortName}
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="flex space-x-5">
                                     <div className={`${item.status.type == 'inprogress' ? 'text-red-400' : ''}`}>
