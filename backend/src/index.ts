@@ -2,14 +2,11 @@ import express, { Request, Response, Router } from 'express'
 import { Express } from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
+
 import cookieParser from "cookie-parser";
 import playerRouter from './routes/player/player.router';
 
 dotenv.config()
-
-console.log(process.env.REACT_APP_CLOUD_NAME)
-console.log(process.env.REACT_APP_API_KEY)
-console.log(process.env.REACT_APP_API_SECRET)
 
 const port: string = process.env.PORT || '4000'
 const app: Express = express()

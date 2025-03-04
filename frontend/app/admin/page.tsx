@@ -1,9 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { PlayerAPIJson } from '@/interface/api/player'
-import SvgIcons from '@/utils/svgIcons'
 import moment from 'moment'
 import { ITransferHistoryAPIJson } from '@/interface/api/transferHistory'
 import dynamic from 'next/dynamic';
