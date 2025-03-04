@@ -13,10 +13,7 @@ interface DisplayImageProps {
 const DisplayImage = ({ className, src, width, height, alt, onErrorImage }: DisplayImageProps) => {
 
     const [imageSrc, setImageSrc] = useState('')
-    useEffect(() => {
 
-        return () => setImageSrc('')
-    }, [])
     return (
         <Image
             onLoad={() => setImageSrc('')}
