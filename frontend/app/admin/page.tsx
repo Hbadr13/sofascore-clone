@@ -70,9 +70,7 @@ const ApexChart = ({ dataSet }: { dataSet: any }) => {
                     type="area" height={200} />
             </div>
         </div>
-    );
-
-
+    )
 }
 
 
