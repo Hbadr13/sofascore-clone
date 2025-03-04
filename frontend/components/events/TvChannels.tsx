@@ -88,7 +88,7 @@ const TvChannels = ({ currentMatch, type }: ChannelsCompProps) => {
                                     height={300}
                                     width={300}
                                     alt=''
-                                    src={`https://cdn.alkora.app/static/images/flags/${channelId.toLowerCase()}.png`}
+                                    src={`https://api.sofascore.app/static/images/flags/${channelId.toLowerCase()}.png`}
                                 />
                             </div>
                         </div>
@@ -112,7 +112,7 @@ const TvChannels = ({ currentMatch, type }: ChannelsCompProps) => {
                                             height={300}
                                             width={300}
                                             alt=''
-                                            src={`https://cdn.alkora.app/static/images/flags/${item[0].toLowerCase()}.png`}
+                                            src={`https://api.sofascore.app/static/images/flags/${item[0].toLowerCase()}.png`}
                                         />
                                     </div>
                                 </div>

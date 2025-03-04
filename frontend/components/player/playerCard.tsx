@@ -18,7 +18,7 @@ const CompareIcon = ({ color }: { color: string }) => <svg width="24" height="24
 const PlayerCard = ({ player }: PlayerCardProps) => {
     return (
         <div className="  w-full -[200px] overflow-hidden relative   rounded-sm tablet:rounded-2xl">
-            <div style={{ backgroundImage: !player ? '' : !player.retired ? `url(https://sofascore.com/api/v1/team/${player.team.id}/image/)` : `url(https://cdn.alkora.app/static/images/flags/br.png)` }} className="BoxSeasonBlur z-10 rounded-2xl bg-slate-400"></div>
+            <div style={{ backgroundImage: !player ? '' : !player.retired ? `url(https://sofascore.com/api/v1/team/${player.team.id}/image/)` : `url(https://api.sofascore.app/static/images/flags/br.png)` }} className="BoxSeasonBlur z-10 rounded-2xl bg-slate-400"></div>
             <div className=" z-20 relative  h-40 transition flex items-center">
                 <div className="flex items-center   w-full tablet:w-[calc(100%-300px)] ">
                     <div className=" w-[140px] tablet:w-[200px]">

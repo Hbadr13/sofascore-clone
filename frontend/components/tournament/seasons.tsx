@@ -96,7 +96,7 @@ const Seasons = ({ tournamentId, seasonId }: SeasonsProps) => {
                         <div className="text-3xl font-extrabold text-white">{featuredEvent?.tournament.name.split(',')[0]}</div>
                         <div className="flex items-center  space-x-2 ">
                             <div className="w-7 h-7">
-                                <Image alt='flags' width={1000} height={1000} src={`https://cdn.alkora.app/static/images/flags/${featuredEvent?.tournament.category.alpha2 ? featuredEvent?.tournament.category.alpha2.toLocaleLowerCase() : featuredEvent?.tournament.uniqueTournament.category.slug.toLocaleLowerCase()}.png`} />
+                                <Image alt='flags' width={1000} height={1000} src={`https://api.sofascore.app/static/images/flags/${featuredEvent?.tournament.category.alpha2 ? featuredEvent?.tournament.category.alpha2.toLocaleLowerCase() : featuredEvent?.tournament.uniqueTournament.category.slug.toLocaleLowerCase()}.png`} />
                             </div>
                             <div className="text-xl font-semibold text-white">{featuredEvent?.tournament.category.name}</div>
                             <div hidden={Array.from(selectedSeasons)[0] == ''} className=" ">

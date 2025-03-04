@@ -187,9 +187,9 @@ const MatchDetails = ({ currentMatch, incidents, setIncidents }: currentMatchPro
                 currentMatch && <IncidentsComp event={currentMatch} incidents={incidents} setIncidents={setIncidents} />
             }
 
-            <div className="p-2 bg-slate-100 rounded-xl">
+            {pregameForm && <div className="p-2 bg-slate-100 rounded-xl">
 
-                <div className="flex justify-center space-x-1">
+                <div className="flex justify-center space-x-1 items-center">
                     <div className="text-blue-600">Prematch standings</div>
                     <Image className=' rotate-180' width={14} height={14} alt='' src={'/image/arraw.svg'}></Image>
                 </div>
@@ -203,23 +203,20 @@ const MatchDetails = ({ currentMatch, incidents, setIncidents }: currentMatchPro
                         pts
                     </div>
                 </div>
+
                 {
-                    pregameForm && <>
-                        {
-                            (pregameForm?.homeTeam.position < pregameForm?.awayTeam.position) ?
-                                <>
-                                    <TeamStanding status='home' currentMatch={currentMatch} team={pregameForm?.homeTeam} />
-                                    <TeamStanding status='away' currentMatch={currentMatch} team={pregameForm?.awayTeam} />
-                                </> :
-                                <>
-                                    <TeamStanding status='away' currentMatch={currentMatch} team={pregameForm?.awayTeam} />
-                                    <TeamStanding status='home' currentMatch={currentMatch} team={pregameForm?.homeTeam} />
-                                </>
-                        }
-                    </>
+                    (pregameForm?.homeTeam.position < pregameForm?.awayTeam.position) ?
+                        <>
+                            <TeamStanding status='home' currentMatch={currentMatch} team={pregameForm?.homeTeam} />
+                            <TeamStanding status='away' currentMatch={currentMatch} team={pregameForm?.awayTeam} />
+                        </> :
+                        <>
+                            <TeamStanding status='away' currentMatch={currentMatch} team={pregameForm?.awayTeam} />
+                            <TeamStanding status='home' currentMatch={currentMatch} team={pregameForm?.homeTeam} />
+                        </>
                 }
 
-            </div>
+            </div>}
             {
                 managers && duelH2H && <div className="p-2 bg-slate-100 rounded-xl">
                     <Duel managers={managers} currentMatch={currentMatch} history={duelH2H?.managerDuel} duelName='Manager head 2 head' />
@@ -277,7 +274,7 @@ export const MatchInfoComp = ({ matchInfo, type }: { matchInfo: EventAPIJson | n
                 <div className="flex justify-end items-center space-x-1">
                     {
                         matchInfo.tournament.category.alpha2 && <div className="w-5">
-                            <DisplayImage onErrorImage='flag' alt='' src={`https://cdn.alkora.app/static/images/flags/${matchInfo.tournament.category.alpha2.toLowerCase()}.png`} width={20} height={20} />
+                            <DisplayImage onErrorImage='flag' alt='' src={`https://api.sofascore.app/static/images/flags/${matchInfo.tournament.category.alpha2.toLowerCase()}.png`} width={20} height={20} />
                         </div>
                     }
                     <div className="">
@@ -293,7 +290,7 @@ export const MatchInfoComp = ({ matchInfo, type }: { matchInfo: EventAPIJson | n
                 </div>
                 <div className="flex justify-end items-center space-x-1">
                     <div className="w-5">
-                        <DisplayImage onErrorImage='flag' alt='' src={`https://cdn.alkora.app/static/images/flags/${matchInfo?.referee.country.alpha2?.toLowerCase()}.png`} width={20} height={20} />
+                        <DisplayImage onErrorImage='flag' alt='' src={`https://api.sofascore.app/static/images/flags/${matchInfo?.referee.country.alpha2?.toLowerCase()}.png`} width={20} height={20} />
                     </div>
                     <Link href={'/'} className=" text-blue-500">
                         {matchInfo?.referee?.name}

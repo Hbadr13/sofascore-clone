@@ -51,16 +51,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         Soccer live scores and today schedule
                     </p>
                 </div>
-                <div className="w-full desktop:w-[1344px] tablet:w-[992px] flex items-start space-x-0 tablet:space-x-5 ">
-                    <div className=" w-[324px] hidden tablet:block  rounded-2xl  space-y-5">
+                <div className="w-full max-w-[1344px] mx-auto flex items-start space-x-0 tablet:space-x-5 ">
+                    <div className=" overflow-hidden w-[28%] max:w-[324px] hidden tablet:block  rounded-2xl  space-y-5">
                         <CalendarComp matchesDate={matchesDate} setMatchesDate={setMatchesDate} />
                         <Topleagues />
                         <AllLeagues />
                     </div>
-                    <div className="MYDeg w-[100%] tablet:w-[540px]   bg-[#ffffff]   rounded-2xl   ">
+                    <div className="MYDeg w-full tablet:w-[44%] max:w-[540px]   bg-[#ffffff]   rounded-2xl  px-1 ">
                         {children}
                     </div>
-                    <div className=" relative w-[432px] hidden tablet:block  rounded-2xl  space-y-5">
+                    <div className=" relative w-[28%] max:w-[432px] hidden tablet:block  rounded-2xl  space-y-5">
                         {
                             currentMatch ?
                                 <MatchOverview scrollType={'1'} />

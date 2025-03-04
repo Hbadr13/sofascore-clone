@@ -97,26 +97,35 @@ const Navbar = ({ waitData, query, setQuery, suggestions, setSuggestions, curren
                             <div className="space-y-4">
                                 {
                                     suggestions.map((item, index) => (
-                                        <Link
+                                        item.type == 'event' ? <Link
                                             key={index}
-                                            href={item.type == 'team' ? `/ma/team/${item.entity.slug}/${item.entity.id}`
-                                                : item.type == 'player' ? `/ma/player/${item.entity.slug}/${item.entity.id}`
-                                                    : '/error'}
+                                            href={`/ma/${item.entity.slug}/${item.entity.customId}`}
                                             className='flex items-center space-x-1 hover:bg-custom-default-hover'>
-                                            <div className="w-16  flex justify-center">
+
+                                            <div className="w-6  flex justify-center">
                                                 <DisplayImage
                                                     onErrorImage={item.type == 'team' ? 'team' : item.type == 'player' ? 'player' : item.type == 'tournament' ? 'tournament' : 'flag'}
-                                                    width={40}
-                                                    height={40}
+                                                    width={30}
+                                                    height={30}
                                                     alt=''
-                                                    src={item.type == 'team' ? `https://sofascore.com/api/v1/team/${item.entity.id}/image`
-                                                        : item.type == 'uniqueTournament' ? `https://api.sofascore.app/api/v1/unique-tournament/${item.entity.id}/image`
-                                                            : `https://api.sofascore.app/api/v1/player/${item.entity.id}/image`} />
+                                                    src={`https://sofascore.com/api/v1/team/${item.entity.homeTeam.id}/image`} />
                                             </div>
+                                            <div className="w-6  flex justify-center">
+                                                <DisplayImage
+                                                    onErrorImage={item.type == 'team' ? 'team' : item.type == 'player' ? 'player' : item.type == 'tournament' ? 'tournament' : 'flag'}
+                                                    width={30}
+                                                    height={30}
+                                                    alt=''
+                                                    src={`https://sofascore.com/api/v1/team/${item.entity.awayTeam.id}/image`} />
+                                            </div>
+
+
+
+
                                             <div className="">
                                                 <div className="flex items-center space-x-1.5">
                                                     <p className='text-sm'>
-                                                        {item.entity.name}:{item.type}
+                                                        {item.entity.homeTeam.shortName} vs {item.entity.awayTeam.shortName}
                                                     </p>
                                                     <div className="w-1.5 h-1.5 bg-gray-200 rounded-full" />
                                                     <div className="w-6 flex justify-center items-center opacity-65">
@@ -126,10 +135,10 @@ const Navbar = ({ waitData, query, setQuery, suggestions, setSuggestions, curren
                                                 </div>
                                                 <div className="flex items-center space-x-1.5">
                                                     <div className="w-">
-                                                        <DisplayImage onErrorImage='flag' width={14} height={14} alt='' src={`https://cdn.alkora.app/static/images/flags/${item.entity.country?.alpha2?.toLowerCase()}.png`} />
+                                                        <DisplayImage onErrorImage='flag' width={14} height={14} alt='' src={`https://api.sofascore.app/api/v1/unique-tournament/${item.entity.tournament.uniqueTournament.id}/image`} />
                                                     </div>
                                                     <p className='text-[12px] text-gray-400'>
-                                                        {item.entity.name}
+                                                        {item.entity.tournament.uniqueTournament.name}
                                                     </p>
                                                     <div className="w-2 h-2 bg-gray-400 rounded-full" />
                                                     <div className="w-6 opacity-45">
@@ -138,7 +147,55 @@ const Navbar = ({ waitData, query, setQuery, suggestions, setSuggestions, curren
                                                     <div className="text-[11px] text-gray-400">Soccer</div>
                                                 </div>
                                             </div>
-                                        </Link>
+                                        </Link> :
+                                            <Link
+                                                key={index}
+                                                href={item.type == 'team' ? `/ma/team/${item.entity.slug}/${item.entity.id}`
+                                                    : item.type == 'player' ? `/ma/player/${item.entity.slug}/${item.entity.id}`
+                                                        : item.type == 'uniqueTournament' ? `/ma/tournament/soccer/${item.entity.category.slug}/${item.entity.slug}/${item.entity.id}`
+                                                            : item.type == 'event' ? `/ma/${item.entity.slug}/${item.entity.customId}`
+                                                                : '/'}
+                                                className='flex items-center space-x-1 hover:bg-custom-default-hover'>
+                                                <div className="w-16  flex justify-center">
+                                                    <DisplayImage
+                                                        onErrorImage={item.type == 'team' ? 'team' : item.type == 'player' ? 'player' : item.type == 'tournament' ? 'tournament' : 'flag'}
+                                                        width={40}
+                                                        height={40}
+                                                        alt=''
+                                                        src={item.type == 'team' ? `https://sofascore.com/api/v1/team/${item.entity.id}/image`
+                                                            : item.type == 'uniqueTournament' ? `https://api.sofascore.app/api/v1/unique-tournament/${item.entity.id}/image`
+                                                                : `https://api.sofascore.app/api/v1/player/${item.entity.id}/image`} />
+                                                </div>
+
+
+
+
+                                                <div className="">
+                                                    <div className="flex items-center space-x-1.5">
+                                                        <p className='text-sm'>
+                                                            {item.entity.name}:{item.type}
+                                                        </p>
+                                                        <div className="w-1.5 h-1.5 bg-gray-200 rounded-full" />
+                                                        <div className="w-6 flex justify-center items-center opacity-65">
+                                                            <Image width={18} height={18} alt='' src={'/image/user-friends.svg'} />
+                                                        </div>
+                                                        <div className="text-[11px] text-gray-400">2.5M</div>
+                                                    </div>
+                                                    <div className="flex items-center space-x-1.5">
+                                                        <div className="w-">
+                                                            <DisplayImage onErrorImage='flag' width={14} height={14} alt='' src={`https://api.sofascore.app/static/images/flags/${item.entity.country?.alpha2?.toLowerCase()}.png`} />
+                                                        </div>
+                                                        <p className='text-[12px] text-gray-400'>
+                                                            {item.entity.name}
+                                                        </p>
+                                                        <div className="w-2 h-2 bg-gray-400 rounded-full" />
+                                                        <div className="w-6 opacity-45">
+                                                            <Image width={16} height={16} alt='' src={'/image/soccer-ball.svg'} />
+                                                        </div>
+                                                        <div className="text-[11px] text-gray-400">Soccer</div>
+                                                    </div>
+                                                </div>
+                                            </Link>
                                     ))
                                 }
 
@@ -160,3 +217,5 @@ const Navbar = ({ waitData, query, setQuery, suggestions, setSuggestions, curren
     )
 }
 export default Navbar
+
+

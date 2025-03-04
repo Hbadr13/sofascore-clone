@@ -32,7 +32,7 @@ const TeamCard = ({ team }: TeamCardProps) => {
                     <div className="  flex  flex-col justify-center space-y-2 items-start h-full text-white">
                         <div className=" text-xl tablet:text-3xl font-extrabold truncate ">{team?.name}</div>
                         <div className=" relative  flex items-center  justify-center space-x-2">
-                            <DisplayImage width={24} height={24} alt='team' onErrorImage='flag' src={`https://cdn.alkora.app/static/images/flags/${team?.country.alpha2.toLowerCase()}.png`} />
+                            <DisplayImage width={24} height={24} alt='team' onErrorImage='flag' src={`https://api.sofascore.app/static/images/flags/${team?.country.alpha2.toLowerCase()}.png`} />
                             <div className=" font-semibold">{team?.country.name}</div>
                         </div>
                     </div>

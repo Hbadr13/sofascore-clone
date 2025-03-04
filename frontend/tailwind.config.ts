@@ -43,7 +43,7 @@ const config: Config = {
       },
       screens: {
         'desktop': '1344px',
-        'tablet': '992px',
+        'tablet': '1052px',
 
       },
       backgroundColor: {

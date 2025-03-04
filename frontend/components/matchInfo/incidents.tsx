@@ -165,7 +165,10 @@ const IncidentsComp = ({ event, incidents, setIncidents }: IIncidentsCompProps) 
                 const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${event.id}/best-players/summary`, {})
                 if (response.ok) {
                     const data = await response.json()
-                    setwaitBestPlayers('done')
+                    if (data.bestHomeTeamPlayers.length || data.bestAwayTeamPlayers.length)
+                        setwaitBestPlayers('error')
+                    else
+                        setwaitBestPlayers('done')
                     setbestPlayers(data)
                 }
             } catch (error) {
@@ -187,12 +190,11 @@ const IncidentsComp = ({ event, incidents, setIncidents }: IIncidentsCompProps) 
                         width="100%"
                         height="286"
                         src={`https://widgets.sofascore.com/en-US/embed/attackMomentum?id=${event.id}&widgetTheme=light`}
-                        scrolling="no"
                     />
                 </div>
             }
-            <div hidden={waitBestPlayers == 'error'} className="w-full bg-slate-200/40  mt-3">
-                <div className="text-center font-semibold rounded-2xl p-2">Highest Rated Players</div>
+            {bestPlayers.bestHomeTeamPlayers.length != 0 && bestPlayers.bestAwayTeamPlayers.length != 0 && <div className="w-full bg-slate-200/40  mt-3">
+                <div className="text-center font-semibold rounded-2xl p-2">Highest Rated Players {waitBestPlayers} </div>
                 {waitBestPlayers == 'wait' && <div className=' w-full h-40 ' />}
                 <div className="w-full flex p-2 space-x-3">
                     <div className=" space-y-2 w-1/2">
@@ -236,7 +238,7 @@ const IncidentsComp = ({ event, incidents, setIncidents }: IIncidentsCompProps) 
                         }
                     </div>
                 </div>
-            </div>
+            </div>}
 
             <div className="">
                 {

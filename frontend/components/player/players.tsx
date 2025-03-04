@@ -71,7 +71,7 @@ const AllPlayers = ({ team, allPlayers, setAllPlayers }: IAllPlayersProps) => {
                                                         <div className="text-on-surface-nLv3 text-sm font-normal">{player.player.jerseyNumber}</div>
                                                         <div className="text-on-surface-nLv3 text-sm font-normal">{moment(player.player.dateOfBirthTimestamp * 1000).fromNow().split(' ')[0]} yrs</div>
                                                         <div className="flex items-center space-x-1">
-                                                            <Image className='w-5 h-5 rounded-full border-1.5' width={500} height={500} alt={'player:' + player.player.shortName} src={`https://cdn.alkora.app/static/images/flags/${player.player.country.alpha2.toLowerCase()}.png`} />
+                                                            <Image className='w-5 h-5 rounded-full border-1.5' width={500} height={500} alt={'player:' + player.player.shortName} src={`https://api.sofascore.app/static/images/flags/${player.player.country.alpha2.toLowerCase()}.png`} />
                                                             <div className=" text-on-surface-nLv3 text-sm font-normal">{player.player.country.alpha2}</div>
                                                         </div>
                                                     </div>
@@ -80,7 +80,7 @@ const AllPlayers = ({ team, allPlayers, setAllPlayers }: IAllPlayersProps) => {
                                             <div className="w-full bg-on-surface-nLv5  hidden tablet:flex justify-between items-center p-1 rounded-b-xl">
                                                 <div className={` font-semibold ${position == 'F' ? 'text-red-500' : position == 'M' ? 'text-green-400' : position == 'D' ? 'text-blue-500' : 'text-orange-500'}`}>{player.player.position}</div>
                                                 <div className="flex items-center space-x-1">
-                                                    <DisplayImage onErrorImage='flag' className='w-5 h-5 rounded-full border-1.5' width={500} height={500} alt={'player:' + player.player.shortName} src={`https://cdn.alkora.app/static/images/flags/${player.player.country.alpha2.toLowerCase()}.png`} />
+                                                    <DisplayImage onErrorImage='flag' className='w-5 h-5 rounded-full border-1.5' width={500} height={500} alt={'player:' + player.player.shortName} src={`https://api.sofascore.app/static/images/flags/${player.player.country.alpha2.toLowerCase()}.png`} />
                                                     <div className="">{player.player.country.alpha2}</div>
                                                 </div>
                                             </div>

@@ -296,7 +296,7 @@ const Detailed = ({ setFilterDetails, standings, selectOption, isSelected, setIs
                                             <div key={index} className="flex space-x-2 w-[150px] items-center ">
                                                 <Checkbox value={country.alpha2} />
                                                 <div className="w-5 h-5">
-                                                    <DisplayImage onErrorImage='flag' width={400} height={400} alt='country' src={`https://cdn.alkora.app/static/images/flags/${country.alpha2?.toLocaleLowerCase()}.png`} />
+                                                    <DisplayImage onErrorImage='flag' width={400} height={400} alt='country' src={`https://api.sofascore.app/static/images/flags/${country.alpha2?.toLocaleLowerCase()}.png`} />
                                                 </div>
                                                 <div className="text-[10px] truncate">{country.name}</div>
                                             </div>

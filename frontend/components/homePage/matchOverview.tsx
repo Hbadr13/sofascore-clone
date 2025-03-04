@@ -24,38 +24,84 @@ const MatchOverview = ({ scrollType }: { scrollType: string }) => {
             async () => {
                 if (!currentMatch)
                     return
-                let opts: Array<{ name: string }> = [{ name: 'DETAILS' }, { name: 'STANDINGS' }, { name: 'MATCHES' }, { name: 'LINEUPS' }, { name: 'COMMENTARY' }, { name: 'STATISTICS' }]
+                let opts: { name: string }[] = [{ name: 'DETAILS' }]
+                try {
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/tournament/${currentMatch.tournament.id}/season/${currentMatch.season.id}/standings/total`, {});
+                    if (response.ok)
+                        opts.push({ name: 'STANDINGS' })
+                } catch (error) {
+                }
+                try {
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch?.id}/lineups`, {});
+                    if (response.ok)
+                        opts.push({ name: 'LINEUPS' })
 
-                try {
-                    await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/tournament/${currentMatch.tournament.id}/season/${currentMatch.season.id}/standings/total`, {});
                 } catch (error) {
-                    opts = opts.filter((item) => item.name != 'STANDINGS')
                 }
                 try {
-                    await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch?.id}/lineups`, {});
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.id}/statistics`, {})
+                    if (response.ok)
+                        opts.push({ name: 'STATISTICS' })
+
                 } catch (error) {
-                    opts = opts.filter((item) => item.name != 'LINEUPS')
                 }
                 try {
-                    await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.id}/statistics`, {})
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.id}/comments`, {})
+                    if (response.ok)
+                        opts.push({ name: 'COMMENTARY' })
+
                 } catch (error) {
-                    opts = opts.filter((item) => item.name != 'STATISTICS')
                 }
                 try {
-                    await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.id}/comments`, {})
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.customId}/h2h/events`, {});
+                    if (response.ok)
+                        opts.push({ name: 'MATCHES' })
+
                 } catch (error) {
-                    opts = opts.filter((item) => item.name != 'COMMENTARY')
-                }
-                try {
-                    await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.customId}/h2h/events`, {});
-                } catch (error) {
-                    opts = opts.filter((item) => item.name != 'MATCHES')
 
                 }
                 setOptions(opts)
             }
         )()
     }, [currentMatch])
+    // useEffect(() => {
+    //     (
+    //         async () => {
+    //             if (!currentMatch)
+    //                 return
+    //             let opts: Array<{ name: string }> = [{ name: 'DETAILS' }, { name: 'STANDINGS' }, { name: 'MATCHES' }, { name: 'LINEUPS' }, { name: 'COMMENTARY' }, { name: 'STATISTICS' }]
+
+    //             try {
+    //                 await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/tournament/${currentMatch.tournament.id}/season/${currentMatch.season.id}/standings/total`, {});
+
+    //             } catch (error) {
+    //                 opts = opts.filter((item) => item.name != 'STANDINGS')
+    //             }
+    //             try {
+    //                 await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch?.id}/lineups`, {});
+    //             } catch (error) {
+    //                 opts = opts.filter((item) => item.name != 'LINEUPS')
+    //             }
+    //             try {
+    //                 await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.id}/statistics`, {})
+    //             } catch (error) {
+    //                 opts = opts.filter((item) => item.name != 'STATISTICS')
+    //             }
+    //             try {
+    //                 await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.id}/comments`, {})
+    //             } catch (error) {
+    //                 opts = opts.filter((item) => item.name != 'COMMENTARY')
+    //             }
+    //             try {
+    //                 await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.customId}/h2h/events`, {});
+    //             } catch (error) {
+    //                 opts = opts.filter((item) => item.name != 'MATCHES')
+
+    //             }
+    //             setOptions(opts)
+    //         }
+    //     )()
+    // }, [currentMatch])
 
     const [currentOption, setCurrentoption] = useState('DETAILS')
 
@@ -91,7 +137,7 @@ const MatchOverview = ({ scrollType }: { scrollType: string }) => {
                                             <button
                                                 key={index}
                                                 onClick={() => setCurrentoption(item.name)}
-                                                className={`${options.length > 5 ? 'text-[9px]' : ' text-[11px]'} text-center     w-1/4 py-2 ${item.name == currentOption ? 'border-b-1 border-blue-600 text-blue-600' : 'text-blue-300'}`}
+                                                className={`${options.length > 5 ? 'text-[12px]' : ' text-[14px]'} text-center     w-1/4 py-2 ${item.name == currentOption ? 'border-b-1 border-blue-600 text-blue-600' : 'text-blue-300'}`}
                                             >
                                                 {item.name}
                                             </button>

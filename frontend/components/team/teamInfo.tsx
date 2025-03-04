@@ -93,7 +93,7 @@ const TeamStatsItemAndLatestTransfers = ({ type, players, transfer, handelClick,
                                                             <div className="">{player.player.name}</div>
                                                         </div>
                                                         <div className="text-center">
-                                                            <DisplayImage onErrorImage='flag' className='w-5 h-5' src={`https://cdn.alkora.app/static/images/flags/${player.player.country.alpha2.toLowerCase()}.png`} width={500} height={500} alt='player' />
+                                                            <DisplayImage onErrorImage='flag' className='w-5 h-5' src={`https://api.sofascore.app/static/images/flags/${player.player.country.alpha2.toLowerCase()}.png`} width={500} height={500} alt='player' />
                                                             <div className="text-on-surface-nLv2">{player.player.country.alpha2}</div>
                                                         </div>
                                                     </Link>)}
@@ -251,7 +251,7 @@ const TeamInfo = ({ team, allPlayers }: ITeamInfoProps) => {
                                     {moment(team.foundationDateTimestamp * 1000).format('ll')}
                                 </div>
                                 <div className="flex justify-end items-center space-x-1">
-                                    <DisplayImage onErrorImage='flag' className='w-5 h-5' alt='' src={`https://cdn.alkora.app/static/images/flags/${team.tournament.category.alpha2?.toLowerCase()}.png`} width={500} height={500} />
+                                    <DisplayImage onErrorImage='flag' className='w-5 h-5' alt='' src={`https://api.sofascore.app/static/images/flags/${team.tournament.category.alpha2?.toLowerCase()}.png`} width={500} height={500} />
                                     <div className="">
                                         {team?.venue?.country.name}
                                     </div>

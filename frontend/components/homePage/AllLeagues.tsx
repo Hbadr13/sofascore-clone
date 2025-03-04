@@ -122,8 +122,8 @@ const AllLeagues = () => {
                                 <div className="flex  items-center space-x-4  w-full">
                                     {
                                         item.alpha2 ?
-                                            <DisplayImage onErrorImage='team' className='w-6 h-6' alt='' width={500} height={500} src={`https://cdn.alkora.app/static/images/flags/${item.alpha2.toLowerCase()}.png`} />
-                                            : <DisplayImage onErrorImage='team' className='w-6 h-6' alt='' width={500} height={500} src={`https://cdn.alkora.app/static/images/flags/${item.flag}.png`} />
+                                            <DisplayImage onErrorImage='team' className='w-6 h-6' alt='' width={500} height={500} src={`https://api.sofascore.app/static/images/flags/${item.alpha2.toLowerCase()}.png`} />
+                                            : <DisplayImage onErrorImage='team' className='w-6 h-6' alt='' width={500} height={500} src={`https://api.sofascore.app/static/images/flags/${item.flag}.png`} />
                                     }
                                     <div className="">
                                         {item.name}

@@ -69,7 +69,7 @@ const AllMatch = ({ matchs, setMatchs, currentMatch, setCurrentMatch, matchesDat
                                 <div className="w-[20%] flex justify-center items-center ">
                                     {
                                         item.tournament.category.alpha2 ?
-                                            <DisplayImage onErrorImage='flag' className="w-7 h-7" alt='' width={500} height={500} src={`https://cdn.alkora.app/static/images/flags/${item.tournament.category.alpha2?.toLowerCase()}.png`} />
+                                            <DisplayImage onErrorImage='flag' className="w-7 h-7" alt='' width={500} height={500} src={`https://api.sofascore.app/static/images/flags/${item.tournament.category.alpha2?.toLowerCase()}.png`} />
                                             : <DisplayImage onErrorImage='tournament' className="w-7 h-7" alt='' width={500} height={500} src={`https://sofascore.com/api/v1/unique-tournament/${item.tournament.uniqueTournament?.id}/image`} />
                                     }
                                 </div>
