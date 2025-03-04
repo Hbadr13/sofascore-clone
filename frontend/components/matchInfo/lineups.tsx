@@ -27,7 +27,7 @@ const MatchLineups = ({ currentMatch }: MatchLineupsProps) => {
             return
           setWaitdata(true)
           setLineups(undefined)
-          const response = await fetch(`https://sofascore.com/api/v1/event/${currentMatch.id}/lineups`, {});
+          const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.id}/lineups`, {});
           if (response.ok) {
             const data = await response.json()
             setLineups(data)
@@ -46,7 +46,7 @@ const MatchLineups = ({ currentMatch }: MatchLineupsProps) => {
           if (currentMatch == null)
             return
           setWaitdata(true)
-          const response = await fetch(`https://sofascore.com/api/v1/event/${currentMatch.id}/incidents`, {});
+          const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.id}/incidents`, {});
           if (response.ok) {
             const data = await response.json()
             setincidents(data.incidents)
@@ -64,7 +64,7 @@ const MatchLineups = ({ currentMatch }: MatchLineupsProps) => {
         try {
           if (currentMatch == null)
             return
-          const response = await fetch(`https://sofascore.com/api/v1/event/${currentMatch.id}/managers`, {});
+          const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.id}/managers`, {});
           if (response.ok) {
             const data = await response.json()
             setManagers(data)

@@ -25,7 +25,7 @@ const DisplayMatches = ({ event, type }: { event: EventAPIJson | null, type: str
                 if (type == 'h2h') {
                     try {
 
-                        const response = await fetch(`https://sofascore.com/api/v1/event/${event.customId}/h2h/events`, {})
+                        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${event.customId}/h2h/events`, {})
                         if (response.ok) {
                             const data = await response.json()
                             setH2hEvent(data.events)
@@ -38,7 +38,7 @@ const DisplayMatches = ({ event, type }: { event: EventAPIJson | null, type: str
                 else if (type == 'home' || type == 'away') {
                     let events: MatchDetailsAPIJson[] = []
                     try {
-                        const response = await fetch(`https://sofascore.com/api/v1/team/${type == 'home' ? event.homeTeam.id : event.awayTeam.id}/events/next/0`, {})
+                        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/team/${type == 'home' ? event.homeTeam.id : event.awayTeam.id}/events/next/0`, {})
                         if (response.ok) {
                             const data = await response.json()
                             events = data.events
@@ -55,7 +55,7 @@ const DisplayMatches = ({ event, type }: { event: EventAPIJson | null, type: str
 
                     }
                     try {
-                        const response = await fetch(`https://sofascore.com/api/v1/team/${type == 'home' ? event.homeTeam.id : event.awayTeam.id}/events/last/0`, {})
+                        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/team/${type == 'home' ? event.homeTeam.id : event.awayTeam.id}/events/last/0`, {})
                         if (response.ok) {
                             const data = await response.json()
                             events = events.concat(data.events)

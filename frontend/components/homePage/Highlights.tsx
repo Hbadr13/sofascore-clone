@@ -50,7 +50,7 @@ const Highlights = () => {
                                     className="absolute top-1 left-1 bg-blue-400 text-white font-medium py-[2px] px-2.5 text-[9px] rounded-xl">
                                     NEW
                                 </div>
-                                <Image alt='messi-ronaldo' className=" object-cover   w-full h-full rounded-xl" src="/image/messi-ronaldo.png" />
+                                <Image width={200} height={200} alt='messi-ronaldo' className=" object-cover   w-full h-full rounded-xl" src="/image/messi-ronaldo.png" />
                                 <div
                                     className="absolute  Z2 -bottom-7 h-1/2 w-full left-1 text-sm text-white font text-ellipsis overflow-hidden">
                                     {item.match}

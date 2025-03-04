@@ -14,7 +14,7 @@ const TopPlayers = () => {
     useEffect(() => {
         (
             async () => {
-                const response = await fetch(`https://sofascore.com/api/v1/sport/football/trending-top-players`, {});
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/sport/football/trending-top-players`, {});
                 if (response.ok) {
                     const data = await response.json()
                     settopPlayers(Array.from(data.topPlayers))
@@ -51,7 +51,7 @@ const TopPlayers = () => {
                         {
 
                             index == 0 && <div className="w-full p-2 absolut">
-                                <Image className=" object-contain rounded-3xl" src="/image/map-sofascore.jpeg" alt="" />
+                                <Image width={200} height={200} className=" object-contain rounded-3xl" src="/image/map-sofascore.jpeg" alt="" />
                             </div>
                         }
                     </div>
@@ -62,7 +62,7 @@ const TopPlayers = () => {
                     <div className=" font-medium text-blue-600 ">
                         {ShowMore ? 'Show less' : 'Show more'}
                     </div>
-                    <Image className={` w-4 ${ShowMore ? 'rotate-90 ' : '-rotate-90'}`} src="/image/blue-arraw.svg" alt="" />
+                    <Image width={200} height={200} className={` w-4 ${ShowMore ? 'rotate-90 ' : '-rotate-90'}`} src="/image/blue-arraw.svg" alt="" />
                 </button>
             </div>
             {

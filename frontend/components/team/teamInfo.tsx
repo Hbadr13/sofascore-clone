@@ -160,7 +160,7 @@ const TeamInfo = ({ team, allPlayers }: ITeamInfoProps) => {
             try {
                 if (!team)
                     return
-                const response = await fetch(`https://sofascore.com/api/v1/team/${team.id}/transfers`, {})
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/team/${team.id}/transfers`, {})
                 if (response.ok) {
                     const data = await response.json()
                     setTransfers(data)

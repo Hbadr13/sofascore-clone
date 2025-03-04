@@ -30,7 +30,7 @@ const TvChannels = ({ currentMatch, type }: ChannelsCompProps) => {
             setChannels([])
             idOfChannels.map(async (id) => {
                 try {
-                    const response = await fetch(`https://sofascore.com/api/v1/tv/channel/${id}/event/${currentMatch.id}/votes`, {})
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/tv/channel/${id}/event/${currentMatch.id}/votes`, {})
                     if (response.ok) {
                         const data = await response.json()
                         // chnls.push(data.tvChannelVotes)
@@ -58,7 +58,7 @@ const TvChannels = ({ currentMatch, type }: ChannelsCompProps) => {
             try {
                 if (!currentMatch)
                     return
-                const response = await fetch(`https://sofascore.com/api/v1/tv/event/${currentMatch.id}/country-channels`, {});
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/tv/event/${currentMatch.id}/country-channels`, {});
                 if (response.ok) {
                     const data = await response.json()
                     const countryChannelsMap = new Map<string, number[]>(Object.entries(data.countryChannels))

@@ -45,7 +45,7 @@ const SelectTournamentAndSeasson = ({ seassonStatistics, setSeassonStatistics, p
 			try {
 				if (player == null)
 					return
-				const response = await fetch(`https://www.sofascore.com/api/v1/player/${player.id}/statistics/seasons`, {})
+				const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/player/${player.id}/statistics/seasons`, {})
 				if (response.ok) {
 					const data = await response.json()
 					setSeassonStatistics(data)
@@ -132,7 +132,7 @@ const SeassonStatistics = ({ player }: { player: PlayerAPIJson | null }) => {
 
 					if (!player || !selectSeason || !selectTournament)
 						return
-					const response = await fetch(`https://www.sofascore.com/api/v1/player/${player.id}/unique-tournament/${selectTournament.id}/season/${selectSeason.id}/statistics/overall`, {})
+					const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/player/${player.id}/unique-tournament/${selectTournament.id}/season/${selectSeason.id}/statistics/overall`, {})
 					if (response.ok) {
 						const data = await response.json()
 						setStatistics(data)

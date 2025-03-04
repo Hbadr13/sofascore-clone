@@ -59,7 +59,7 @@ const Seasons = ({ tournamentId, seasonId }: SeasonsProps) => {
                 if (!tournamentId)
                     return
 
-                const response = await fetch(`https://sofascore.com/api/v1/unique-tournament/${tournamentId}/featured-events`, {});
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${tournamentId}/featured-events`, {});
                 if (response.ok) {
                     const data = await response.json()
                     setFeaturedEvent(data.featuredEvents[0])

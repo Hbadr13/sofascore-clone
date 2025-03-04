@@ -54,7 +54,7 @@ const AllLeagues = () => {
             async () => {
                 try {
                     setWaitdata(true)
-                    const response = await fetch('https://sofascore.com/api/v1/sport/football/categories', {})
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/sport/football/categories`, {})
                     if (response.ok) {
                         const data: any = await response.json()
                         setLeagues(data.categories)

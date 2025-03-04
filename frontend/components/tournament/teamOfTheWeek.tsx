@@ -155,7 +155,7 @@ const TeamOfTheWeek = ({ featuredEvent, tournamentId, seasonId }: TopTeamsProps)
         setWaitdata('wait')
         if (!round)
           return
-        const response = await fetch(`https://sofascore.com/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/team-of-the-week/${round?.id}`, {})
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/team-of-the-week/${round?.id}`, {})
         if (response.ok) {
           const data = await response.json()
           setTeamOfTheWeek(data)

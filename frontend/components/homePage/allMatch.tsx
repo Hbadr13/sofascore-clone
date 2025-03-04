@@ -39,7 +39,7 @@ const AllMatch = ({ matchs, setMatchs, currentMatch, setCurrentMatch, matchesDat
                 return
             }
             setwaitdataForMoreMatches(true)
-            const response = await fetch(`https://sofascore.com/api/v1/sport/football/scheduled-events/${extractFormDate(matchesDate.toDate())}/inverse`, {});
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/sport/football/scheduled-events/${extractFormDate(matchesDate.toDate())}/inverse`, {});
             if (response.ok) {
                 const data = await response.json()
                 const result = matchs.concat((data.events as MatchDetailsAPIJson[]).filter(item => moment((item.startTimestamp + (moment().utcOffset() * 60)) * 1000).isSame(matchesDate.toString(), 'day')));

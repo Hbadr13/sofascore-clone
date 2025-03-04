@@ -42,7 +42,7 @@ const MatchesOfplayer = ({ player }: StandingsProps) => {
                     return
                 setWaitdata(true)
 
-                const response = await fetch(`https://www.sofascore.com/api/v1/player/${player.id}/events/last/${page}`, {})
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/player/${player.id}/events/last/${page}`, {})
                 if (response.ok) {
                     const data = await response.json()
                     setdata(data)
@@ -59,7 +59,7 @@ const MatchesOfplayer = ({ player }: StandingsProps) => {
             }
         }
         getEvenstOfThePlayer()
-    }, [lastMatches, player, page, lastMatchesInfo])
+    }, [player, page])
 
     const handelClickPreviousRoundButton = () => {
         if (!lastMatches)

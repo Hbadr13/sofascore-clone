@@ -26,27 +26,27 @@ const MatchOverview = ({ scrollType }: { scrollType: string }) => {
                 let opts: Array<{ name: string }> = [{ name: 'DETAILS' }, { name: 'STANDINGS' }, { name: 'MATCHES' }, { name: 'LINEUPS' }, { name: 'COMMENTARY' }, { name: 'STATISTICS' }]
 
                 try {
-                    await fetch(`https://sofascore.com/api/v1/tournament/${currentMatch.tournament.id}/season/${currentMatch.season.id}/standings/total`, {});
+                    await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/tournament/${currentMatch.tournament.id}/season/${currentMatch.season.id}/standings/total`, {});
                 } catch (error) {
                     opts = opts.filter((item) => item.name != 'STANDINGS')
                 }
                 try {
-                    await fetch(`https://sofascore.com/api/v1/event/${currentMatch?.id}/lineups`, {});
+                    await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch?.id}/lineups`, {});
                 } catch (error) {
                     opts = opts.filter((item) => item.name != 'LINEUPS')
                 }
                 try {
-                    await fetch(`https://sofascore.com/api/v1/event/${currentMatch.id}/statistics`, {})
+                    await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.id}/statistics`, {})
                 } catch (error) {
                     opts = opts.filter((item) => item.name != 'STATISTICS')
                 }
                 try {
-                    await fetch(`https://sofascore.com/api/v1/event/${currentMatch.id}/comments`, {})
+                    await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.id}/comments`, {})
                 } catch (error) {
                     opts = opts.filter((item) => item.name != 'COMMENTARY')
                 }
                 try {
-                    await fetch(`https://sofascore.com/api/v1/event/${currentMatch.customId}/h2h/events`, {});
+                    await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.customId}/h2h/events`, {});
                 } catch (error) {
                     opts = opts.filter((item) => item.name != 'MATCHES')
 

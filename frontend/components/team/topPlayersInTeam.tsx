@@ -62,7 +62,7 @@ const TopPlayersInTeam = ({ team }: { team: ITeamAPIJson | null }) => {
                 if (!team || !selectSeason || !selectTournament)
                     return
                 setWaitdata('wait')
-                const response = await fetch(`https://sofascore.com/api/v1/team/${team.id}/unique-tournament/${selectTournament.id}/season/${selectSeason.id}/top-players/overall`, {})
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/team/${team.id}/unique-tournament/${selectTournament.id}/season/${selectSeason.id}/top-players/overall`, {})
                 if (response.ok) {
                     const data = await response.json()
                     const _topPlayer: ITopPlayersStatisticsAPIJson = data.topPlayers
@@ -203,7 +203,7 @@ const TopPlayersInTeam = ({ team }: { team: ITeamAPIJson | null }) => {
                     <div className=" font-medium text-blue-600 ">
                         {ShowMore ? 'Show less' : 'Show more'}
                     </div>
-                    <Image className={` w-4 ${ShowMore ? 'rotate-90 ' : '-rotate-90'}`} src="/image/blue-arraw.svg" alt="" />
+                    <Image width={200} height={200} className={` w-4 ${ShowMore ? 'rotate-90 ' : '-rotate-90'}`} src="/image/blue-arraw.svg" alt="" />
                 </button>
             </div>
             {

@@ -13,7 +13,7 @@ const MatchInfo = ({ event }: { event: EventAPIJson | null }) => {
                 if (!event)
                     return
                 setMatchInfo(null)
-                const response = await fetch(`https://sofascore.com/api/v1/event/${event.id}`, {});
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${event.id}`, {});
                 if (response.ok) {
                     const data = await response.json()
                     setMatchInfo(data.event)

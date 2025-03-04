@@ -35,7 +35,7 @@ const Commentary = ({ event, hideTitle, incidents }: { event: EventAPIJson | Mat
             try {
                 if (!event)
                     return
-                const response = await fetch(`https://sofascore.com/api/v1/event/${event.id}/comments`, {})
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${event.id}/comments`, {})
                 if (response.ok) {
                     const data = await response.json()
                     setcomments(data.comments)
@@ -245,7 +245,7 @@ const Commentary = ({ event, hideTitle, incidents }: { event: EventAPIJson | Mat
                     <div className=" font-medium text-blue-600 ">
                         {ShowMore ? 'Show less' : 'Show more'}
                     </div>
-                    <Image className={` w-4 ${ShowMore ? 'rotate-90 ' : '-rotate-90'}`} src="/image/blue-arraw.svg" alt="blue-arraw" />
+                    <Image width={200} height={200} className={` w-4 ${ShowMore ? 'rotate-90 ' : '-rotate-90'}`} src="/image/blue-arraw.svg" alt="blue-arraw" />
                 </button>
             </div>
             {

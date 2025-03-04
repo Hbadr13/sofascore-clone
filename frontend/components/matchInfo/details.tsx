@@ -143,7 +143,7 @@ const MatchDetails = ({ currentMatch, incidents, setIncidents }: currentMatchPro
                     return
                 try {
                     setWaitdata(true)
-                    const response = await fetch(`https://sofascore.com/api/v1/event/${currentMatch?.id}/pregame-form`, {});
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch?.id}/pregame-form`, {});
                     if (response.ok) {
                         const data = await response.json()
                         setPregameForm(data)
@@ -152,7 +152,7 @@ const MatchDetails = ({ currentMatch, incidents, setIncidents }: currentMatchPro
                 } catch (error) {
                 }
                 try {
-                    const response = await fetch(`https://sofascore.com/api/v1/event/${currentMatch?.id}/h2h`, {});
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch?.id}/h2h`, {});
                     if (response.ok) {
                         const data = await response.json()
                         setduelH2H(data)
@@ -160,7 +160,7 @@ const MatchDetails = ({ currentMatch, incidents, setIncidents }: currentMatchPro
                 } catch (error) {
                 }
                 try {
-                    const response = await fetch(`https://sofascore.com/api/v1/event/${currentMatch?.id}/managers`, {});
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch?.id}/managers`, {});
                     if (response.ok) {
                         const data = await response.json()
                         setManagers(data)
@@ -169,7 +169,7 @@ const MatchDetails = ({ currentMatch, incidents, setIncidents }: currentMatchPro
                 }
                 try {
                     setMatchInfo(null)
-                    const response = await fetch(`https://sofascore.com/api/v1/event/${currentMatch.id}`, {});
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.id}`, {});
                     if (response.ok) {
                         const data = await response.json()
                         setMatchInfo(data.event)

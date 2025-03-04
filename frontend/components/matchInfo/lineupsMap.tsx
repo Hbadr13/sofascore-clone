@@ -35,7 +35,7 @@ interface Lineups {
 async function getLineups(matchId: number): Promise<Lineups | null> {
     try {
 
-        const response = await fetch(`https://sofascore.com/api/v1/event/${matchId}/lineups`, {})
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${matchId}/lineups`, {})
         return response.ok ? await response.json() : null;
     } catch (error) {
 

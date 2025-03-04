@@ -56,7 +56,7 @@ const CardLayout = ({ length, user, index, animatedOut, windowWidth }: ICardLayo
     useEffect(() => {
         const getTheStatis = async () => {
             try {
-                const resposne = await fetch(`https://sofascore.com/api/v1/event/${user.event.id}/player/${user.player.id}/statistics`, {})
+                const resposne = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${user.event.id}/player/${user.player.id}/statistics`, {})
                 if (resposne.ok) {
                     const data = await resposne.json()
                     const playerStatistics: { [typeName: string]: { [statisName: string]: string | number } } =

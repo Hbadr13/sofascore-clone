@@ -45,7 +45,7 @@ const Page = () => {
         const teamId = Number(pathname.id)
         if (isNaN(teamId))
           throw ('playerIdNotFound')
-        const response = await fetch(`https://www.sofascore.com/api/v1/team/${teamId}`, {})
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/team/${teamId}`, {})
         if (response.ok) {
           const data = await response.json()
           if (data.team.slug != pathname.teamName)
@@ -65,7 +65,7 @@ const Page = () => {
       try {
         if (team == null)
           return
-        const response = await fetch(`https://www.sofascore.com/api/v1/team/${team.id}/players`, {})
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/team/${team.id}/players`, {})
         if (response.ok) {
           const data = await response.json()
           setWaitdata('done')

@@ -255,7 +255,7 @@ const Managers = ({ event }: { event: EventAPIJson | null }) => {
         try {
           if (event == null)
             return
-          const response = await fetch(`https://sofascore.com/api/v1/event/${event.id}/managers`, {});
+          const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${event.id}/managers`, {});
           if (response.ok) {
             const data = await response.json()
             setManagers(data)

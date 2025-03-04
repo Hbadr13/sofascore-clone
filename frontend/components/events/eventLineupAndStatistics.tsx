@@ -179,7 +179,7 @@ const EventLineup = ({ event, incidents, setIncidents }: PlayerStatisticsProps) 
                 if (event == null)
                     return
                 setWaitdata(true)
-                const response = await fetch(`https://sofascore.com/api/v1/event/${event.id}/lineups`, {})
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${event.id}/lineups`, {})
                 if (response.ok) {
                     const data = await response.json()
                     setlineups(data)

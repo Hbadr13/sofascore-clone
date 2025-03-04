@@ -148,7 +148,7 @@ const IncidentsComp = ({ event, incidents, setIncidents }: IIncidentsCompProps) 
             try {
                 if (!event)
                     return
-                const response = await fetch(`https://sofascore.com/api/v1/event/${event.id}/incidents`, {})
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${event.id}/incidents`, {})
                 if (response.ok) {
                     const data = await response.json()
                     setIncidents(data.incidents)
@@ -161,7 +161,7 @@ const IncidentsComp = ({ event, incidents, setIncidents }: IIncidentsCompProps) 
             try {
                 if (!event)
                     return
-                const response = await fetch(`https://sofascore.com/api/v1/event/${event.id}/best-players/summary`, {})
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${event.id}/best-players/summary`, {})
                 if (response.ok) {
                     const data = await response.json()
                     setwaitBestPlayers('done')

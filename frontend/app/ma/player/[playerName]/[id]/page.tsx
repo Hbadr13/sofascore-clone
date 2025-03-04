@@ -43,7 +43,7 @@ const Page = () => {
         const playerId = Number(pathname.id)
         if (isNaN(playerId))
           throw ('playerIdNotFound')
-        const response = await fetch(`https://www.sofascore.com/api/v1/player/${playerId}`, {})
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/player/${playerId}`, {})
         if (response.ok) {
           const data = await response.json()
           if (data.player.slug != pathname.playerName)
@@ -63,6 +63,7 @@ const Page = () => {
   return (
     <>
       <main className=" mb-20 tablet:mb-0  w-full  flex flex-col items-center justify-start bg-[#edf1f6] text-on-surface-nLv1 b-black">
+        helo{process.env.BACKEND_URL}
         <div className="w-full desktop:w-[1344px] tablet:w-[992px] flex space-x-0 tablet:space-x-5 ">
           <div className=" font-bold text-sm  my-2 flex truncate">
             <div className='text-blue-500 flex items-center space-x-0.5'>

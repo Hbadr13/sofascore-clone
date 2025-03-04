@@ -58,7 +58,7 @@ const TopPlayers = ({ featuredEvent }: TopPlayerProps) => {
             try {
                 if (!featuredEvent)
                     return
-                const response = await fetch(`https://www.sofascore.com/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/top-players/overall`, {})
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${featuredEvent.tournament.uniqueTournament.id}/season/${featuredEvent.season.id}/top-players/overall`, {})
                 if (response.ok) {
                     const data = await response.json()
                     if (!data.topPlayers.rating)
@@ -207,7 +207,7 @@ const TopPlayers = ({ featuredEvent }: TopPlayerProps) => {
                     <div className=" font-medium text-blue-600 ">
                         {ShowMore ? 'Show less' : 'Show more'}
                     </div>
-                    <Image className={` w-4 ${ShowMore ? 'rotate-90 ' : '-rotate-90'}`} src="/image/blue-arraw.svg" alt="" />
+                    <Image width={200} height={200} className={` w-4 ${ShowMore ? 'rotate-90 ' : '-rotate-90'}`} src="/image/blue-arraw.svg" alt="" />
                 </button>
             </div>
             {

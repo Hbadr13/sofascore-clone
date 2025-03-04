@@ -22,7 +22,7 @@ const Navbar = () => {
             async () => {
                 try {
                     setWaitData('wait')
-                    const response = await fetch(`https://sofascore.com/api/v1/search/${query1 == '' ? `suggestions/${currentSearchOption.slug == 'all' ? 'default' : currentSearchOption.slug}` : `${currentSearchOption.slug}?q=${query1} `}`, {});
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/search/${query1 == '' ? `suggestions/${currentSearchOption.slug == 'all' ? 'default' : currentSearchOption.slug}` : `${currentSearchOption.slug}?q=${query1} `}`, {});
                     if (response.ok) {
                         const data = await response.json()
                         setSuggestions(Array.from(data.results))

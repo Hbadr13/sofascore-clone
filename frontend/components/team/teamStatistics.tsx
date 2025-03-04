@@ -116,7 +116,7 @@ const TeamStatistics = ({ team }: { team: ITeamAPIJson | null }) => {
 				try {
 					if (!team || !selectSeason || !selectTournament)
 						return
-					const response = await fetch(`https://www.sofascore.com/api/v1/team/${team.id}/unique-tournament/${selectTournament.id}/season/${selectSeason.id}/statistics/overall`, {})
+					const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/team/${team.id}/unique-tournament/${selectTournament.id}/season/${selectSeason.id}/statistics/overall`, {})
 					if (response.ok) {
 						const data = await response.json()
 						setStatistics(data)

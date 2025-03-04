@@ -30,7 +30,7 @@ const Matches = ({ currentMatch }: MatchesProps) => {
           if (currentMatch == null)
             return
           setWaitdata(true)
-          const response = await fetch(`https://sofascore.com/api/v1/event/${currentMatch.id}/team-streaks`, {})
+          const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.id}/team-streaks`, {})
           if (response.ok) {
             const data = await response.json()
             setTeamStreaks(data)
@@ -54,7 +54,7 @@ const Matches = ({ currentMatch }: MatchesProps) => {
           setisSelected1(false)
           setisSelected_tournament(false)
           if (currentTeam == 'h2h') {
-            const response = await fetch(`https://sofascore.com/api/v1/event/${currentMatch.customId}/h2h/events`, {})
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${currentMatch.customId}/h2h/events`, {})
             if (response.ok) {
               const data = await response.json()
               setH2hEvent(data.events)
@@ -62,7 +62,7 @@ const Matches = ({ currentMatch }: MatchesProps) => {
             }
           }
           else if (currentTeam == 'home' || currentTeam == 'away') {
-            const response1 = await fetch(`https://sofascore.com/api/v1/team/${currentTeam == 'home' ? currentMatch.homeTeam.id : currentMatch.awayTeam.id}/events/next/0`, {})
+            const response1 = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/team/${currentTeam == 'home' ? currentMatch.homeTeam.id : currentMatch.awayTeam.id}/events/next/0`, {})
 
             let events: MatchDetailsAPIJson[] = []
 
@@ -70,7 +70,7 @@ const Matches = ({ currentMatch }: MatchesProps) => {
               const data = await response1.json()
               events = data.events
             }
-            const response2 = await fetch(`https://sofascore.com/api/v1/team/${currentTeam == 'home' ? currentMatch.homeTeam.id : currentMatch.awayTeam.id}/events/last/0`, {})
+            const response2 = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/team/${currentTeam == 'home' ? currentMatch.homeTeam.id : currentMatch.awayTeam.id}/events/last/0`, {})
             if (response2.ok) {
               const data = await response2.json()
               events = events.concat(data.events)

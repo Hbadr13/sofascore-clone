@@ -22,7 +22,7 @@ const MainComp = ({ matchesDate }: { matchesDate: Dayjs | null }) => {
                         return
                     setMatchs([])
                     setWaitdata(false)
-                    const response = await fetch(`https://sofascore.com/api/v1/sport/football/scheduled-events/${extractFormDate(matchesDate.toDate())}`, {});
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/sport/football/scheduled-events/${extractFormDate(matchesDate.toDate())}`, {});
                     if (response.ok) {
                         const data = await response.json()
                         const events: MatchDetailsAPIJson[] = (data.events as MatchDetailsAPIJson[]).filter(item => moment((item.startTimestamp + (moment().utcOffset() * 60)) * 1000).isSame(matchesDate.toString(), 'day'))

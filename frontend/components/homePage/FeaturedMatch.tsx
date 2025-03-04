@@ -18,7 +18,7 @@ const FeaturedMatch = ({ tournamentId, setFeaturedEvent, featuredEvent, seasonId
                     if (!tournamentId)
                         return
                     if (tournamentId && !seasonId) {
-                        const response = await fetch(`https://sofascore.com/api/v1/unique-tournament/${tournamentId}/featured-events`, {});
+                        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${tournamentId}/featured-events`, {});
                         if (response.ok) {
                             const data = await response.json()
                             setFeaturedEvent(data.featuredEvents[0])
@@ -26,7 +26,7 @@ const FeaturedMatch = ({ tournamentId, setFeaturedEvent, featuredEvent, seasonId
                         }
                     }
                     else {
-                        const response = await fetch(`https://sofascore.com/api/v1/unique-tournament/${tournamentId}/season/${seasonId}/events/last/0`, {});
+                        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${tournamentId}/season/${seasonId}/events/last/0`, {});
                         if (response.ok) {
                             const data = await response.json()
                             setFeaturedEvent(data.events[0])

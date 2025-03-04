@@ -17,7 +17,7 @@ const Streaks = ({ event }: { event: EventAPIJson | null }) => {
             try {
                 if (event == null)
                     return
-                const response = await fetch(`https://sofascore.com/api/v1/event/${event.id}/team-streaks`, {})
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${event.id}/team-streaks`, {})
                 if (response.ok) {
                     const data = await response.json()
                     setTeamStreaks(data)

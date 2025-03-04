@@ -22,7 +22,7 @@ const LastRating = ({ player, selectSeason, selectTournament }: ILastRatingProps
                 try {
                     if (!player || !selectSeason || !selectTournament)
                         return
-                    const response = await fetch(`https://www.sofascore.com/api/v1/player/${player.id}/unique-tournament/${selectTournament.id}/season/${selectSeason.id}/last-ratings`, {})
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/player/${player.id}/unique-tournament/${selectTournament.id}/season/${selectSeason.id}/last-ratings`, {})
                     if (response.ok) {
                         const data = await response.json()
                         setLastRating(Array.from(data.lastRatings as ILastRatingsAPIJson[]).reverse())

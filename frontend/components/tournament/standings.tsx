@@ -27,7 +27,7 @@ const RoundGroub = ({ groudId, featuredEvent }: IRoundGroubProps) => {
           if (!groudId)
             return
           setWaitdata(true)
-          const response = await fetch(`https://sofascore.com/api/v1/tournament/${groudId}/season/${featuredEvent?.season.id}/events`, {})
+          const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/tournament/${groudId}/season/${featuredEvent?.season.id}/events`, {})
           if (response.ok) {
             const data = await response.json()
             setEvents(data.events)
@@ -130,7 +130,7 @@ const Standings = ({ standings, setStandings, featuredEvent }: StandingsProps) =
 
         async function getLatestMatches(leagueId: number, seasonId: number, filter: string) {
           try {
-            const response = await fetch(`https://sofascore.com/api/v1/unique-tournament/${leagueId}/season/${seasonId}/team-events/${filter}`);
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${leagueId}/season/${seasonId}/team-events/${filter}`);
             const data = await response.json()
             const teams: { [id: number]: string[] } = {};
             for (const groupId of Object.keys(data.tournamentTeamEvents)) {

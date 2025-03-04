@@ -59,7 +59,7 @@ const MatchStatistics = ({ event, hideTitle }: { event: EventAPIJson | MatchDeta
             try {
                 if (!event)
                     return
-                const response = await fetch(`https://sofascore.com/api/v1/event/${event.id}/statistics`, {})
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/event/${event.id}/statistics`, {})
                 if (response.ok) {
                     const data = await response.json()
                     setStatistics(data.statistics)

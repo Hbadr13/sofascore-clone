@@ -35,7 +35,7 @@ const Topleagues = () => {
         (
             async () => {
                 try {
-                    const response = await fetch('https://sofascore.com/api/v1/config/top-unique-tournaments/MA/football', {})
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/config/top-unique-tournaments/MA/football`, {})
                     if (response.ok) {
                         const data: TopleaguesApi = await response.json()
                         setLeagues(data.uniqueTournaments)

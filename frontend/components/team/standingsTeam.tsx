@@ -40,7 +40,7 @@ export const SelectTournamentAndSeasson = ({ team, waitdata, setWaitdata, select
       try {
         if (team == null)
           return
-        const response = await fetch(`https://sofascore.com/api/v1/team/${team.id}/standings/seasons`, {})
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/team/${team.id}/standings/seasons`, {})
         if (response.ok) {
           const data = await response.json()
           setSeassonStatistics(data)
@@ -167,7 +167,7 @@ const StandingsTeam = ({ team }: StandingsProps) => {
         setWaitdata2(true)
         async function getLatestMatches(leagueId: number, seasonId: number, filter: string) {
           try {
-            const response = await fetch(`https://sofascore.com/api/v1/unique-tournament/${leagueId}/season/${seasonId}/team-events/${filter}`);
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/unique-tournament/${leagueId}/season/${seasonId}/team-events/${filter}`);
             const data = await response.json()
             const teams: { [id: number]: string[] } = {};
             for (const groupId of Object.keys(data.tournamentTeamEvents)) {
@@ -182,7 +182,7 @@ const StandingsTeam = ({ team }: StandingsProps) => {
         }
         try {
           getLatestMatches(selectTournament.uniqueTournament.id, selectSeason.id, filter);
-          const response = await fetch(`https://www.sofascore.com/api/v1/tournament/${selectTournament.id}/season/${selectSeason.id}/standings/${filter}`, {})
+          const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/tournament/${selectTournament.id}/season/${selectSeason.id}/standings/${filter}`, {})
           if (response.ok) {
             const data = await response.json()
             setStandings(data.standings)

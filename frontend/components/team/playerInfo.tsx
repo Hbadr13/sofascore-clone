@@ -106,7 +106,7 @@ const PlayerInfo = ({ player }: PlayerInfoProps) => {
       try {
         if (!player)
           return
-        const response = await fetch(`https://www.sofascore.com/api/v1/player/${player.id}/characteristics`, {})
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/player/${player.id}/characteristics`, {})
         if (response.ok) {
           const data: any = await response.json()
           setCharacteristics(data)

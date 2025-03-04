@@ -29,7 +29,7 @@ const PlayerAttributeOverview = ({ player }: { player: PlayerAPIJson | null }) =
             try {
                 if (!player)
                     return
-                const response = await fetch(`https://www.sofascore.com/api/v1/player/${player.id}/attribute-overviews`, {})
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/player/${player.id}/attribute-overviews`, {})
                 if (response.ok) {
                     const data: IAttributeOverviewsAPI = await response.json()
                     const _marks: SliderStepMark[] = Array.from(data.playerAttributeOverviews).map((overview, index) => {

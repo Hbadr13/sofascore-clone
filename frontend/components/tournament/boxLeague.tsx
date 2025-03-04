@@ -27,7 +27,7 @@ const Standings = ({ featuredEvent }: StandingsProps) => {
           if (featuredEvent == null)
             return
           setWaitdata(true)
-          const response = await fetch(`https://sofascore.com/api/v1/tournament/${featuredEvent.tournament.id}/season/${featuredEvent.season.id}/standings/${filter}`, {})
+          const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/tournament/${featuredEvent.tournament.id}/season/${featuredEvent.season.id}/standings/${filter}`, {})
           if (response.ok) {
             const data = await response.json()
             setStandings(data.standings[0])

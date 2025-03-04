@@ -25,7 +25,7 @@ const PLayerSummary = ({ player }: StandingsProps) => {
             try {
                 if (player == null)
                     return
-                const response = await fetch(`https://www.sofascore.com/api/v1/player/${player.id}/last-year-summary`, {})
+                const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/player/${player.id}/last-year-summary`, {})
                 if (response.ok) {
                     const data = await response.json()
                     setWaitdata('done')
