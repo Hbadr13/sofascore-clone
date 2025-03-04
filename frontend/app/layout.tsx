@@ -5,8 +5,14 @@ import Footer from "@/components/homePage/Footer";
 import PlayerStatisticCard, { } from '@/utils/playerStatisticCard'
 import { PlayersStatisticCardsProvider } from "@/context/playersStatisticCardsContext";
 import { WindowAttributesProvider } from "@/context/windowAttributes";
+import Head from "next/head";
 export const metadata: Metadata = {
-  title: "Sofascore"
+  title: "Sofa",
+  icons: {
+    icon: ['/favicon.ico?v=4'],
+    apple: ['/apple-touch-icon.png?v=4'],
+    shortcut: ['/apple-touch-icon.png']
+  }
 };
 
 export default function RootLayout({
@@ -17,6 +23,9 @@ export default function RootLayout({
 
   return (
     <html>
+      <Head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </Head>
       <body className="bg-[#edf1f6]">
         <WindowAttributesProvider>
           <PlayersStatisticCardsProvider>
