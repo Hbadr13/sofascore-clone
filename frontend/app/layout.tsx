@@ -22,6 +22,7 @@ export default function RootLayout({
           <PlayersStatisticCardsProvider>
             <PlayerStatisticCard />
             <Navbar />
+            ==={process.env.NEXT_PUBLIC_BACKEND_URL}===
             {children}
             <Footer />
           </PlayersStatisticCardsProvider>
