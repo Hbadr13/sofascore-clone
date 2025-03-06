@@ -14,7 +14,7 @@ import Topleagues from "@/components/homePage/Topleagues";
 const getHash = () =>
     typeof window !== 'undefined' ? window.location.hash : ''
 
-export const useHash = () => {
+const useHash = () => {
     const [isClient, setIsClient] = useState(false)
     const [hash, setHash] = useState<string>(getHash())
     const params = useParams()

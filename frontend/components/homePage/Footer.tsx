@@ -1,9 +1,8 @@
 'use client'
-import { useHash } from '@/app/ma/sl/[[...slug]]/page';
 import { Button } from '@nextui-org/react'
 import { Image } from '@nextui-org/react';
 
-import { usePathname, useRouter } from 'next/navigation'
+import { useParams, usePathname, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 export interface FooterbarDataProps {
     name: string,
@@ -12,6 +11,22 @@ export interface FooterbarDataProps {
     url: string,
     id: number
 }
+const getHash = () =>
+    typeof window !== 'undefined' ? window.location.hash : ''
+
+const useHash = () => {
+    const [isClient, setIsClient] = useState(false)
+    const [hash, setHash] = useState<string>(getHash())
+    const params = useParams()
+
+    useEffect(() => {
+        setIsClient(true)
+        setHash(getHash())
+    }, [params])
+
+    return isClient ? hash : ''
+}
+
 const Footer = () => {
     const hash = useHash()
 
