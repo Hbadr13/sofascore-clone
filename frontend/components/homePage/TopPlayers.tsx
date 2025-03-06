@@ -52,7 +52,7 @@ const TopPlayers = () => {
                         {
 
                             index == 0 && <div className="w-full p-2 absolut">
-                                <Image width={200} height={200} className=" object-contain rounded-3xl" src="/image/map-sofascore.jpeg" alt="" />
+                                <Image width={2000} height={2000} className=" object-contain rounded-xl" src="/image/map-sofascore.jpeg" alt="" />
                             </div>
                         }
                     </div>
