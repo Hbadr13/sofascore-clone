@@ -80,7 +80,7 @@ const MatchLineups = ({ currentMatch }: MatchLineupsProps) => {
   if (waitdata)
     return <Shimmer_lineups />
   return (
-    <div>
+    <div className='pt-2'>
       <div>
         <div className="flex px-4 space-x-4 my-4">
           <button onClick={() => setselectTeam('home')} className={`w-1/2 h-9  rounded-xl flex justify-center items-center ${selectTeam == 'home' ? ' bg-blue-100' : 'bg-slate-100'}`}>
@@ -112,7 +112,7 @@ const MatchLineups = ({ currentMatch }: MatchLineupsProps) => {
           <div className="text-center">Substitutions</div>
           {selectTeam == 'home' ?
             lineups?.home.players.map((item, index) =>
-              item.substitute && <button
+              item.substitute && <Link href={`/ma/player/${item.player.slug}/${item.player.id}`}
                 key={index}
                 className="flex items-start space-x-2 w-full border-b-[1px] border-gray-200  rounded-xl p-2">
                 <div className="w-10">
@@ -122,10 +122,10 @@ const MatchLineups = ({ currentMatch }: MatchLineupsProps) => {
                   <div className="text-gray-700">{item.player.name}</div>
                   <CheckSubstitutions item={item} incidents={incidents} />
                 </div>
-              </button>
+              </Link>
             ) :
             lineups?.away.players.map((item, index) =>
-              item.substitute && <button
+              item.substitute && <Link href={`/ma/player/${item.player.slug}/${item.player.id}`}
                 key={index}
                 className="flex items-center space-x-2 w-full  border-b-[1px] border-gray-200  rounded-xl p-2">
                 <div className="w-10">
@@ -135,7 +135,7 @@ const MatchLineups = ({ currentMatch }: MatchLineupsProps) => {
                   <div className="text-gray-700">{item.player.name}</div>
                   <CheckSubstitutions item={item} incidents={incidents} />
                 </div>
-              </button>
+              </Link>
             )
           }
         </div>
@@ -143,7 +143,7 @@ const MatchLineups = ({ currentMatch }: MatchLineupsProps) => {
           <div className="text-center">Missing players</div>
           {selectTeam == 'home' ?
             lineups?.home.missingPlayers && lineups?.home.missingPlayers.map((item, index) =>
-              <button key={index} className="flex items-center space-x-2 w-full border-b-[1px] border-gray-200  rounded-xl p-2">
+              <Link href={`/ma/player/${item.player.slug}/${item.player.id}`} key={index} className="flex items-center space-x-2 w-full border-b-[1px] border-gray-200  rounded-xl p-2">
                 <div className="w-10">
                   <DisplayImage onErrorImage='player' className='rounded-full' src={`https://api.sofascore.app/api/v1/player/${item.player.id}/image`} width={200} height={200} alt='' />
                 </div>
@@ -158,10 +158,10 @@ const MatchLineups = ({ currentMatch }: MatchLineupsProps) => {
                     </span>
                   </div>
                 </div>
-              </button>
+              </Link>
             ) :
             lineups?.away?.missingPlayers && lineups?.away?.missingPlayers.map((item, index) =>
-              <button key={index} className="flex items-center space-x-2 w-full  border-b-[1px] border-gray-200  rounded-xl p-2">
+              <Link href={`/ma/player/${item.player.slug}/${item.player.id}`} key={index} className="flex items-center space-x-2 w-full  border-b-[1px] border-gray-200  rounded-xl p-2">
                 <div className="w-10">
                   <DisplayImage onErrorImage='player' className='rounded-full' src={`https://api.sofascore.app/api/v1/player/${item.player.id}/image`} width={200} height={200} alt='' />
                 </div>
@@ -176,7 +176,7 @@ const MatchLineups = ({ currentMatch }: MatchLineupsProps) => {
                     </span>
                   </div>
                 </div>
-              </button>
+              </Link>
             )
           }
         </div>

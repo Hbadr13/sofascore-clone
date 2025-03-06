@@ -127,7 +127,7 @@ const PlayerInfo = ({ player }: PlayerInfoProps) => {
 
           <div className={`${player?.retired ? 'flex  flex-col tablet:flex-row' : 'block'} `}>
             <div className={`${player?.retired ? ' w-full tablet:w-3/5' : 'w-full'}`}>
-              <div className="border-b-1  ">
+              <div className="border-b-1   ">
                 <Link onClick={e => !eval && e.preventDefault()} href={`/ma/team/${player?.team.slug}/${player?.team.id}`} className="space-x-2  flex items-center py-2 pl-4">
                   <DisplayImage onErrorImage='team' className='w-10 h-10' alt='' width={1000} height={1000} src={`https://sofascore.com/api/v1/team/${player?.team.id}/image`} />
                   {

@@ -1,9 +1,10 @@
 'use client'
+import { useHash } from '@/app/ma/sl/[[...slug]]/page';
 import { Button } from '@nextui-org/react'
 import { Image } from '@nextui-org/react';
 
 import { usePathname, useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 export interface FooterbarDataProps {
     name: string,
     activeSVG: React.ReactNode
@@ -12,6 +13,7 @@ export interface FooterbarDataProps {
     id: number
 }
 const Footer = () => {
+    const hash = useHash()
 
     const pathname = usePathname()
     let button = 'Matches'
@@ -37,33 +39,54 @@ const Footer = () => {
             id: 1
         },
         {
-            name: 'Favourites',
-            activeSVG: <svg width="24" height="24" viewBox="0 0 24 24" fill="#374df5" ><path fill="#374df5" d="m17 6-2-2h-2V2h-2v2H9L7 6v8l-2 2v2h14v-2l-2-2V6zm-3 14h-4v2h4v-2z" fillRule="evenodd" height={24} width={24} ></path></svg>,
-            noneSVG: <svg width="24" height="24" viewBox="0 0 24 24" ><path d="M17 14V6l-2-2h-2V2h-2v2H9L7 6v8l-2 2v2h14v-2l-2-2zm-9.17 2 .59-.59.59-.59V6.83L9.84 6h4.34l.83.83v8l.59.59.59.59H7.83V16zM14 20h-4v2h4v-2z" fillRule="evenodd" height={24} width={24} ></path></svg>,
-            url: '/favorites',
+            name: 'Calendar',
+            activeSVG: <svg width="24" height="24" viewBox="0 0 24 24" fill="#374df5" className="SvgWrapper fyGiev"><path fill="#374df5" d="M20 2H2v20h20V2h-2zM4 4h16v2H4V4zm16 16H4V8h16v12z" fill-rule="evenodd"></path></svg>,
+            noneSVG: <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--primary-default)" className="SvgWrapper fyGiev"><path fill="var(--primary-default)" d="M20 2H2v20h20V2h-2zM4 4h16v2H4V4zm16 16H4V8h16v12z" fill-rule="evenodd"></path></svg>,
+            url: '/ma/sl/#calendar',
             id: 2
         },
-        {
-            name: 'Menu',
-            activeSVG: <svg width="24" height="24" viewBox="0 0 24 24" fill="#374df5" ><path fill="#374df5" d="M4 4H2v4h2V6h18V4H4zm16 14H2v2h20v-4h-2v2zm2-7H2v2h20v-2z" fillRule="evenodd" height={24} width={24} ></path></svg>,
-            noneSVG: <svg width="24" height="24" viewBox="0 0 24 24" ><path d="M4 4H2v4h2V6h18V4H4zm16 14H2v2h20v-4h-2v2zm2-7H2v2h20v-2z" fillRule="evenodd" height={24} width={24} ></path></svg>,
-            url: '/',
-            id: 3
-        },
+        // {
+        //     name: 'Menu',
+        //     activeSVG: <svg width="24" height="24" viewBox="0 0 24 24" fill="#374df5" ><path fill="#374df5" d="M4 4H2v4h2V6h18V4H4zm16 14H2v2h20v-4h-2v2zm2-7H2v2h20v-2z" fillRule="evenodd" height={24} width={24} ></path></svg>,
+        //     noneSVG: <svg width="24" height="24" viewBox="0 0 24 24" ><path d="M4 4H2v4h2V6h18V4H4zm16 14H2v2h20v-4h-2v2zm2-7H2v2h20v-2z" fillRule="evenodd" height={24} width={24} ></path></svg>,
+        //     url: '/',
+        //     id: 3
+        // },
     ]
+    useEffect(() => {
+        if (hash == "#calendar")
+            setCurrentbutton('Calendar')
+        else if (hash == "#leagues")
+            setCurrentbutton('Leagues')
+        else
+            setCurrentbutton('Matches')
+    }, [hash])
+
+
+    const [prevScrollY, setPrevScrollY] = useState(0);
+    const [isVisible, setIsVisible] = useState(true);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > prevScrollY && currentScrollY > 50) {
+                // Scroll down → Hide Navbar
+                setIsVisible(false);
+            } else {
+                // Scroll up → Show Navbar
+                setIsVisible(true);
+            }
+
+            setPrevScrollY(currentScrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [prevScrollY]);
+
     return (
-        <>  {
-            currentbutton == 'Menu' && <div className="w-full h-[calc(100%-60px)] top-0 z-50 bg-blue-400  absolute">
-                <div className="">app ..</div>
-                <div className="">app ..</div>
-                <div className="">app ..</div>
-                <div className="">app ..</div>
-                <div className="">app ..</div>
-                <div className="">app ..</div>
-                <div className="">app ..</div>
-                <div className="">app ..</div>
-            </div>
-        }
+        <div className={``}>
             <div className=" bg-[#2c3ec4]  flex  capitalize max-w-full  flex-col items-center     mt-10">
                 <div className=" w-full hidden tablet:flex  desktop:w-[1344px] tablet:w-[992px] space-x-14 py-10 text-white">
                     <div className="w-1/2  space-y-4">
@@ -189,7 +212,7 @@ const Footer = () => {
 
 
                 <div
-                    className="w-full text-[13px] pt-2   h-[60px] px-4  border-b-2  bg-white border-gray-300 fixed  bottom-0   tablet:hidden flex justify-between items-center ">
+                    className={` transition-transform duration-300 ${isVisible ? "translate-y-0" : "translate-y-full"} w-full text-[13px] pt-2   h-[60px] px-4  border-b-2  bg-white border-gray-300 fixed z-50  bottom-0   tablet:hidden flex justify-between items-center `}>
                     {footerbarData.map((item, index) =>
                         <Button key={index} onClick={() => { setCurrentbutton(item.name); router.push(item.url) }} className={` relative ${currentbutton == item.name ? 'text-blue-500' : ' text-gray-800'} flex  flex-col  bg-white  h-14  -space-y-1.5  px-5 w-1/4`}>
                             {currentbutton == item.name
@@ -202,7 +225,7 @@ const Footer = () => {
                     )}
                 </div>
             </div>
-        </>
+        </div>
 
     )
 }

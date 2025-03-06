@@ -55,7 +55,7 @@ const MatchesOfTeam = ({ team }: StandingsProps) => {
             }
         }
         getEvenstOfThePlayer()
-    }, [lastMatches, lastMatchesInfo, team, page])
+    }, [team, page])
 
     const handelClickPreviousRoundButton = () => {
         if (!lastMatches)

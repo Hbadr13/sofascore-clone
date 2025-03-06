@@ -12,12 +12,11 @@ const TeamCard = ({ team }: TeamCardProps) => {
     return (
         <div className="  w-full -[200px] overflow-hidden relative   rounded-sm tablet:rounded-2xl">
             <div style={{ backgroundImage: !team ? '' : `url(https://sofascore.com/api/v1/team/${team.id}/image/)` }} className="BoxSeasonBlur z-10 rounded-2xl bg-slate-400"></div>
-            <div className=" z-20 relative  h-40 transition flex items-center">
-                <div className="flex items-center  w-full tablet:w-[calc(100%-300px)] ">
+            <div className=" z-20 relative h-32  tablet:h-40 transition flex items-center">
+                <div className="flex items-center  w-full desktop:w-[calc(100%-350px)] ">
                     <div className=" w-32 h-32 tablet:h-40  tablet:w-40 p-6 ">
-                        <div className=" h-full w-full  rounded-xl  bg-white p-3">
+                        <div className=" h-full w-full  tablet:rounded-xl  tablet:bg-white tablet:p-3">
                             {team && <Image
-                                className='rounded-full'
                                 isZoomed
                                 alt={`team:${team.id}`}
                                 // style={{ borderRadius: 100 }}
@@ -30,17 +29,17 @@ const TeamCard = ({ team }: TeamCardProps) => {
                         </div>
                     </div>
                     <div className="  flex  flex-col justify-center space-y-2 items-start h-full text-white">
-                        <div className=" text-xl tablet:text-3xl font-extrabold truncate ">{team?.name}</div>
+                        <div className=" text-base  md:text-xl tablet:text-3xl font-extrabold truncate ">{team?.name}</div>
                         <div className=" relative  flex items-center  justify-center space-x-2">
                             <DisplayImage width={24} height={24} alt='team' onErrorImage='flag' src={`https://api.sofascore.app/static/images/flags/${team?.country.alpha2.toLowerCase()}.png`} />
                             <div className=" font-semibold">{team?.country.name}</div>
                         </div>
                     </div>
                 </div>
-                <div className={` w-[300px]  desktop:w-[350px] hidden tablet:flex items-center  justify-center h-full`}>
+                <div className={`  w-0  desktop:w-[350px] hidden desktop:flex items-center  justify-center h-full`}>
                     <div className=" relative h-[70px]  w-[280px] pr-2  rounded-2xl   flex justify-between items-center">
                         <div className="SmallboxSeasonBlur rounded-2xl z-10"></div>
-                        <div className=" text-[11px] text-white  p-1 z-20">
+                        <div className="  text-[11px] text-white  p-1 z-20">
                             Receive notifications for all games of this team
                         </div>
                         <div className="z-20">

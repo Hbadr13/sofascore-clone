@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Image } from '@nextui-org/react';
 
 import DisplayImage from '@/utils/displayImage'
+import Link from 'next/link';
 interface FeaturedMatchProps {
     setFeaturedEvent: (featuredEvent: EventAPIJson) => void
     featuredEvent: EventAPIJson | null
@@ -62,19 +63,11 @@ const FeaturedMatch = ({ tournamentId, setFeaturedEvent, featuredEvent, seasonId
                             <div className="w-10 h-2 rounded-full bg-slate-200"></div>
                         </div>
                     </div>
-                    //  <div
-                    //                     className="animate-pulse bg-gradient-to-r h-28 from-[#cde5df] via-[#f1f1f1] to-[#cde5df] p-1.5 rounded-xl space-y-3  ">
-                    //                     <div className="flex justify-between text-[12px]">
-                    //                         <div className="space-x-1"><span>Full time</span><span className="text-orange-600">Live</span></div>
-                    //                         <div className="bg-green-700 rounded-[5px] px-[8px] py-[2px] font-medium text-[12px]"><span
-                    //                             className="text-white">bet</span><span className="text-yellow-300">365</span></div>
-                    //                     </div>
-                    //                 </div>
 
                 }
                 {
 
-                    featuredEvent && <div className="flex  bg-[#f5f6f9] p-1.5 rounded-xl">
+                    featuredEvent && <Link href={`/ma/${featuredEvent.slug}/${featuredEvent.customId}#id:${featuredEvent.id}`} className="flex  bg-[#f5f6f9] p-1.5 rounded-xl">
                         <div className="w-1/3 flex flex-col justify-center items-center">
                             <div className="w-14 h-14">
                                 <DisplayImage onErrorImage='team' width={500} height={500} src={`https://sofascore.com/api/v1/team/${featuredEvent.homeTeam.id}/image/`} alt='cllub' />
@@ -91,7 +84,7 @@ const FeaturedMatch = ({ tournamentId, setFeaturedEvent, featuredEvent, seasonId
                                         20:00 PM
                                     </p>
                             }
-                            <div className="font-semibold">{featuredEvent?.status.type}</div>
+                            <div className="font-semibold text-xs capitalize">{featuredEvent?.status.type == 'notstarted' ? 'not started' : featuredEvent?.status.type}</div>
                         </div>
                         <div className="w-1/3 flex flex-col justify-center items-center">
                             <div className="w-14 h-14">
@@ -99,7 +92,7 @@ const FeaturedMatch = ({ tournamentId, setFeaturedEvent, featuredEvent, seasonId
                             </div>
                             <p className="">{featuredEvent?.awayTeam.shortName}</p>
                         </div>
-                    </div>
+                    </Link>
                 }
             </div >
 

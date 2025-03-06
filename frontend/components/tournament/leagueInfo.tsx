@@ -54,85 +54,75 @@ const LeagueInfo = ({ featuredEvent, tournamentId, seasonId }: LeagueInfoProps) 
 
 
     return (
-        <div className="bg-[#ffffff] bg-green- MYDeg rounded-2xl h-[700px] flex flex-col">
+        <div className="bg-[#ffffff] text-sm tablet:text-base bg-green- MYDeg rounded-2xl pb-3 flex flex-col">
             <div className=" flex  items-center  h-[50px]  border-b-1  justify-between">
                 <div className="w-full text-center text-lg font-semibold ">League info</div>
             </div>
-            <div className="flex-1 flex  bg-red-40 h-[640px] rounded-2xl   w-full ">
-                <div className="w-1/2 h-full  border-r-1">
-
-
-                </div>
-                <div className="w-1/2  h-full   ">
-                    <div
-                        hidden={leagueInfo?.newcomersLowerDivision.length == 0}
-                        className="border-b-1 space-y-2 p-4">
-                        <div className="">
-                            Newcomers from lower division
-                        </div>
-                        <div className=" space-y-2  ">
-                            {
-                                leagueInfo?.newcomersLowerDivision.map((item, index) => <div key={index}
-                                    className='flex items-center space-x-4'
-                                >
-                                    <div className="w-10 h-10">
-                                        <DisplayImage onErrorImage='team' src={`https://sofascore.com/api/v1/team/${item.id}/image/`} width={400} height={400} alt='club' />
-                                    </div>
-                                    <div className="">
-                                        {item.shortName}
-                                    </div>
-                                </div>)
-                            }
-                        </div>
+            <div className="flex-1 flex  bg-red-40 pb-4 rounded-2xl   w-full ">
+                <div
+                    hidden={leagueInfo?.newcomersLowerDivision.length == 0}
+                    className="border-b-1 space-y-2 p-4">
+                    <div className="">
+                        Newcomers from lower division
                     </div>
-                    <div className="border-b-1 space-y-2 p-4">
-                        <div className=" font-semibold t">
-                            Facts
+                    <div className=" space-y-2  ">
+                        {
+                            leagueInfo?.newcomersLowerDivision.map((item, index) => <div key={index}
+                                className='flex items-center space-x-4'
+                            >
+                                <div className="w-10 h-10">
+                                    <DisplayImage onErrorImage='team' src={`https://sofascore.com/api/v1/team/${item.id}/image/`} width={400} height={400} alt='club' />
+                                </div>
+                                <div className="">
+                                    {item.shortName}
+                                </div>
+                            </div>)
+                        }
+                    </div>
+                </div>
+                <div className="border-b-1 space-y-2 p-4">
+                    <div className=" font-semibold t">
+                        Facts
+                    </div>
+                    <div className=" space-y-2  opacity-70 ">
+                        <div className="flex justify-between">
+                            <div className="">Goals</div>
+                            <div className="">{leagueInfo?.goals}</div>
                         </div>
-                        <div className=" space-y-2  opacity-70 ">
-                            <div className="flex justify-between">
-                                <div className="">Goals</div>
-                                <div className="">{leagueInfo?.goals}</div>
-                            </div>
-                            <div className="flex justify-between">
-                                <div className="">Matchs</div>
-                                <div className="">{leagueInfo?.totalMatchs}</div>
-                            </div>
-
-                            {leagueInfo && <div className="flex justify-between">
-                                <div className="">Draws</div>
-                                <div className="">{Math.floor(leagueInfo?.draws * 100 / leagueInfo?.totalMatchs)}%</div>
-                            </div>
-                            }
-                            {leagueInfo && <div className="flex justify-between">
-                                <div className="">home Team Wins</div>
-                                <div className="">{Math.floor(leagueInfo?.homeTeamWins * 100 / leagueInfo?.totalMatchs)}%</div>
-                            </div>
-                            }
-                            {leagueInfo && <div className="flex justify-between">
-                                <div className="">Away Team Wins</div>
-                                <div className="">{Math.floor(leagueInfo?.awayTeamWins * 100 / leagueInfo?.totalMatchs)}%</div>
-                            </div>
-                            }
-
-
-                            {leagueInfo && <div className="flex justify-between">
-                                <div className="">Yellow Cards</div>
-                                <div className="">{String(leagueInfo?.yellowCards / leagueInfo.totalMatchs).slice(0, 4)}</div>
-                            </div>}
-                            {leagueInfo && <div className="flex justify-between">
-                                <div className="">Red Cards</div>
-                                <div className="">{String(leagueInfo?.redCards / leagueInfo.totalMatchs).slice(0, 4)}</div>
-                            </div>}
-                            {leagueInfo && <div className="flex justify-between">
-                                <div className="">Number of competitors</div>
-                                <div className="">{leagueInfo.numberOfCompetitors}</div>
-                            </div>}
-                            {/* <div className="flex justify-between">
-                                <div className="">Red Cards</div>
-                                <div className="">{}</div>
-                            </div> */}
+                        <div className="flex justify-between">
+                            <div className="">Matchs</div>
+                            <div className="">{leagueInfo?.totalMatchs}</div>
                         </div>
+
+                        {leagueInfo && <div className="flex justify-between">
+                            <div className="">Draws</div>
+                            <div className="">{Math.floor(leagueInfo?.draws * 100 / leagueInfo?.totalMatchs)}%</div>
+                        </div>
+                        }
+                        {leagueInfo && <div className="flex justify-between">
+                            <div className="">home Team Wins</div>
+                            <div className="">{Math.floor(leagueInfo?.homeTeamWins * 100 / leagueInfo?.totalMatchs)}%</div>
+                        </div>
+                        }
+                        {leagueInfo && <div className="flex justify-between">
+                            <div className="">Away Team Wins</div>
+                            <div className="">{Math.floor(leagueInfo?.awayTeamWins * 100 / leagueInfo?.totalMatchs)}%</div>
+                        </div>
+                        }
+
+
+                        {leagueInfo && <div className="flex justify-between">
+                            <div className="">Yellow Cards</div>
+                            <div className="">{String(leagueInfo?.yellowCards / leagueInfo.totalMatchs).slice(0, 4)}</div>
+                        </div>}
+                        {leagueInfo && <div className="flex justify-between">
+                            <div className="">Red Cards</div>
+                            <div className="">{String(leagueInfo?.redCards / leagueInfo.totalMatchs).slice(0, 4)}</div>
+                        </div>}
+                        {leagueInfo && <div className="flex justify-between">
+                            <div className="">Number of competitors</div>
+                            <div className="">{leagueInfo.numberOfCompetitors}</div>
+                        </div>}
                     </div>
                 </div>
             </div>

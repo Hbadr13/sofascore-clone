@@ -64,9 +64,8 @@ const Page = () => {
   return (
     <>
       <main className=" mb-20 tablet:mb-0  w-full  flex flex-col items-center justify-start bg-[#edf1f6] text-on-surface-nLv1 b-black">
-        helo{process.env.BACKEND_URL}
-        <div className="w-full desktop:w-[1344px] tablet:w-[992px] flex space-x-0 tablet:space-x-5 ">
-          <div className=" font-bold text-sm  my-2 flex truncate">
+        <div className=" bg-white target:bg-[#edf1f6] w-full desktop:w-[1344px] tablet:w-[992px] flex space-x-0 tablet:space-x-5 px-3 ">
+          <div className=" font-bold text-xs tablet:text-sm  my-2 flex truncate">
             <div className='text-blue-500 flex items-center space-x-0.5'>
               <div className="">Soccer</div>
               <div className="w-[16px]">
@@ -89,29 +88,31 @@ const Page = () => {
 
         {
           windowWidth < 992 ?
-            <div className="w-full desktop:w-[1344px] tablet:w-[992px] flex  flex-col items-start ">
+            <div className="w-full ">
               <PlayerCard player={player} />
-              <div className="w-full flex items-center">
-                {tabs.map((tab, index) => <button key={index} onClick={() => setCurrentTab(tab)} className={`${currentTab == tab ? 'text-blue-600 border-b-blue-600 font-semibold border-b-2' : 'text-blue-400 border-b-blue-300 border-b-1'} text-sm w-1/3 py-3 `}>{tab}</button>)}
+              <div className="w-full overflow-x-auto whitespace-nowrap hideScroll flex items-center bg-white">
+                {tabs.map((tab, index) => <button key={index} onClick={() => setCurrentTab(tab)} className={` min-w-24 ${currentTab == tab ? 'text-blue-600 border-b-blue-600 font-semibold border-b-2' : 'text-blue-400 border-b-blue-300 border-b-1'} text-sm w-1/3 py-3 `}>{tab}</button>)}
               </div>
+              <div className="mt-3">
 
-              {
-                currentTab == 'DETAILS' ?
-                  <div className="  w-full ">
-                    <PlayerInfo player={player} />
-                    <PLayerSummary player={player} />
-                    <TransferHistory player={player} />
-                    <NationalTeam player={player} />
-                    <PlayerProfile player={player} />
-                  </div> :
-                  currentTab == 'STATISTICS' ?
-                    <div className=" relative  w-full">
-                      <SeassonStatistics player={player} />
+                {
+                  currentTab == 'DETAILS' ?
+                    <div className="  w-full  px-3 space-y-3">
+                      <PlayerInfo player={player} />
+                      <PLayerSummary player={player} />
+                      <TransferHistory player={player} />
+                      <NationalTeam player={player} />
+                      <PlayerProfile player={player} />
                     </div> :
-                    <div className=" w-full">
-                      <MatchesOfplayer player={player} />
-                    </div>
-              }
+                    currentTab == 'STATISTICS' ?
+                      <div className=" relative  w-full px-2">
+                        <SeassonStatistics player={player} />
+                      </div> :
+                      <div className=" w-full px-2">
+                        <MatchesOfplayer player={player} />
+                      </div>
+                }
+              </div>
             </div>
             : <div className="w-full desktop:w-[1344px] tablet:w-[992px] flex items-start space-x-0 tablet:space-x-5 ">
               <div className=" w-[100%] tablet:w-[645px] desktop:w-[880px]   space-y-5 ">

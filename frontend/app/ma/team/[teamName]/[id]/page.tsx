@@ -35,7 +35,7 @@ const Page = () => {
   }, []);
 
 
-  const tabs = ['DETAILS', 'MATCHES', 'STANDINGS', 'SQUAD', 'TOP PLAYERS', 'STATISTICS', 'MEDIA']
+  const tabs = ['DETAILS', 'MATCHES', 'STANDINGS', 'SQUAD', 'TOP PLAYERS', 'STATISTICS']
 
 
 
@@ -84,8 +84,8 @@ const Page = () => {
   return (
     <>
       <main className=" mb-20 tablet:mb-0  w-full  flex flex-col items-center justify-start bg-[#edf1f6] text-on-surface-nLv1 b-black">
-        <div className="w-full desktop:w-[1344px] tablet:w-[992px] flex space-x-0 tablet:space-x-5 ">
-          <div className="  font-normal tablet:font-bold  text-xs tablet:text-sm  my-2 flex items-center space-x-1 truncate">
+        <div className="w-full overflow-x-auto whitespace-nowrap hideScroll desktop:w-[1344px] tablet:w-[992px] flex space-x-0 tablet:space-x-5  bg-white tablet:bg-[#edf1f6]">
+          <div className="  px-2 font-normal tablet:font-bold  text-xs tablet:text-sm  my-2 flex items-center space-x-1 truncate">
             <div className='text-blue-500 flex items-center space-x-0.5'>
               <div className="">Soccer</div>
               <div className="w-[16px]">
@@ -108,42 +108,44 @@ const Page = () => {
 
         {
           windowWidth < 992 ?
-            <div className="w-full desktop:w-[1344px] tablet:w-[992px] flex  flex-col items-start ">
+            <div className="w-full">
               <TeamCard team={team} />
-              <div className="w-full overflow">
-                {tabs.map((tab, index) => <button key={index} onClick={() => setCurrentTab(tab)} className={` w-[100px] ${currentTab == tab ? 'text-blue-600 border-b-blue-600 font-semibold border-b-2' : 'text-blue-400 border-b-blue-300 border-b-1'} text-sm  py-3 `}>{tab}</button>)}
+              <div className="w-full overflow-x-auto whitespace-nowrap hideScroll flex items-center bg-white">
+                {tabs.map((tab, index) => <button key={index} onClick={() => setCurrentTab(tab)} className={` min-w-24 ${currentTab == tab ? 'text-blue-600 border-b-blue-600 font-semibold border-b-2' : 'text-blue-400 border-b-blue-300 border-b-1'} text-sm w-1/3 py-3 `}>{tab}</button>)}
               </div>
 
-              {
-                currentTab == 'DETAILS' ?
-                  <div className="  w-full ">
-                    <RecentForm team={team} />
-                    <TeamInfo team={team} allPlayers={allPlayers} />
-                    <AboutTeam allPlayers={allPlayers} team={team} />
-                  </div> :
-                  currentTab == 'MATCHES' ?
-                    <div className=" relative  w-full">
-                      <MatchesOfTeam team={team} />
+              <div className="px-3 space-y-3 mt-3">
+                {
+                  currentTab == 'DETAILS' ?
+                    <div className="  w-full space-y-3">
+                      <RecentForm team={team} />
+                      <TeamInfo team={team} allPlayers={allPlayers} />
+                      <AboutTeam allPlayers={allPlayers} team={team} />
                     </div> :
-                    currentTab == 'STANDINGS' ?
+                    currentTab == 'MATCHES' ?
                       <div className=" relative  w-full">
-                        <StandingsTeam team={team} />
+                        <MatchesOfTeam team={team} />
                       </div> :
-                      currentTab == 'SQUAD' ?
+                      currentTab == 'STANDINGS' ?
                         <div className=" relative  w-full">
-                          <AllPlayers allPlayers={allPlayers} setAllPlayers={setAllPlayers} team={team} />
+                          <StandingsTeam team={team} />
                         </div> :
-                        currentTab == 'TOP PLAYERS' ?
+                        currentTab == 'SQUAD' ?
                           <div className=" relative  w-full">
-                            <TopPlayersInTeam team={team} />
+                            <AllPlayers allPlayers={allPlayers} setAllPlayers={setAllPlayers} team={team} />
                           </div> :
-                          currentTab == 'STATISTICS' ?
+                          currentTab == 'TOP PLAYERS' ?
                             <div className=" relative  w-full">
-                              <TeamStatistics team={team} />
+                              <TopPlayersInTeam team={team} />
                             </div> :
-                            <div className=" w-full">
-                            </div>
-              }
+                            currentTab == 'STATISTICS' ?
+                              <div className=" relative  w-full">
+                                <TeamStatistics team={team} />
+                              </div> :
+                              <div className=" w-full">
+                              </div>
+                }
+              </div>
             </div>
             :
             <div className="w-full desktop:w-[1344px] tablet:w-[992px] flex items-start space-x-0 tablet:space-x-5 ">

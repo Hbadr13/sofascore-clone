@@ -43,7 +43,7 @@ const PLayerSummary = ({ player }: StandingsProps) => {
         return <ShiPLayerSummarytsx />
 
     return (
-        <div className="bg-[#ffffff] MYDeg rounded-2xl  flex flex-col p-3">
+        <div className="bg-[#ffffff] MYDeg rounded-2xl  flex flex-col p-3  w-full">
             <div className="w-full text-center text-lg font-semibold  pb-2">Summary (last 12 months)</div>
             <div className="w-full flex flex-col tablet:flex-row space-x-4">
                 <div className="w-full tablet:w-1/2 ">
@@ -66,9 +66,9 @@ const PLayerSummary = ({ player }: StandingsProps) => {
                         </div>
                     </div>
                     <div className="">
-                        <button onClick={() => type == 'averageRating' ? settype('numberOfmatchs') : settype('averageRating')} className=" relative w-full rounded-xl  text-xs bg-on-surface-nLv5 p-2">
+                        <button onClick={() => type == 'averageRating' ? settype('numberOfmatchs') : settype('averageRating')} className=" relative w-full overflow-x-auto whitespace-nowrap hideScroll rounded-xl  text-xs bg-on-surface-nLv5 p-2">
                             <div className="w-[calc(100%-16px)] h-1 z-10 top-[35%] absolute border-t-2 border-dotted border-green-500 my-4" />
-                            <div className="flex justify-between items-start relative  z-20">
+                            <div className="flex justify-between space-y-0.5 items-start relative  z-20">
                                 {
                                     summary.summary.map((item, index) =>
                                         moment(summary.summary[index].timestamp * 1000).format('MMM') != moment(summary.summary[index - 1]?.timestamp * 1000).format('MMM')
@@ -82,7 +82,7 @@ const PLayerSummary = ({ player }: StandingsProps) => {
                                             {
                                                 item.type == 'event' ?
                                                     <div className="">
-                                                        <div className="h-32 flex items-end">
+                                                        <div className="h-32 flex items-end w-5">
 
                                                             <div
                                                                 style={{ height: `${summary.summary.filter((temp) => temp.type == 'event' && moment(temp.timestamp * 1000).format('MMM') == moment(item.timestamp * 1000).format('MMM')).reduce((accumulator, currentValue) => { return accumulator + (currentValue.value ? parseFloat(currentValue.value) : 0) }, 0) / summary.summary.filter((temp) => temp.type == 'event' && moment(temp.timestamp * 1000).format('MMM') == moment(item.timestamp * 1000).format('MMM')).length * 100 / 10}%` }}

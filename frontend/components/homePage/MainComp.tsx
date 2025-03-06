@@ -40,12 +40,8 @@ const MainComp = ({ matchesDate }: { matchesDate: Dayjs | null }) => {
         <div >
             <div className="flex justify-between items-center  px-4 pt-4">
                 <div className="border-[2px] h-10 flex rounded-3xl font-semibold text-lg bg-[#edf1f6]">
-                    <button onClick={() => setAllOrLive('all')} className={`text-green-500  border-green-500 rounded-3xl py-1 px-4 -m-[2px] ${allOrLive == 'all' ? 'border-[1px] bg-white' : ''}`}>
+                    <button onClick={() => setAllOrLive('all')} className={`text-green-500  text-sm border-green-500 rounded-xl py-0.5 px-4 -m-[2px] ${allOrLive == 'all' ? 'border-[1px] bg-white' : ''}`}>
                         ALL
-                    </button>
-                    <button onClick={() => setAllOrLive('live')} className={`text-red-600 border-red-500 rounded-3xl px-3 flex items-center space-x-2 ${allOrLive == 'live' ? 'border-[1px] bg-white' : ''}`}>
-                        <div className="w-2 h-2 rounded-full bg-red-600"></div>
-                        <div>LIVE(62)</div>
                     </button>
                 </div>
 

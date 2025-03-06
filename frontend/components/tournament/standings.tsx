@@ -174,7 +174,7 @@ const Standings = ({ standings, setStandings, featuredEvent }: StandingsProps) =
     <>
       {
         standings?.map((standing, index) =>
-          <div key={index} className="bg-[#ffffff] MYDeg rounded-2xl">
+          <div key={index} className="bg-[#ffffff] MYDeg rounded-2xl py-1">
             <div className="w-full text-center text-lg font-semibold  pb-5 pt-2">{standing.tournament.isGroup ? standing.tournament.groupName : 'Standings'}</div>
             <div className="flex">
               <div className={`${standing.tournament?.isGroup ? 'w-2/3' : 'w-full'}`}>
@@ -191,63 +191,66 @@ const Standings = ({ standings, setStandings, featuredEvent }: StandingsProps) =
                     </button>
                   </div>
                 </div>
+                <div className=" w-full  overflow-x-auto whitespace-nowrap hideScroll">
 
-                <div className="flex py-1 border-b-1 border-gray-200 mb-1 items-center justify-between pr-3 pl-2 text-gray-400 text-sm">
-                  <div className="flex items-center">
-                    <div className="w-6 text-center ">#</div>
-                    <div className="">Team</div>
+                  <div className="flex min-w-[400px] py-1 border-b-1 border-gray-200 mb-1 items-center justify-between pr-3 pl-2 text-gray-400 text-sm">
+                    <div className="flex items-center">
+                      <div className="w-6 text-center ">#</div>
+                      <div className="">Team</div>
+                    </div>
+                    <div className="flex text-xs md:text-sm">
+                      <div className="w-10 text-center">P</div>
+                      <div className="w-10 text-center">W</div>
+                      <div className="w-10 text-center">D</div>
+                      <div className="w-10 text-center">L</div>
+                      <div className="w-10 text-center">Goals</div>
+                      <div className="hidden w-0 md:block md:w-32 text-center ">Last 5</div>
+                      <div className="w-10 text-center">PTS</div>
+                    </div>
                   </div>
-                  <div className="flex">
-                    <div className="w-10 text-center">P</div>
-                    <div className="w-10 text-center">W</div>
-                    <div className="w-10 text-center">D</div>
-                    <div className="w-10 text-center">L</div>
-                    <div className="w-10 text-center">Goals</div>
-                    <div className="w-32 text-center">Last 5</div>
-                    <div className="w-10 text-center">PTS</div>
-                  </div>
-                </div>
-                <div>
-                  <div className=" space-y-2 text-gray-600 text-sm font-medium">
-                    {standing.rows.map((item, index) =>
-                      <Link href={`/ma/team/${item.team.slug}/${item.team.id}`} key={index} className=" w-full flex items-center justify-between space-x-2 hover:bg-custom-default-hover pr-3 pl-2">
-                        <div className=" flex items-center space-x-1">
-                          <div className="w-6">
-                            <div className={`w-[22px] h-[22px]  text-[12px] rounded-full bg-green-600   text-white font-black  flex justify-center items-center`}>
-                              {item.position}
+                  <div>
+                    <div className=" space-y-2 text-gray-600 text-sm font-medium">
+                      {standing.rows.map((item, index) =>
+                        <Link href={`/ma/team/${item.team.slug}/${item.team.id}`} key={index} className="  min-w-[400px] py-1 active:opacity-65 w-full flex items-center justify-between space-x-2 hover:bg-custom-default-hover pr-3 pl-2">
+                          <div className=" flex items-center space-x-1">
+                            <div className="w-6">
+                              <div className={`w-[17px] h-[17px]  md:w-[22px] md:h-[22px]  text-[9px]  md:text-[12px] rounded-full bg-green-600   text-white font-black  flex justify-center items-center`}>
+                                {item.position}
+                              </div>
                             </div>
+                            <DisplayImage onErrorImage='team' className=' w-4 md:w-6' src={`https://sofascore.com/api/v1/team/${item.team?.id}/image`} alt='/h' width={400} height={400} />
+                            <div className=" text-start w-auto block md:w-0 md:hidden  text-xs md:text-sm">{item.team?.shortName.slice(0, 5)}..</div>
+                            <div className=" text-start md:w-auto md:block w-0 hidden  text-xs md:text-sm">{item.team?.shortName}</div>
                           </div>
-                          <DisplayImage onErrorImage='team' className='w-6' src={`https://sofascore.com/api/v1/team/${item.team?.id}/image`} alt='/h' width={400} height={400} />
-                          <div className=" text-start text-sm">{item.team?.shortName}</div>
-                        </div>
-                        <div className=" flex ">
-                          <div className="w-10">{item.matches}</div>
-                          <div className="w-10">{item.wins}</div>
-                          <div className="w-10">{item.draws}</div>
-                          <div className="w-10">{item.losses}</div>
-                          <div className="w-10 ">{item.scoresFor}:{item.scoresAgainst}</div>
-                          <div className="w-32 flex justify-center">
+                          <div className=" flex ">
+                            <div className="w-10 text-xs md:text-sm text-center">{item.matches}</div>
+                            <div className="w-10 text-xs md:text-sm text-center">{item.wins}</div>
+                            <div className="w-10 text-xs md:text-sm text-center">{item.draws}</div>
+                            <div className="w-10 text-xs md:text-sm text-center">{item.losses}</div>
+                            <div className="w-10 text-xs md:text-sm text-center">{item.scoresFor}:{item.scoresAgainst}</div>
+                            <div className="hidden w-0 md:w-32 md:flex justify-center">
 
-                            {
+                              {
 
-                              latestMatches && Object.getOwnPropertyDescriptor(latestMatches, item.team.id)?.value.concat(['-']).map((item: string, index: number) =>
-                                <div
-                                  key={index}
-                                  className={`w-5 h-5  text-white  flex justify-center items-center  text-[11px]
+                                latestMatches && Object.getOwnPropertyDescriptor(latestMatches, item.team.id)?.value.concat(['-']).map((item: string, index: number) =>
+                                  <div
+                                    key={index}
+                                    className={`w-5 h-5  text-white  flex justify-center items-center  text-[11px]
                                             ${index == 0 ? 'rounded-l-lg' : index == 5 ? 'rounded-r-lg' : ''}
                                             ${item == 'L' ? 'bg-red-500' : item == 'W' ? ' bg-green-500' : item == 'D' ? 'bg-slate-300' : 'bg-gray-200'}
                                             `}>
-                                  <div className="">
-                                    {item != '-' ? item : ''}
+                                    <div className="">
+                                      {item != '-' ? item : ''}
+                                    </div>
                                   </div>
-                                </div>
-                              )
-                            }
+                                )
+                              }
+                            </div>
+                            <div className="w-10 text-xs md:text-sm text-center">{item.points}</div>
                           </div>
-                          <div className="w-10">{item.points}</div>
-                        </div>
-                      </Link >)}
-                  </div>
+                        </Link >)}
+                    </div>
+                  </div >
                 </div >
 
               </div >

@@ -54,9 +54,6 @@ const AllMatch = ({ matchs, setMatchs, currentMatch, setCurrentMatch, matchesDat
 
     return (
         <div className="w-full  bg-white ">
-            <div className="p-4 font-bold opacity-65">
-                Pinned Leagues
-            </div>
             {
                 !waitdata && <Shimmer1 />
             }

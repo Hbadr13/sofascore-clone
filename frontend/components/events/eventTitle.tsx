@@ -6,7 +6,7 @@ const EventTitle = ({ event }: { event: EventAPIJson | null }) => {
     // if (!event)
     //     return
     return (
-        <div className="w-full flex justify-center bg-white h-28 ">
+        <div className="w-full flex justify-center bg-white h-28  rounded-b-xl p-2">
             <div className=" w-full  desktop:w-[1344px] tablet:w-[992px] " >
                 <div className=" font-bold text-sm  flex">
                     <div className='text-blue-500 flex items-center space-x-0.5'>

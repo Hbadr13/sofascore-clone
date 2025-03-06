@@ -27,7 +27,21 @@ const Navbar = ({ waitData, query, setQuery, suggestions, setSuggestions, curren
     const refInput = useRef<any>();
     const [clickInInput, setclickInInput] = useState(false)
     const router = useRouter()
+    useEffect(() => {
+        if (typeof window === "undefined") return; // Ensure we are on the client
 
+        const handleResize = () => {
+            if (window.innerWidth < 992)
+                setclickInInput(true);
+        };
+
+        window.addEventListener("resize", handleResize);
+        handleResize(); // Set initial value after mount
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
     const handelOnKeyDown = (e: any) => {
         if (e.key == 'Enter') {
             const search = query.trim().replace(/\s+/g, ' ')
@@ -56,7 +70,7 @@ const Navbar = ({ waitData, query, setQuery, suggestions, setSuggestions, curren
     return (
         <>
             <div
-                className="  text-on-surface-nLv1 w-[360px] h-10 relative text-md font-extralight bg-white outline-none   rounded-xl"
+                className="  text-on-surface-nLv1  w-[300px] tablet:w-[360px] h-10 relative text-md font-extralight bg-white outline-none   rounded-xl"
             >
                 <div className=" absolute left-4 h-full flex items-center">
                     <Image alt='' width={28} height={28} className=" " src='/image/search.png' />
@@ -68,7 +82,7 @@ const Navbar = ({ waitData, query, setQuery, suggestions, setSuggestions, curren
                     onChange={(e) => { setQuery(e.target.value) }}
                     autoComplete='off'
                     onKeyDown={handelOnKeyDown}
-                    className="Search w-[360px] pl-14 h-10  bg-slate-40  right-0 border-0  sm:border  
+                    className="Search w-[300px] tablet:w-[360px] pl-14 h-10  bg-slate-40  right-0 border-0  sm:border  
                             outline-none block   text-sm  text-gray-900   rounded-xl    duration-300" placeholder="Search" required />
                 <button onClick={() => setQuery('')} className="text-white  top-0  absolute right-3  h-full">
                     <Image src={'/image/clean.png'} width={30} height={30} alt="clean"></Image>
@@ -76,15 +90,15 @@ const Navbar = ({ waitData, query, setQuery, suggestions, setSuggestions, curren
                 {
                     clickInInput &&
                     <div
-                        className=" animate-appearance-in  min-h-[400px] max-h-[700px] h-[700px]  overflow-hidden bg-white    absolute  top-12 bg-CusColor_grey   w-[360px]   rounded-xl shadow-xl"
+                        className=" animate-appearance-in  min-h-[400px] max-h-[400px] h-[400px]  tablet:max-h-[700px]  tablet:h-[700px]  overflow-hidden bg-white    absolute  top-12 bg-CusColor_grey   w-[300px] tablet:w-[360px]   rounded-xl shadow-xl"
                         ref={refCardSearch}
                     >
-                        <div className="flex justify-center py-2 text-[12px]  border-gray-200 border-b-[1px] space-x-1" >
+                        <div className="flex  justify-center py-2 text-[12px]  border-gray-200 border-b-[1px] space-x-1.5" >
                             {
                                 searchOptions.map((item, index) =>
                                     <button
                                         key={index}
-                                        onClick={() => { currentSearchOption != item ? setSuggestions([]) : undefined, setCurrentSearchOption(item) }} className={`py-2  hover:bg-blue-100 px-3 rounded-xl  border-blue-600  bg-surface-s2  ${item.name == currentSearchOption.name ? ' border-1' : ''} `}>
+                                        onClick={() => { currentSearchOption != item ? setSuggestions([]) : undefined, setCurrentSearchOption(item) }} className={` py-0.5 tablet:py-2  hover:bg-blue-100  px-1 tablet:px-3 rounded-md  tablet:rounded-xl  border-blue-600  bg-surface-s2  ${item.name == currentSearchOption.name ? ' border-1' : ''} `}>
                                         {item.name}
                                     </button>
                                 )
@@ -173,7 +187,7 @@ const Navbar = ({ waitData, query, setQuery, suggestions, setSuggestions, curren
                                                 <div className="">
                                                     <div className="flex items-center space-x-1.5">
                                                         <p className='text-sm'>
-                                                            {item.entity.name}:{item.type}
+                                                            {item.entity.name}
                                                         </p>
                                                         <div className="w-1.5 h-1.5 bg-gray-200 rounded-full" />
                                                         <div className="w-6 flex justify-center items-center opacity-65">

@@ -123,7 +123,7 @@ const PlayerInfo = ({ player }: PlayerInfoProps) => {
   return (
     <div className="bg-[#ffffff] bg-green- MYDeg rounded-2xl flex flex-col">
       <div className=" flex  flex-col tablet:flex-row  bg-red-40  rounded-2xl    w-full ">
-        <div className=" w-full tablet:w-1/2 ">
+        <div className=" w-full tablet:w-1/2  ">
           <div className="border-b-1  ">
             <Link href={'/'} className="space-x-2  flex items-center py-2 pl-4">
               <DisplayImage onErrorImage='team' className='w-10 h-10' alt='' width={1000} height={1000} src={`https://sofascore.com/api/v1/team/${player?.team.id}/image`} />

@@ -62,7 +62,7 @@ const Page = () => {
         <div className="hidden tablet:block ">
           <EventTitle event={event} />
         </div>
-        <div className="w-full desktop:w-[1344px] tablet:w-[992px] flex items-start space-x-0 tablet:space-x-5 mt-5 ">
+        <div className="w-full desktop:w-[1344px] tablet:w-[992px] flex items-start space-x-0 tablet:space-x-5  tablet:mt-5 ">
           <div className="  relative  hidden tablet:block   tablet:w-[323px] desktop:w-[440px]   rounded-2xl  space-y-5">
             <EventOverview incidents={incidents} setIncidents={setIncidents} event={event} />
             <MatchStatistics event={event} hideTitle={false} />
@@ -75,7 +75,7 @@ const Page = () => {
             <Streaks event={event} />
             <Matches event={event} />
           </div>
-          <div className="tablet:hidden block w-full">
+          <div className="tablet:hidden block w-full ">
             <MatchOverview scrollType={'3'} />
           </div>
         </div>

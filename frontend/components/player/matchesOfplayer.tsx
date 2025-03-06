@@ -13,6 +13,7 @@ import SvgIcons from '@/utils/svgIcons'
 import DisplayRating from '@/utils/displayRating'
 import DisplayImage from '@/utils/displayImage'
 import DisplayEventDate from '@/utils/displayEventDate'
+import { useRouter } from 'next/navigation';
 
 interface StandingsProps {
     player: PlayerAPIJson | null
@@ -28,6 +29,7 @@ const MatchesOfplayer = ({ player }: StandingsProps) => {
     const [page, setPage] = useState<number>(0)
     const [lastMatchesInfo, setLastMatchesInfo] = useState<{ index: number, lengh: number, hasNextPage: boolean, eventLength: number }>({ index: 0, lengh: 0, hasNextPage: true, eventLength: 0 })
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const router = useRouter()
     useEffect(() => {
         const handleResize = () => {
             setWindowWidth(window.innerWidth);
@@ -131,7 +133,7 @@ const MatchesOfplayer = ({ player }: StandingsProps) => {
                     <div className="">
                         {
                             matches && matches.events.map((item, _index) => (
-                                <div key={_index} className={`   w-full space-y- text-[14px]`}>
+                                <div key={_index} className={` px-1  w-full space-y- text-[14px]`}>
                                     {
                                         matches.events[_index].tournament.name != matches.events[_index - 1]?.tournament.name &&
                                         <div className="w-full flex">
@@ -151,7 +153,7 @@ const MatchesOfplayer = ({ player }: StandingsProps) => {
                                         </div>
                                     }
                                     <button
-                                        onClick={() => setCurrentMatch(item)}
+                                        onClick={() => { windowWidth < 992 ? router.push(`/ma/${item.slug}/${item.customId}#id:${item.id}`) : setCurrentMatch(item) }}
                                         className={` w-full flex items-center space-x-3  py-1 hover:bg-custom-default-hover ${currentMatch?.id == item.id ? 'bg-custom-default-hover' : ''}`}>
 
                                         <div className="w-[20%] text-[12px]  flex flex-col justify-center items-center border-r-[1px] border-[#b8b9bda7] opacity-50 ">

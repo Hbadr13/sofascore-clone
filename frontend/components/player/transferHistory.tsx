@@ -158,8 +158,8 @@ const TransferHistory = ({ player }: StandingsProps) => {
                 <div className="w-full tablet:w-1/2">
                     {transferHistory.map((item, index) =>
                         <div key={index} className='flex items-center space-x-2'>
-                            <DisplayImage onErrorImage='team' className='w-10 h-10' src={item.transferTo ? `https://api.sofascore.app/api/v1/team/${item.transferTo.id}/image` : 'https://www.sofascore.com/static/images/placeholders/team.svg'} width={500} height={500} alt={'image:' + item.toTeamName} />
-                            <div className="border-b-[1px]  py-2 w-full flex justify-between items-center">
+                            <DisplayImage onErrorImage='team' className=' w-8 h-8 md:w-10 md:h-10' src={item.transferTo ? `https://api.sofascore.app/api/v1/team/${item.transferTo.id}/image` : 'https://www.sofascore.com/static/images/placeholders/team.svg'} width={500} height={500} alt={'image:' + item.toTeamName} />
+                            <div className="border-b-[1px]  pr-3 py-2 w-full flex justify-between items-center">
                                 <div className="">
                                     <div className="text-sm">
                                         {item.toTeamName}

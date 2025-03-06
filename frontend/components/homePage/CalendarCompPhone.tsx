@@ -5,11 +5,20 @@ import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Button } from '@nextui-org/react';
 import { extractFormDate } from '@/utils/function';
 
-export default function CalendarComp({ matchesDate, setMatchesDate }: { matchesDate: Dayjs | null, setMatchesDate: any }) {
+export default function CalendarCompPhone() {
+    let date
+    const pathname = usePathname()
+    const pages = pathname.split('/').slice(1, pathname.split('/').length)
+
+    if (pathname == '/ma/sl')
+        date = extractFormDate(new Date())
+    else
+        date = extractFormDate(new Date(pages[2]))
+    const [matchesDate, setMatchesDate] = React.useState<Dayjs | null>(dayjs(date));
 
     const router = useRouter()
     return (

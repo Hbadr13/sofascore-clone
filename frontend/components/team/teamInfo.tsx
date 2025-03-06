@@ -180,7 +180,7 @@ const TeamInfo = ({ team, allPlayers }: ITeamInfoProps) => {
             }
             <div className="w-full text-center text-lg font-semibold  py-4  border-b-1 ">Team info</div>
             <div className="flex-1 flex  flex-col tablet:flex-row  bg-red-40 rounded-2xl   w-full ">
-                <div className=" w-full target:w-1/2  h-full border-r-1 ">
+                <div className=" w-full tablet:w-1/2  h-full border-r-1 ">
                     <div className="p-2">
                         <div className=" space-y-5 p-3 w-full  bg-surface-s2 rounded-xl">
                             <div className="flex justify-around">

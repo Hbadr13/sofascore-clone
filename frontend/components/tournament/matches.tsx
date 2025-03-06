@@ -16,6 +16,7 @@ import DisplayImage from '@/utils/displayImage'
 import CustomDropdown from '@/utils/customDropdown'
 import SvgIcons from '@/utils/svgIcons'
 import DisplayEventDate from '@/utils/displayEventDate'
+import { useRouter } from 'next/navigation';
 
 interface StandingsProps {
     featuredEvent: EventAPIJson | null
@@ -112,9 +113,23 @@ const Matches = ({ featuredEvent, seasonId, pageName }: StandingsProps) => {
     const { currentMatch, setCurrentMatch } = useCurrentMatch();
     const [page, setPage] = useState<number>(0)
     const [lastMatchesInfo, setLastMatchesInfo] = useState<{ index: number, lengh: number, hasNextPage: boolean, eventLength: number }>({ index: 0, lengh: 0, hasNextPage: true, eventLength: 0 })
+    const router = useRouter()
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     useEffect(() => {
         (
             async () => {
+
                 if (featuredEvent == null || groupingOption == 'BY DATE')
                     return
                 setWaitdata(true)
@@ -155,7 +170,6 @@ const Matches = ({ featuredEvent, seasonId, pageName }: StandingsProps) => {
         (
             async () => {
                 try {
-
                     if (featuredEvent == null)
                         return
                     setWaitdata(true)
@@ -199,9 +213,10 @@ const Matches = ({ featuredEvent, seasonId, pageName }: StandingsProps) => {
                 }
             }
         )()
-    }, [featuredEvent, selectRound, groupingOption, page, selectGroup, lastMatchesInfo, lastMatches, setCurrentMatch])
+    }, [featuredEvent, selectRound, groupingOption, page, selectGroup])
 
     useEffect(() => {
+
         setLastmatches([])
         setPage(0)
         setLastMatchesInfo({ index: 0, lengh: 0, hasNextPage: true, eventLength: 0 })
@@ -295,7 +310,7 @@ const Matches = ({ featuredEvent, seasonId, pageName }: StandingsProps) => {
                 </div>
             </div>
             <div className="flex-1 flex  rounded-2xl   w-full ">
-                <div className="w-1/2 h-full  border-r-1">
+                <div className=" w-full tablet:w-1/2 h-full  tablet:border-r-1">
                     {
                         groupingOption == 'BY DATE' ?
                             <div className="flex justify-between border-b-1 py-2 px-4 text-sm">
@@ -378,8 +393,8 @@ const Matches = ({ featuredEvent, seasonId, pageName }: StandingsProps) => {
                                         </div>
                                     }
                                     <button
-                                        onClick={() => setCurrentMatch(item)}
-                                        className={` w-full flex items-center space-x-3  py-1 hover:bg-custom-default-hover ${currentMatch?.id == item.id ? 'bg-custom-default-hover' : ''}`}>
+                                        onClick={() => { windowWidth > 992 ? router.push(`/ma/${item.slug}/${item.id}`) : setCurrentMatch(item) }}
+                                        className={` active:opacity-65 w-full flex items-center space-x-3  py-1 hover:bg-custom-default-hover ${currentMatch?.id == item.id ? 'bg-custom-default-hover' : ''}`}>
 
                                         <div className="w-[20%] text-[12px]  flex flex-col justify-center items-center border-r-[1px] border-[#b8b9bda7] opacity-50 ">
                                             <DisplayEventDate event={item} />
@@ -428,13 +443,13 @@ const Matches = ({ featuredEvent, seasonId, pageName }: StandingsProps) => {
 
                     </div>
                 </div>
-                <div className="w-1/2  ">
+                {windowWidth >= 992 && <div className=" w-0 hidden tablet:block tablet:w-1/2  ">
                     <CustomScroll className='w-full' allowOuterScroll={true} heightRelativeToParent="100%" >
                         {currentMatch &&
                             <MatchOverview scrollType={'2'} />
                         }
                     </CustomScroll>
-                </div>
+                </div>}
             </div >
         </div >
     )

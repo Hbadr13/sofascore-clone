@@ -45,7 +45,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
     return (
         <>
-            <main className=" w-full  flex flex-col items-center justify-start bg-[#edf1f6] b-black">
+            <main className=" w-full  flex flex-col items-center justify-start bg-[#edf1f6] b-black px-3 mb-10">
                 <div className="w-full desktop:w-[1344px] tablet:w-[992px] flex space-x-0 tablet:space-x-5 ">
                     <p className=" font-bold text-sm opacity-40 my-2">
                         Soccer live scores and today schedule
@@ -57,7 +57,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         <Topleagues />
                         <AllLeagues />
                     </div>
-                    <div className="MYDeg w-full tablet:w-[44%] max:w-[540px]   bg-[#ffffff]   rounded-2xl  px-1 ">
+                    <div className="MYDeg w-full tablet:w-[44%] max:w-[540px]   mb-10 tablet:mb-0 bg-[#ffffff]   rounded-2xl  px-1 ">
                         {children}
                     </div>
                     <div className=" relative w-[28%] max:w-[432px] hidden tablet:block  rounded-2xl  space-y-5">
@@ -66,7 +66,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                                 <MatchOverview scrollType={'1'} />
                                 :
                                 <>
-                                    <Highlights />
+                                    {/* <Highlights /> */}
                                     <FeaturedMatch featuredEvent={featuredEvent} setFeaturedEvent={setFeaturedEvent} tournamentId={17} />
                                     <TopPlayers />
                                     <LiveSoccer />

@@ -16,7 +16,7 @@ interface MmatchStatusProps {
 const MatchStatus = ({ event, incidents }: MmatchStatusProps) => {
 
     return (
-        <div className=''>
+        <div className='px-1'>
             <div className="flex font-bold  justify-between items-center px-2 w-full min-h-20 ">
                 <div className="flex  items-center justify-center   relative w-1/4 ">
                     <button className="hover:bg-blue-200/60 rounded-lg absolute -left-1 top-2">
