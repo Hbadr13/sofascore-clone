@@ -3,7 +3,7 @@ import React from 'react'
 const Shi_StatisticsTable = () => {
     return <div className="p-3 space-y-8">
         {
-            'www.alkor'.split('').map((item, index) =>
+            'www.sofa..'.split('').map((item, index) =>
             (
                 <div key={index} className=" ">
                     <div className="animate-pulse flex items-center ">

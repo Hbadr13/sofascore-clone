@@ -63,7 +63,7 @@ const Navbar = () => {
                         <div className=" relative w-full  flex justify-center items-center tablet:h-[64px]">
                             <Link href=" /" className="h-full w-1/2 ">
                                 <Image
-                                    className='max-w-[200px]'
+                                    className='max-w-[200px] bg-[#2c3ec4]'
                                     width={300}
                                     height={50}
                                     src="/sofa-logo.png"
