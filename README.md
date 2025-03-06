@@ -9,6 +9,8 @@ Check out the live version: [Sofa](https://sofa-nu.vercel.app/ma/sl)
 ## Features
 
 - **Live scores & match statistics**
+- **Match info, player cards, team cards**
+- **Lineups, match events, and commentary sections**
 - **Fully responsive UI** with Tailwind CSS
 - **Powered by Sofascore API**
 - **Built with Next.js** for performance & SEO optimization
@@ -24,7 +26,7 @@ Check out the live version: [Sofa](https://sofa-nu.vercel.app/ma/sl)
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/sofa.git
+   git clone https://github.com/Hbadr13/sofascore-clone.git
    cd sofa
    ```
 
