@@ -271,7 +271,7 @@ const StandingsTeam = ({ team }: StandingsProps) => {
                             <div className="w-10 text-center">{item.draws}</div>
                             <div className="w-10 text-center">{item.losses}</div>
                             <div className="w-10 text-center">{item.scoresFor}:{item.scoresAgainst}</div>
-                            <div className="hidden w-0 md:block md:w-32 text-center ">
+                            <div className="hidden w-0 md:flex md:w-32  text-center ">
                               {
                                 latestMatches && Object.getOwnPropertyDescriptor(latestMatches, item.team.id)?.value.concat(['-']).map((item: string, index: number) =>
                                   <div

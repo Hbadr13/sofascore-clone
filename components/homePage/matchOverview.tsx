@@ -121,8 +121,8 @@ const MatchOverview = ({ scrollType }: { scrollType: string }) => {
             <div className={`mb-5 ${scrollType == '1' ? ' -translate-y-6 sticky top-[124px] text-white' : 'text-white'} `}>
 
                 <div className='  text-black  w-full  justify-between   rounded-2xl'>
-                    <div className={`${scrollType == '1' ? 'h-[calc(100vh - 170px)]' : ' h-full tablet:h-[700px]'}   pb-2 rounded-b-2 w-full items top-[120px] justify-between  rounded-2xl`}>
-                        {/* <div style={scrollType == '1' ? { height: 'calc(100vh - 170px)' } : { height: '700px' }} className='   pb-2 rounded-b-2 w-full items top-[120px] justify-between  rounded-2xl'> */}
+                    {/* <div className={`${scrollType == '1' ? 'h-[calc(100vh - 170px)]' : ' h-full tablet:h-[700px]'}   pb-2 rounded-b-2 w-full items top-[120px] justify-between  rounded-2xl`}> */}
+                    <div style={scrollType == '1' ? { height: 'calc(100vh - 170px)' } : { height: windowWidth < 992 ? 'auto' : '700px' }} className='   pb-2 rounded-b-2 w-full items top-[120px] justify-between  rounded-2xl'>
                         <CustomScroll className='w-full' allowOuterScroll={true} heightRelativeToParent="100%" >
                             <div className="">
                                 <div className=" bg-white">
@@ -147,17 +147,7 @@ const MatchOverview = ({ scrollType }: { scrollType: string }) => {
                                         <Link href={`/ma/${currentMatch?.slug}/${currentMatch?.customId}#id:${currentMatch?.id}`} className="py-1.5 px-4 text-center bg-blue-600 text-white rounded-3xl hover:bg-blue-500 ">SHOW MORE</Link>
                                     </div>
                                     <div className={`${windowWidth < 992 ? 'hideScroll' : ''} w-full overflow-x-auto   whitespace-nowrap    tablet:text-sm `}>
-                                        {
-                                            options.map((item, index) =>
-                                                <button
-                                                    key={index}
-                                                    onClick={() => setCurrentoption(item.name)}
-                                                    className={` text-center   text-base  px-2 truncate py-2 ${item.name == currentOption ? 'border-b-2 border-blue-600 text-blue-600' : 'border-b-blue-300 border-b-1 text-blue-300'}`}
-                                                >
-                                                    {item.name}
-                                                </button>
-                                            )
-                                        }
+                                        {options.map((tab, index) => <button key={index} onClick={() => setCurrentoption(tab.name)} className={` min-w-20 ${currentOption == tab.name ? 'text-blue-600 border-b-blue-600 font-semibold border-b-2' : 'text-blue-400 border-b-blue-300 border-b-1'} text-sm w-1/4 py-3 `}>{tab.name}</button>)}
                                     </div>
                                 </div>
                                 <div className="px-3 tablet:px-0 mt-3">
