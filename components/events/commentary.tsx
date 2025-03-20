@@ -56,6 +56,8 @@ const Commentary = ({ event, hideTitle, incidents }: { event: EventAPIJson | Mat
                     })
                     setWaitdata('done')
                 }
+                else
+                    setWaitdata('error')
             } catch (error) {
                 setWaitdata('error')
             }

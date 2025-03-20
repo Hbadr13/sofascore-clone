@@ -65,6 +65,8 @@ const MatchStatistics = ({ event, hideTitle }: { event: EventAPIJson | MatchDeta
                     setStatistics(data.statistics)
                     setwaitData('done')
                 }
+                else
+                    setwaitData('error')
             } catch (error) {
                 setwaitData('error')
             }

@@ -87,10 +87,10 @@ const LineupPlayer = ({ incidents, lineups, index, isHome, confirmed, event }: I
     </Link>
     {
       confirmed ?
-        <div className={`absolute bottom-[17px] -left-2 text-white  flex justify-center items-center scale-75`}>
+        <div className={`absolute z-10 bottom-[17px] -left-2 text-white  flex justify-center items-center scale-[62%]`}>
           <DisplayRating rating={player.statistics ? player.statistics.rating : 0} type='in' />
         </div> :
-        <div className={`  text-center rounded-sm absolute bottom-[17px] -left-2 text-white  flex justify-center items-center`}>
+        <div className={`  text-center rounded-sm absolute bottom-[17px] -left-2 text-white  flex justify-center items-center scale-[62%]`}>
           <DisplayRating rating={player.avgRating} type='in' />
         </div>
     }
@@ -101,8 +101,9 @@ const LineupPlayer = ({ incidents, lineups, index, isHome, confirmed, event }: I
         <div className="w-4 h-5 bg-red-500 absolute  bottom-1  left-1  border-l-3 border-b-3 border-[#cbedbf]"></div>
       </div> : true
     }
-    {(player.yellowCard || player.redCard) && <div className={`  text-[12px] font-semibold h-5 w-3 text-center rounded-sm absolute top-[0px]  -right-1  ${player.yellowCard ? 'bg-yellow-500' : "bg-red-500"}`} />}
-    {player.substitute ? <Image width={400} height={400} className="rounded-full w-5 h-5 absolute  top-[2px] -left-2.5 text-white  " src={`/image/repost.png`} alt="" /> : null} {player.goals ? <Image width={400} height={400} className="rounded-full w-4 h-4 absolute bottom-[16px]  -right-1 text-white  " src={`/image/ball.svg`} alt="" /> : null}
+    {(player.yellowCard || player.redCard) && <div className={`  text-[12px] font-semibold h-5 w-3 scale-85  text-center rounded-sm absolute top-[0px]  -right-1  ${player.yellowCard ? 'bg-yellow-500' : "bg-red-500"}`} />}
+    {player.substitute ? <Image width={400} height={400} className="rounded-full w-5 h-5 absolute   -top-[70px] scale-80 -left-1 text-white  " src={`/image/repost.png`} alt="" /> : null}
+    {player.goals ? <Image width={400} height={400} className="rounded-full w-3.5 h-3.5 absolute bottom-[16px]  right-2 text-white  " src={`/image/ball.svg`} alt="" /> : null}
   </div >
 }
 

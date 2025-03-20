@@ -19,7 +19,7 @@ const MatchStatus = ({ event, incidents }: MmatchStatusProps) => {
         <div className='px-1'>
             <div className="flex font-bold  justify-between items-center px-2 w-full min-h-20 ">
                 <div className="flex  items-center justify-center   relative w-1/4 ">
-                    <button className="hover:bg-blue-200/60 rounded-lg absolute -left-1 top-2">
+                    <button className="hover:bg-blue-200/60 rounded-lg absolute -left-3 top-2">
                         <Image className='' width={25} height={25} alt='' src={'/image/notifications-none.svg'} />
                     </button>
                     <Link onClick={(e) => { !event && e.preventDefault() }} href={`/ma/team/${event?.homeTeam.slug}/${event?.homeTeam.id}`} className="flex flex-col justify-center  items-center space-y-2 ">
@@ -64,7 +64,7 @@ const MatchStatus = ({ event, incidents }: MmatchStatusProps) => {
                         </div>
                         <div className=" text-[13px] truncate">{event?.awayTeam.shortName}</div>
                     </Link>
-                    <button className="hover:bg-blue-200/60 rounded-lg absolute top-2 -right-1 ">
+                    <button className="hover:bg-blue-200/60 rounded-lg absolute top-2 -right-3 ">
                         <Image className='' width={25} height={25} alt='' src={'/image/notifications-none.svg'} />
                     </button>
                 </div>

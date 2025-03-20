@@ -99,7 +99,7 @@ function lastIndex(lineupsTeam: teamOfTheWeekAPIJson, columnIndex: number): numb
 
 const LineupPlayer = ({ teamOfTheWeek, index }: { teamOfTheWeek: teamOfTheWeekAPIJson, index: number }) => {
   return <div className=' relative'>
-    <Link href={`/ma/player/${teamOfTheWeek?.players[index]?.player.slug}/${teamOfTheWeek?.players[index]?.player.id}`} className="w-[60px] h-full  rounded-xl flex  flex-col items-center space-y-2">
+    <Link href={`/ma/player/${teamOfTheWeek?.players[index]?.player.slug}/${teamOfTheWeek?.players[index]?.player.id}`} className="w-[60px] h-full  relative z-0 rounded-xl flex  flex-col items-center space-y-2">
       <div className="w-10 h-10 bg-gray-200 rounded-full">
         <DisplayImage onErrorImage='player' width={400} height={400} className=" rounded-full " src={`https://api.sofascore.app/api/v1/player/${teamOfTheWeek?.players[index].player.id}/image`} alt="" />
       </div>
@@ -107,10 +107,10 @@ const LineupPlayer = ({ teamOfTheWeek, index }: { teamOfTheWeek: teamOfTheWeekAP
         {teamOfTheWeek?.players[index]?.player.shortName}
       </div>
     </Link>
-    <div className={` scale-80 absolute bottom-[17px] -left-2  flex justify-center items-center`}>
+    <div className={` scale-[70%] absolute bottom-[17px] -left-2  flex justify-center items-center`}>
       <DisplayRating rating={teamOfTheWeek?.players[index]?.rating} type='in' />
     </div>
-    <div className="  w-6 h-6 rounded-md absolute bottom-[16px]  -right-1.5 text-white  ">
+    <div className=" scale-80 w-6 h-6 rounded-md  z-20 absolute bottom-[16px]  -right-1.5 text-white  ">
       <DisplayImage onErrorImage='team' width={400} height={400} className=" rounded-full " src={`https://api.sofascore.app/api/v1/team/${teamOfTheWeek?.players[index]?.team.id}/image`} alt="" />
 
     </div>

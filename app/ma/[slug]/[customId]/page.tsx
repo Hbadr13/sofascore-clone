@@ -53,8 +53,6 @@ const Page = () => {
     getTheEvents()
   }, [router, eventCustomId, setCurrentMatch])
 
-  // if (waitdata == 'error')
-  //   return <div>not Found</div>
 
   return (
     <>

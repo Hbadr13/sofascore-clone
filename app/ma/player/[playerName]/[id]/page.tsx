@@ -64,7 +64,7 @@ const Page = () => {
   return (
     <>
       <main className=" mb-20 tablet:mb-0  w-full  flex flex-col items-center justify-start bg-[#edf1f6] text-on-surface-nLv1 b-black">
-        <div className=" bg-white target:bg-[#edf1f6] w-full desktop:w-[1344px] tablet:w-[992px] flex space-x-0 tablet:space-x-5 px-3 ">
+        <div className=" bg-white tablet:bg-[#edf1f6] w-full desktop:w-[1344px] tablet:w-[992px] flex space-x-0 tablet:space-x-5 px-3 ">
           <div className=" font-bold text-xs tablet:text-sm  my-2 flex truncate">
             <div className='text-blue-500 flex items-center space-x-0.5'>
               <div className="">Soccer</div>

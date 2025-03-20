@@ -134,8 +134,8 @@ const Page = () => {
             :
 
 
-            <div className="w-full desktop:w-[1344px] tablet:w-[992px] flex items-start space-x-0 tablet:space-x-5 ">
-              <div className=" w-[100%] tablet:w-[645px] desktop:w-[880px]   space-y-5 ">
+            <div className=" w-full tablet:w-[992px] desktop:w-[1344px]  flex items-start  space-x-5 ">
+              <div className=" w-[645px] desktop:w-[880px]   space-y-5 ">
                 <Seasons tournamentId={tournamentId} seasonId={seasonId} />
                 <Standings standings={standings} setStandings={setStandings} featuredEvent={featuredEvent} />
                 <Matches pageName='tournament' featuredEvent={featuredEvent} seasonId={seasonId} />
@@ -143,7 +143,7 @@ const Page = () => {
                 <PlayerStatistics standings={standings} featuredEvent={featuredEvent} tournamentId={tournamentId} seasonId={seasonId} />
               </div>
 
-              <div className=" relative  hidden tablet:block   tablet:w-[323px] desktop:w-[432px]   rounded-2xl  space-y-5">
+              <div className=" mt-1 pr-1 tablet:pr-0 tablet:mt-0 w-[323px] desktop:w-[432px]   rounded-2xl  space-y-5">
                 <TopPlayers featuredEvent={featuredEvent} />
                 <TeamOfTheWeek featuredEvent={featuredEvent} tournamentId={tournamentId} seasonId={seasonId} />
                 <FeaturedMatch featuredEvent={featuredEvent} setFeaturedEvent={setFeaturedEvent} tournamentId={tournamentId} seasonId={seasonId} />

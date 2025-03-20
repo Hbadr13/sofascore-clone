@@ -393,7 +393,7 @@ const Matches = ({ featuredEvent, seasonId, pageName }: StandingsProps) => {
                                         </div>
                                     }
                                     <button
-                                        onClick={() => { windowWidth > 992 ? router.push(`/ma/${item.slug}/${item.id}`) : setCurrentMatch(item) }}
+                                        onClick={() => { windowWidth < 992 ? router.push(`/ma/${item.slug}/${item.customId}#id:${item.id}`) : setCurrentMatch(item) }}
                                         className={` active:opacity-65 w-full flex items-center space-x-3  py-1 hover:bg-custom-default-hover ${currentMatch?.id == item.id ? 'bg-custom-default-hover' : ''}`}>
 
                                         <div className="w-[20%] text-[12px]  flex flex-col justify-center items-center border-r-[1px] border-[#b8b9bda7] opacity-50 ">
