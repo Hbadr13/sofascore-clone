@@ -31,7 +31,7 @@ export const SelectTournamentAndSeasson = ({ type, team, waitdata, setWaitdata, 
 			try {
 				if (team == null)
 					return
-				const response = await fetch(type == 'team' ? `https://sofascore.com/api/v1/team/${team.id}/team-statistics/seasons` : `https://sofascore.com/api/v1/team/${team.id}/player-statistics/seasons`, {})
+				const response = await fetch(type == 'team' ? `https://api.sofascore.com/api/v1/team/${team.id}/team-statistics/seasons` : `https://api.sofascore.com/api/v1/team/${team.id}/player-statistics/seasons`, {})
 				if (response.ok) {
 					const data = await response.json()
 					setSeassonStatistics(data)
